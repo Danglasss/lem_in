@@ -1,0 +1,787 @@
+0
+
+
+Way number 0
+nombre de salle 21
+nombre instruction 48
+fourmies 27
+id 676
+colle 20
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'H_f1' | truth == 0
+path ==  0 | to print : 'Any8' | truth == 0
+path ==  0 | to print : 'B_j5' | truth == 0
+path ==  0 | to print : 'Mwv4' | truth == 0
+path ==  0 | to print : 'Hwr4' | truth == 0
+path ==  0 | to print : 'Nyn5' | truth == 0
+path ==  0 | to print : 'Iiv7' | truth == 0
+path ==  0 | to print : 'J_s2' | truth == 0
+path ==  0 | to print : 'Rwt1' | truth == 0
+path ==  0 | to print : 'Gof8' | truth == 0
+path ==  0 | to print : 'X_g1' | truth == 0
+path ==  0 | to print : 'Rzr9' | truth == 0
+path ==  0 | to print : 'R_x8' | truth == 0
+path ==  0 | to print : 'Y_l3' | truth == 0
+path ==  0 | to print : 'Sif0' | truth == 0
+path ==  0 | to print : 'Jhx3' | truth == 0
+path ==  0 | to print : 'Rsi1' | truth == 0
+path ==  0 | to print : 'Hqi3' | truth == 0
+path ==  0 | to print : 'Bu_7' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 1
+nombre de salle 41
+nombre instruction 47
+fourmies 6
+id 1212
+colle 17
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Ynu5' | truth == 0
+path ==  0 | to print : 'Sj_9' | truth == 0
+path ==  0 | to print : 'Kbn9' | truth == 0
+path ==  0 | to print : 'Anj2' | truth == 0
+path ==  0 | to print : 'Bfz3' | truth == 0
+path ==  0 | to print : 'Cd_3' | truth == 0
+path ==  0 | to print : 'Cmg2' | truth == 0
+path ==  0 | to print : 'Cb_8' | truth == 0
+path ==  0 | to print : 'Wvt3' | truth == 0
+path ==  0 | to print : 'Fk_4' | truth == 0
+path ==  0 | to print : 'Mrx0' | truth == 0
+path ==  0 | to print : 'Mf_7' | truth == 0
+path ==  0 | to print : 'Ymf0' | truth == 0
+path ==  0 | to print : 'Upa3' | truth == 0
+path ==  0 | to print : 'Sjn0' | truth == 0
+path ==  0 | to print : 'Bm_1' | truth == 0
+path ==  0 | to print : 'Jcf7' | truth == 0
+path ==  0 | to print : 'G_q1' | truth == 0
+path ==  0 | to print : 'Oid9' | truth == 0
+path ==  0 | to print : 'Dke9' | truth == 0
+path ==  0 | to print : 'Zpy8' | truth == 0
+path ==  0 | to print : 'Qol1' | truth == 0
+path ==  0 | to print : 'Mrh7' | truth == 0
+path ==  0 | to print : 'Bij9' | truth == 0
+path ==  0 | to print : 'Pqn3' | truth == 0
+path ==  0 | to print : 'Foc8' | truth == 0
+path ==  0 | to print : 'Bmc4' | truth == 0
+path ==  0 | to print : 'Sxf6' | truth == 0
+path ==  0 | to print : 'R_o4' | truth == 0
+path ==  0 | to print : 'R_i3' | truth == 0
+path ==  0 | to print : 'Fbi1' | truth == 0
+path ==  0 | to print : 'Cbn2' | truth == 0
+path ==  0 | to print : 'Fbx1' | truth == 0
+path ==  0 | to print : 'Jxc8' | truth == 0
+path ==  0 | to print : 'Kh_3' | truth == 0
+path ==  0 | to print : 'Bet8' | truth == 0
+path ==  0 | to print : 'Nhn2' | truth == 0
+path ==  0 | to print : 'Gcp3' | truth == 0
+path ==  0 | to print : 'B_o0' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 2
+nombre de salle 40
+nombre instruction 47
+fourmies 7
+id 1271
+colle 23
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'M_r8' | truth == 0
+path ==  0 | to print : 'E_g7' | truth == 0
+path ==  0 | to print : 'Wkk9' | truth == 0
+path ==  0 | to print : 'E_w8' | truth == 0
+path ==  0 | to print : 'Nab0' | truth == 0
+path ==  0 | to print : 'Dfv3' | truth == 0
+path ==  0 | to print : 'Jsg3' | truth == 0
+path ==  0 | to print : 'Kfd3' | truth == 0
+path ==  0 | to print : 'Db_0' | truth == 0
+path ==  0 | to print : 'Nhv5' | truth == 0
+path ==  0 | to print : 'Mff7' | truth == 0
+path ==  0 | to print : 'Dig8' | truth == 0
+path ==  0 | to print : 'Kc_7' | truth == 0
+path ==  0 | to print : 'Bdt0' | truth == 0
+path ==  0 | to print : 'Jmi1' | truth == 0
+path ==  0 | to print : 'Yeo6' | truth == 0
+path ==  0 | to print : 'C_o1' | truth == 0
+path ==  0 | to print : 'Ugs7' | truth == 0
+path ==  0 | to print : 'Djb3' | truth == 0
+path ==  0 | to print : 'N_t2' | truth == 0
+path ==  0 | to print : 'Ruf5' | truth == 0
+path ==  0 | to print : 'R_n9' | truth == 0
+path ==  0 | to print : 'Uac2' | truth == 0
+path ==  0 | to print : 'Cxy1' | truth == 0
+path ==  0 | to print : 'Ssm9' | truth == 0
+path ==  0 | to print : 'Uem4' | truth == 0
+path ==  0 | to print : 'Fhf8' | truth == 0
+path ==  0 | to print : 'Sbi7' | truth == 0
+path ==  0 | to print : 'Zct6' | truth == 0
+path ==  0 | to print : 'Ykv1' | truth == 0
+path ==  0 | to print : 'Xxv0' | truth == 0
+path ==  0 | to print : 'Hb_3' | truth == 0
+path ==  0 | to print : 'Dzd7' | truth == 0
+path ==  0 | to print : 'Agn0' | truth == 0
+path ==  0 | to print : 'Rmu0' | truth == 0
+path ==  0 | to print : 'Cf_5' | truth == 0
+path ==  0 | to print : 'Gls7' | truth == 0
+path ==  0 | to print : 'C_t1' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 3
+nombre de salle 40
+nombre instruction 47
+fourmies 7
+id 1256
+colle 16
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Hny7' | truth == 0
+path ==  0 | to print : 'Roi1' | truth == 0
+path ==  0 | to print : 'Tdn2' | truth == 0
+path ==  0 | to print : 'Duh9' | truth == 0
+path ==  0 | to print : 'Ycu0' | truth == 0
+path ==  0 | to print : 'Ouq7' | truth == 0
+path ==  0 | to print : 'Fgj1' | truth == 0
+path ==  0 | to print : 'Nso4' | truth == 0
+path ==  0 | to print : 'Ux_0' | truth == 0
+path ==  0 | to print : 'Tsq8' | truth == 0
+path ==  0 | to print : 'P_o0' | truth == 0
+path ==  0 | to print : 'Wtk3' | truth == 0
+path ==  0 | to print : 'Eha6' | truth == 0
+path ==  0 | to print : 'Hzk5' | truth == 0
+path ==  0 | to print : 'Cyd9' | truth == 0
+path ==  0 | to print : 'Jq_1' | truth == 0
+path ==  0 | to print : 'Y_m3' | truth == 0
+path ==  0 | to print : 'Xjc2' | truth == 0
+path ==  0 | to print : 'Czh4' | truth == 0
+path ==  0 | to print : 'Rtt1' | truth == 0
+path ==  0 | to print : 'Viq9' | truth == 0
+path ==  0 | to print : 'Ism0' | truth == 0
+path ==  0 | to print : 'Xty8' | truth == 0
+path ==  0 | to print : 'Axi9' | truth == 0
+path ==  0 | to print : 'Gnd8' | truth == 0
+path ==  0 | to print : 'Etg4' | truth == 0
+path ==  0 | to print : 'Qrc3' | truth == 0
+path ==  0 | to print : 'Gcs3' | truth == 0
+path ==  0 | to print : 'Pea0' | truth == 0
+path ==  0 | to print : 'Nbo6' | truth == 0
+path ==  0 | to print : 'Xko6' | truth == 0
+path ==  0 | to print : 'Sll0' | truth == 0
+path ==  0 | to print : 'Ptf3' | truth == 0
+path ==  0 | to print : 'R_c8' | truth == 0
+path ==  0 | to print : 'Rfu4' | truth == 0
+path ==  0 | to print : 'Pue2' | truth == 0
+path ==  0 | to print : 'Zzz6' | truth == 0
+path ==  0 | to print : 'Taf2' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 4
+nombre de salle 40
+nombre instruction 47
+fourmies 7
+id 1275
+colle 8
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'D_o4' | truth == 0
+path ==  0 | to print : 'Ziv6' | truth == 0
+path ==  0 | to print : 'Zyb9' | truth == 0
+path ==  0 | to print : 'Fa_0' | truth == 0
+path ==  0 | to print : 'Vdt8' | truth == 0
+path ==  0 | to print : 'Wqb2' | truth == 0
+path ==  0 | to print : 'Qum3' | truth == 0
+path ==  0 | to print : 'Gry8' | truth == 0
+path ==  0 | to print : 'Hk_8' | truth == 0
+path ==  0 | to print : 'Mgv3' | truth == 0
+path ==  0 | to print : 'Pay1' | truth == 0
+path ==  0 | to print : 'Tlq4' | truth == 0
+path ==  0 | to print : 'Gfb7' | truth == 0
+path ==  0 | to print : 'Qlj1' | truth == 0
+path ==  0 | to print : 'Eh_6' | truth == 0
+path ==  0 | to print : 'Ebp4' | truth == 0
+path ==  0 | to print : 'G_c9' | truth == 0
+path ==  0 | to print : 'Jbj5' | truth == 0
+path ==  0 | to print : 'Bcl1' | truth == 0
+path ==  0 | to print : 'Wam0' | truth == 0
+path ==  0 | to print : 'Ux_8' | truth == 0
+path ==  0 | to print : 'Ykq9' | truth == 0
+path ==  0 | to print : 'Zfj1' | truth == 0
+path ==  0 | to print : 'Ris6' | truth == 0
+path ==  0 | to print : 'Rwd3' | truth == 0
+path ==  0 | to print : 'Nrn7' | truth == 0
+path ==  0 | to print : 'Tuq8' | truth == 0
+path ==  0 | to print : 'Psh0' | truth == 0
+path ==  0 | to print : 'Uai6' | truth == 0
+path ==  0 | to print : 'Vwk0' | truth == 0
+path ==  0 | to print : 'Cts0' | truth == 0
+path ==  0 | to print : 'Rnl1' | truth == 0
+path ==  0 | to print : 'Ebb8' | truth == 0
+path ==  0 | to print : 'Xap9' | truth == 0
+path ==  0 | to print : 'Mja1' | truth == 0
+path ==  0 | to print : 'Gok4' | truth == 0
+path ==  0 | to print : 'Pmg0' | truth == 0
+path ==  0 | to print : 'Efh9' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 5
+nombre de salle 38
+nombre instruction 47
+fourmies 9
+id 1241
+colle 8
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'D_o4' | truth == 0
+path ==  0 | to print : 'Ziv6' | truth == 0
+path ==  0 | to print : 'Zyb9' | truth == 0
+path ==  0 | to print : 'Fa_0' | truth == 0
+path ==  0 | to print : 'Vdt8' | truth == 0
+path ==  0 | to print : 'Wqb2' | truth == 0
+path ==  0 | to print : 'Qum3' | truth == 0
+path ==  0 | to print : 'Gry8' | truth == 0
+path ==  0 | to print : 'Hk_8' | truth == 0
+path ==  0 | to print : 'Mgv3' | truth == 0
+path ==  0 | to print : 'Pay1' | truth == 0
+path ==  0 | to print : 'Tlq4' | truth == 0
+path ==  0 | to print : 'Gfb7' | truth == 0
+path ==  0 | to print : 'Qlj1' | truth == 0
+path ==  0 | to print : 'Eh_6' | truth == 0
+path ==  0 | to print : 'Ebp4' | truth == 0
+path ==  0 | to print : 'G_c9' | truth == 0
+path ==  0 | to print : 'Jbj5' | truth == 0
+path ==  0 | to print : 'Bcl1' | truth == 0
+path ==  0 | to print : 'Wam0' | truth == 0
+path ==  0 | to print : 'Ux_8' | truth == 0
+path ==  0 | to print : 'Ykq9' | truth == 0
+path ==  0 | to print : 'Zfj1' | truth == 0
+path ==  0 | to print : 'Ris6' | truth == 0
+path ==  0 | to print : 'Rwd3' | truth == 0
+path ==  0 | to print : 'Nrn7' | truth == 0
+path ==  0 | to print : 'Tuq8' | truth == 0
+path ==  0 | to print : 'Psh0' | truth == 0
+path ==  0 | to print : 'Uai6' | truth == 0
+path ==  0 | to print : 'Vwk0' | truth == 0
+path ==  0 | to print : 'Cts0' | truth == 0
+path ==  0 | to print : 'Rnl1' | truth == 0
+path ==  0 | to print : 'Ebb8' | truth == 0
+path ==  0 | to print : 'Ejr6' | truth == 0
+path ==  0 | to print : 'Mub8' | truth == 0
+path ==  0 | to print : 'Edb6' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 6
+nombre de salle 38
+nombre instruction 47
+fourmies 9
+id 1138
+colle 7
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Qfr3' | truth == 0
+path ==  0 | to print : 'Aak1' | truth == 0
+path ==  0 | to print : 'W_d4' | truth == 0
+path ==  0 | to print : 'A_k8' | truth == 0
+path ==  0 | to print : 'Rw_9' | truth == 0
+path ==  0 | to print : 'Ydc4' | truth == 0
+path ==  0 | to print : 'Ebo9' | truth == 0
+path ==  0 | to print : 'Pag4' | truth == 0
+path ==  0 | to print : 'Sun5' | truth == 0
+path ==  0 | to print : 'Co_8' | truth == 0
+path ==  0 | to print : 'Rba8' | truth == 0
+path ==  0 | to print : 'Y_o4' | truth == 0
+path ==  0 | to print : 'Xsq8' | truth == 0
+path ==  0 | to print : 'Gc_5' | truth == 0
+path ==  0 | to print : 'Jnv1' | truth == 0
+path ==  0 | to print : 'Wid4' | truth == 0
+path ==  0 | to print : 'Myd4' | truth == 0
+path ==  0 | to print : 'Nfh1' | truth == 0
+path ==  0 | to print : 'Ytg2' | truth == 0
+path ==  0 | to print : 'Jhc6' | truth == 0
+path ==  0 | to print : 'Jkr6' | truth == 0
+path ==  0 | to print : 'Ieh5' | truth == 0
+path ==  0 | to print : 'Utq0' | truth == 0
+path ==  0 | to print : 'Em_1' | truth == 0
+path ==  0 | to print : 'Gjv8' | truth == 0
+path ==  0 | to print : 'Azj1' | truth == 0
+path ==  0 | to print : 'Rgx0' | truth == 0
+path ==  0 | to print : 'Pdi3' | truth == 0
+path ==  0 | to print : 'P_j7' | truth == 0
+path ==  0 | to print : 'Zdx4' | truth == 0
+path ==  0 | to print : 'Jpa3' | truth == 0
+path ==  0 | to print : 'Ezj4' | truth == 0
+path ==  0 | to print : 'Gui7' | truth == 0
+path ==  0 | to print : 'Ewk2' | truth == 0
+path ==  0 | to print : 'Qkf8' | truth == 0
+path ==  0 | to print : 'Za_7' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 7
+nombre de salle 36
+nombre instruction 47
+fourmies 11
+id 1248
+colle 17
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Ynu5' | truth == 0
+path ==  0 | to print : 'Sj_9' | truth == 0
+path ==  0 | to print : 'Kbn9' | truth == 0
+path ==  0 | to print : 'Anj2' | truth == 0
+path ==  0 | to print : 'Bfz3' | truth == 0
+path ==  0 | to print : 'Cd_3' | truth == 0
+path ==  0 | to print : 'Cmg2' | truth == 0
+path ==  0 | to print : 'Cb_8' | truth == 0
+path ==  0 | to print : 'Wvt3' | truth == 0
+path ==  0 | to print : 'Fk_4' | truth == 0
+path ==  0 | to print : 'Mrx0' | truth == 0
+path ==  0 | to print : 'Mf_7' | truth == 0
+path ==  0 | to print : 'Ymf0' | truth == 0
+path ==  0 | to print : 'Upa3' | truth == 0
+path ==  0 | to print : 'Sjn0' | truth == 0
+path ==  0 | to print : 'Bm_1' | truth == 0
+path ==  0 | to print : 'Jcf7' | truth == 0
+path ==  0 | to print : 'G_q1' | truth == 0
+path ==  0 | to print : 'Oid9' | truth == 0
+path ==  0 | to print : 'Dke9' | truth == 0
+path ==  0 | to print : 'Zpy8' | truth == 0
+path ==  0 | to print : 'Qol1' | truth == 0
+path ==  0 | to print : 'Mrh7' | truth == 0
+path ==  0 | to print : 'Bij9' | truth == 0
+path ==  0 | to print : 'Pqn3' | truth == 0
+path ==  0 | to print : 'Foc8' | truth == 0
+path ==  0 | to print : 'Bmc4' | truth == 0
+path ==  0 | to print : 'Sxf6' | truth == 0
+path ==  0 | to print : 'R_o4' | truth == 0
+path ==  0 | to print : 'R_i3' | truth == 0
+path ==  0 | to print : 'Fbi1' | truth == 0
+path ==  0 | to print : 'Cbn2' | truth == 0
+path ==  0 | to print : 'Fbx1' | truth == 0
+path ==  0 | to print : 'Jxc8' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 8
+nombre de salle 36
+nombre instruction 47
+fourmies 11
+id 1226
+colle 15
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Iby2' | truth == 0
+path ==  0 | to print : 'Gqj8' | truth == 0
+path ==  0 | to print : 'Zfq8' | truth == 0
+path ==  0 | to print : 'Kbd1' | truth == 0
+path ==  0 | to print : 'Dgg5' | truth == 0
+path ==  0 | to print : 'Mi_2' | truth == 0
+path ==  0 | to print : 'Hos4' | truth == 0
+path ==  0 | to print : 'Hl_5' | truth == 0
+path ==  0 | to print : 'B_n6' | truth == 0
+path ==  0 | to print : 'Fam0' | truth == 0
+path ==  0 | to print : 'Knk8' | truth == 0
+path ==  0 | to print : 'Ynb9' | truth == 0
+path ==  0 | to print : 'Cng9' | truth == 0
+path ==  0 | to print : 'Byj4' | truth == 0
+path ==  0 | to print : 'Ppm1' | truth == 0
+path ==  0 | to print : 'Zoe7' | truth == 0
+path ==  0 | to print : 'Wsa5' | truth == 0
+path ==  0 | to print : 'Kww8' | truth == 0
+path ==  0 | to print : 'Yyy6' | truth == 0
+path ==  0 | to print : 'Ksj2' | truth == 0
+path ==  0 | to print : 'Hhb2' | truth == 0
+path ==  0 | to print : 'Yao2' | truth == 0
+path ==  0 | to print : 'Isk9' | truth == 0
+path ==  0 | to print : 'Cti8' | truth == 0
+path ==  0 | to print : 'Woc4' | truth == 0
+path ==  0 | to print : 'Vfj6' | truth == 0
+path ==  0 | to print : 'Oo_1' | truth == 0
+path ==  0 | to print : 'Mda1' | truth == 0
+path ==  0 | to print : 'Mhw1' | truth == 0
+path ==  0 | to print : 'Ope1' | truth == 0
+path ==  0 | to print : 'Npl5' | truth == 0
+path ==  0 | to print : 'Mnt6' | truth == 0
+path ==  0 | to print : 'D_q0' | truth == 0
+path ==  0 | to print : 'D_a9' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 9
+nombre de salle 35
+nombre instruction 47
+fourmies 12
+id 1167
+colle 5
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Tcr6' | truth == 0
+path ==  0 | to print : 'Cur4' | truth == 0
+path ==  0 | to print : 'Ixi5' | truth == 0
+path ==  0 | to print : 'Juf4' | truth == 0
+path ==  0 | to print : 'J__6' | truth == 0
+path ==  0 | to print : 'Tep2' | truth == 0
+path ==  0 | to print : 'Tif9' | truth == 0
+path ==  0 | to print : 'D__5' | truth == 0
+path ==  0 | to print : 'Xge8' | truth == 0
+path ==  0 | to print : 'Nxf5' | truth == 0
+path ==  0 | to print : 'Dwo6' | truth == 0
+path ==  0 | to print : 'Ups0' | truth == 0
+path ==  0 | to print : 'Qfs9' | truth == 0
+path ==  0 | to print : 'Eve9' | truth == 0
+path ==  0 | to print : 'Ss_6' | truth == 0
+path ==  0 | to print : 'Urv6' | truth == 0
+path ==  0 | to print : 'Aec4' | truth == 0
+path ==  0 | to print : 'Vjm5' | truth == 0
+path ==  0 | to print : 'Vvb9' | truth == 0
+path ==  0 | to print : 'Tsm7' | truth == 0
+path ==  0 | to print : 'Gjj9' | truth == 0
+path ==  0 | to print : 'Mf_2' | truth == 0
+path ==  0 | to print : 'Hpa6' | truth == 0
+path ==  0 | to print : 'Tbf8' | truth == 0
+path ==  0 | to print : 'Jaz1' | truth == 0
+path ==  0 | to print : 'Aku6' | truth == 0
+path ==  0 | to print : 'T_u7' | truth == 0
+path ==  0 | to print : 'Xpy0' | truth == 0
+path ==  0 | to print : 'Hac0' | truth == 0
+path ==  0 | to print : 'Tmw2' | truth == 0
+path ==  0 | to print : 'Ewo1' | truth == 0
+path ==  0 | to print : 'Efd1' | truth == 0
+path ==  0 | to print : 'Rhd3' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 10
+nombre de salle 34
+nombre instruction 47
+fourmies 13
+id 1194
+colle 28
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Sgy9' | truth == 0
+path ==  0 | to print : 'Gkk1' | truth == 0
+path ==  0 | to print : 'Jfs2' | truth == 0
+path ==  0 | to print : 'Ta_6' | truth == 0
+path ==  0 | to print : 'Ata7' | truth == 0
+path ==  0 | to print : 'Dxr6' | truth == 0
+path ==  0 | to print : 'Ebh8' | truth == 0
+path ==  0 | to print : 'Fuy6' | truth == 0
+path ==  0 | to print : 'Zs_9' | truth == 0
+path ==  0 | to print : 'Jed0' | truth == 0
+path ==  0 | to print : 'Tro8' | truth == 0
+path ==  0 | to print : 'Ggf8' | truth == 0
+path ==  0 | to print : 'Erm2' | truth == 0
+path ==  0 | to print : 'Gzz7' | truth == 0
+path ==  0 | to print : 'Pcj1' | truth == 0
+path ==  0 | to print : 'Gsx7' | truth == 0
+path ==  0 | to print : 'Sah9' | truth == 0
+path ==  0 | to print : 'Grf4' | truth == 0
+path ==  0 | to print : 'Rrr8' | truth == 0
+path ==  0 | to print : 'Dpp5' | truth == 0
+path ==  0 | to print : 'Byk5' | truth == 0
+path ==  0 | to print : 'Coa8' | truth == 0
+path ==  0 | to print : 'Xqo1' | truth == 0
+path ==  0 | to print : 'At_6' | truth == 0
+path ==  0 | to print : 'Dff1' | truth == 0
+path ==  0 | to print : 'Epk7' | truth == 0
+path ==  0 | to print : 'Uyu5' | truth == 0
+path ==  0 | to print : 'Shm6' | truth == 0
+path ==  0 | to print : 'Ybo7' | truth == 0
+path ==  0 | to print : 'N_b3' | truth == 0
+path ==  0 | to print : 'Djz5' | truth == 0
+path ==  0 | to print : 'Uf_3' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 11
+nombre de salle 34
+nombre instruction 47
+fourmies 13
+id 1199
+colle 7
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Qfr3' | truth == 0
+path ==  0 | to print : 'Aak1' | truth == 0
+path ==  0 | to print : 'W_d4' | truth == 0
+path ==  0 | to print : 'A_k8' | truth == 0
+path ==  0 | to print : 'Rw_9' | truth == 0
+path ==  0 | to print : 'Ydc4' | truth == 0
+path ==  0 | to print : 'Ebo9' | truth == 0
+path ==  0 | to print : 'Pag4' | truth == 0
+path ==  0 | to print : 'Sun5' | truth == 0
+path ==  0 | to print : 'Co_8' | truth == 0
+path ==  0 | to print : 'Rba8' | truth == 0
+path ==  0 | to print : 'Y_o4' | truth == 0
+path ==  0 | to print : 'Xsq8' | truth == 0
+path ==  0 | to print : 'Gc_5' | truth == 0
+path ==  0 | to print : 'Jnv1' | truth == 0
+path ==  0 | to print : 'Wid4' | truth == 0
+path ==  0 | to print : 'Myd4' | truth == 0
+path ==  0 | to print : 'Nfh1' | truth == 0
+path ==  0 | to print : 'Ytg2' | truth == 0
+path ==  0 | to print : 'Jhc6' | truth == 0
+path ==  0 | to print : 'Jkr6' | truth == 0
+path ==  0 | to print : 'Ieh5' | truth == 0
+path ==  0 | to print : 'Utq0' | truth == 0
+path ==  0 | to print : 'Em_1' | truth == 0
+path ==  0 | to print : 'Gjv8' | truth == 0
+path ==  0 | to print : 'Azj1' | truth == 0
+path ==  0 | to print : 'Rgx0' | truth == 0
+path ==  0 | to print : 'Pdi3' | truth == 0
+path ==  0 | to print : 'P_j7' | truth == 0
+path ==  0 | to print : 'Zdx4' | truth == 0
+path ==  0 | to print : 'Jpa3' | truth == 0
+path ==  0 | to print : 'Ezj4' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 12
+nombre de salle 33
+nombre instruction 47
+fourmies 14
+id 1165
+colle 3
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Mw_8' | truth == 0
+path ==  0 | to print : 'Okw6' | truth == 0
+path ==  0 | to print : 'Nsn8' | truth == 0
+path ==  0 | to print : 'Bgo9' | truth == 0
+path ==  0 | to print : 'Fqd1' | truth == 0
+path ==  0 | to print : 'A_p0' | truth == 0
+path ==  0 | to print : 'Oyb2' | truth == 0
+path ==  0 | to print : 'D_j1' | truth == 0
+path ==  0 | to print : 'C_u7' | truth == 0
+path ==  0 | to print : 'Ail9' | truth == 0
+path ==  0 | to print : 'Zfr3' | truth == 0
+path ==  0 | to print : 'Xfq2' | truth == 0
+path ==  0 | to print : 'Hum3' | truth == 0
+path ==  0 | to print : 'Rvk9' | truth == 0
+path ==  0 | to print : 'Ph_9' | truth == 0
+path ==  0 | to print : 'Qvr2' | truth == 0
+path ==  0 | to print : 'Qvw6' | truth == 0
+path ==  0 | to print : 'Rxm5' | truth == 0
+path ==  0 | to print : 'Trh0' | truth == 0
+path ==  0 | to print : 'Wul7' | truth == 0
+path ==  0 | to print : 'Uxg0' | truth == 0
+path ==  0 | to print : 'Nkl1' | truth == 0
+path ==  0 | to print : 'Gub6' | truth == 0
+path ==  0 | to print : 'Bpd4' | truth == 0
+path ==  0 | to print : 'Znt4' | truth == 0
+path ==  0 | to print : 'Jkq6' | truth == 0
+path ==  0 | to print : 'Ate8' | truth == 0
+path ==  0 | to print : 'U_x7' | truth == 0
+path ==  0 | to print : 'Wol2' | truth == 0
+path ==  0 | to print : 'Knp8' | truth == 0
+path ==  0 | to print : 'Uje7' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 13
+nombre de salle 32
+nombre instruction 47
+fourmies 15
+id 1126
+colle 17
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Ynu5' | truth == 0
+path ==  0 | to print : 'Sj_9' | truth == 0
+path ==  0 | to print : 'Kbn9' | truth == 0
+path ==  0 | to print : 'Anj2' | truth == 0
+path ==  0 | to print : 'Bfz3' | truth == 0
+path ==  0 | to print : 'Cd_3' | truth == 0
+path ==  0 | to print : 'Cmg2' | truth == 0
+path ==  0 | to print : 'Cb_8' | truth == 0
+path ==  0 | to print : 'Wvt3' | truth == 0
+path ==  0 | to print : 'Fk_4' | truth == 0
+path ==  0 | to print : 'Mrx0' | truth == 0
+path ==  0 | to print : 'Mf_7' | truth == 0
+path ==  0 | to print : 'Ymf0' | truth == 0
+path ==  0 | to print : 'Upa3' | truth == 0
+path ==  0 | to print : 'Sjn0' | truth == 0
+path ==  0 | to print : 'Bm_1' | truth == 0
+path ==  0 | to print : 'Jcf7' | truth == 0
+path ==  0 | to print : 'G_q1' | truth == 0
+path ==  0 | to print : 'Oid9' | truth == 0
+path ==  0 | to print : 'Dke9' | truth == 0
+path ==  0 | to print : 'Zpy8' | truth == 0
+path ==  0 | to print : 'Qol1' | truth == 0
+path ==  0 | to print : 'Mrh7' | truth == 0
+path ==  0 | to print : 'Bij9' | truth == 0
+path ==  0 | to print : 'Pqn3' | truth == 0
+path ==  0 | to print : 'Foc8' | truth == 0
+path ==  0 | to print : 'Bmc4' | truth == 0
+path ==  0 | to print : 'Sxf6' | truth == 0
+path ==  0 | to print : 'R_o4' | truth == 0
+path ==  0 | to print : 'W_f7' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 14
+nombre de salle 31
+nombre instruction 47
+fourmies 16
+id 1132
+colle 25
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'W_d3' | truth == 0
+path ==  0 | to print : 'S_g9' | truth == 0
+path ==  0 | to print : 'Bnp2' | truth == 0
+path ==  0 | to print : 'Htd5' | truth == 0
+path ==  0 | to print : 'O_w5' | truth == 0
+path ==  0 | to print : 'R_p6' | truth == 0
+path ==  0 | to print : 'Bih5' | truth == 0
+path ==  0 | to print : 'Zup0' | truth == 0
+path ==  0 | to print : 'Med6' | truth == 0
+path ==  0 | to print : 'Qhu4' | truth == 0
+path ==  0 | to print : 'Dbj5' | truth == 0
+path ==  0 | to print : 'Ekl4' | truth == 0
+path ==  0 | to print : 'Nee5' | truth == 0
+path ==  0 | to print : 'Zan7' | truth == 0
+path ==  0 | to print : 'Zlp3' | truth == 0
+path ==  0 | to print : 'Kmq7' | truth == 0
+path ==  0 | to print : 'Imp6' | truth == 0
+path ==  0 | to print : 'Kgt6' | truth == 0
+path ==  0 | to print : 'Uwo7' | truth == 0
+path ==  0 | to print : 'Itj5' | truth == 0
+path ==  0 | to print : 'Ohd5' | truth == 0
+path ==  0 | to print : 'Zbc5' | truth == 0
+path ==  0 | to print : 'M_u3' | truth == 0
+path ==  0 | to print : 'Hac3' | truth == 0
+path ==  0 | to print : 'Bex8' | truth == 0
+path ==  0 | to print : 'Zgk9' | truth == 0
+path ==  0 | to print : 'Oy_9' | truth == 0
+path ==  0 | to print : 'Qad5' | truth == 0
+path ==  0 | to print : 'Mex2' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 15
+nombre de salle 29
+nombre instruction 47
+fourmies 18
+id 1043
+colle 3
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Mw_8' | truth == 0
+path ==  0 | to print : 'Okw6' | truth == 0
+path ==  0 | to print : 'Nsn8' | truth == 0
+path ==  0 | to print : 'Bgo9' | truth == 0
+path ==  0 | to print : 'Fqd1' | truth == 0
+path ==  0 | to print : 'A_p0' | truth == 0
+path ==  0 | to print : 'Oyb2' | truth == 0
+path ==  0 | to print : 'D_j1' | truth == 0
+path ==  0 | to print : 'C_u7' | truth == 0
+path ==  0 | to print : 'Ail9' | truth == 0
+path ==  0 | to print : 'Zfr3' | truth == 0
+path ==  0 | to print : 'Xfq2' | truth == 0
+path ==  0 | to print : 'Hum3' | truth == 0
+path ==  0 | to print : 'Rvk9' | truth == 0
+path ==  0 | to print : 'Ph_9' | truth == 0
+path ==  0 | to print : 'Qvr2' | truth == 0
+path ==  0 | to print : 'Qvw6' | truth == 0
+path ==  0 | to print : 'Rxm5' | truth == 0
+path ==  0 | to print : 'Trh0' | truth == 0
+path ==  0 | to print : 'Wul7' | truth == 0
+path ==  0 | to print : 'Uxg0' | truth == 0
+path ==  0 | to print : 'Nkl1' | truth == 0
+path ==  0 | to print : 'Gub6' | truth == 0
+path ==  0 | to print : 'Bpd4' | truth == 0
+path ==  0 | to print : 'Znt4' | truth == 0
+path ==  0 | to print : 'Jkq6' | truth == 0
+path ==  0 | to print : 'Ate8' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 16
+nombre de salle 25
+nombre instruction 47
+fourmies 22
+id 936
+colle 11
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Daz4' | truth == 0
+path ==  0 | to print : 'Hpb1' | truth == 0
+path ==  0 | to print : 'Uux4' | truth == 0
+path ==  0 | to print : 'Cjf7' | truth == 0
+path ==  0 | to print : 'Ifs1' | truth == 0
+path ==  0 | to print : 'Ewk0' | truth == 0
+path ==  0 | to print : 'K_b5' | truth == 0
+path ==  0 | to print : 'Sd_3' | truth == 0
+path ==  0 | to print : 'Zjt1' | truth == 0
+path ==  0 | to print : 'I__2' | truth == 0
+path ==  0 | to print : 'Our1' | truth == 0
+path ==  0 | to print : 'Van8' | truth == 0
+path ==  0 | to print : 'R_a9' | truth == 0
+path ==  0 | to print : 'Mb_6' | truth == 0
+path ==  0 | to print : 'Eam7' | truth == 0
+path ==  0 | to print : 'T_h7' | truth == 0
+path ==  0 | to print : 'Rzs2' | truth == 0
+path ==  0 | to print : 'Or_5' | truth == 0
+path ==  0 | to print : 'Zhx0' | truth == 0
+path ==  0 | to print : 'Mbe3' | truth == 0
+path ==  0 | to print : 'Tea2' | truth == 0
+path ==  0 | to print : 'Fbf5' | truth == 0
+path ==  0 | to print : 'Kjc6' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 17
+nombre de salle 25
+nombre instruction 47
+fourmies 22
+id 932
+colle 8
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'D_o4' | truth == 0
+path ==  0 | to print : 'Ziv6' | truth == 0
+path ==  0 | to print : 'Zyb9' | truth == 0
+path ==  0 | to print : 'Fa_0' | truth == 0
+path ==  0 | to print : 'Vdt8' | truth == 0
+path ==  0 | to print : 'Wqb2' | truth == 0
+path ==  0 | to print : 'Qum3' | truth == 0
+path ==  0 | to print : 'Gry8' | truth == 0
+path ==  0 | to print : 'Hk_8' | truth == 0
+path ==  0 | to print : 'Mgv3' | truth == 0
+path ==  0 | to print : 'Pay1' | truth == 0
+path ==  0 | to print : 'Tlq4' | truth == 0
+path ==  0 | to print : 'Gfb7' | truth == 0
+path ==  0 | to print : 'Qlj1' | truth == 0
+path ==  0 | to print : 'Eh_6' | truth == 0
+path ==  0 | to print : 'Ebp4' | truth == 0
+path ==  0 | to print : 'G_c9' | truth == 0
+path ==  0 | to print : 'Jbj5' | truth == 0
+path ==  0 | to print : 'Bcl1' | truth == 0
+path ==  0 | to print : 'Wam0' | truth == 0
+path ==  0 | to print : 'Vx_6' | truth == 0
+path ==  0 | to print : 'Bma3' | truth == 0
+path ==  0 | to print : 'Tmd4' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+Way number 18
+nombre de salle 22
+nombre instruction 47
+fourmies 25
+id 833
+colle 21
+path ==  0 | to print : 'Dia3' | truth == 0
+path ==  0 | to print : 'Pbt2' | truth == 0
+path ==  0 | to print : 'Xcm7' | truth == 0
+path ==  0 | to print : 'Cbw6' | truth == 0
+path ==  0 | to print : 'Oph9' | truth == 0
+path ==  0 | to print : 'Ms_5' | truth == 0
+path ==  0 | to print : 'Tr_8' | truth == 0
+path ==  0 | to print : 'Rlc2' | truth == 0
+path ==  0 | to print : 'Rvw5' | truth == 0
+path ==  0 | to print : 'Die1' | truth == 0
+path ==  0 | to print : 'Dsc2' | truth == 0
+path ==  0 | to print : 'Ztd1' | truth == 0
+path ==  0 | to print : 'Grp8' | truth == 0
+path ==  0 | to print : 'Wxi9' | truth == 0
+path ==  0 | to print : 'Cvf1' | truth == 0
+path ==  0 | to print : 'Ju_7' | truth == 0
+path ==  0 | to print : 'Egv1' | truth == 0
+path ==  0 | to print : 'Obm4' | truth == 0
+path ==  0 | to print : 'Dfy4' | truth == 0
+path ==  0 | to print : 'Ugw9' | truth == 0
+path ==  0 | to print : 'Mow4' | truth == 0
+path ==  0 | to print : 'Qzg4' | truth == 0
+
+
+
+

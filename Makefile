@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: damboule <damboule@student.42.fr>          +#+  +:+       +#+         #
+#    By: danglass <danglass@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:29:33 by nabboufe          #+#    #+#              #
-#    Updated: 2019/09/18 17:27:46 by damboule         ###   ########.fr        #
+#    Updated: 2019/12/26 19:19:58 by danglass         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ INCLUDES	=		-Iinclude
 
 SRCS		=		srcs/main.c					\
 					srcs/chained_list.c			\
+					srcs/bfs.c					\
 					srcs/create_room.c			\
 					srcs/list_pos.c				\
 					srcs/add_list.c				\
@@ -27,18 +28,16 @@ SRCS		=		srcs/main.c					\
 					srcs/initialisation.c		\
 					srcs/t_hash.c				\
 					srcs/repartition.c			\
-					srcs/bfs.c					\
 					srcs/free.c					\
 					srcs/print.c				\
 					srcs/leaks.c				\
 					srcs/edmonds.c				\
-					srcs/affichage.c			
 
 OBJ			=		$(SRCS:.c=.o)
 
 CC			=		gcc
 
-CFLAGS		=		-Wall -Wextra -Werror -g3
+CFLAGS		=		
 
 DECHET		=		*.dSYM
 

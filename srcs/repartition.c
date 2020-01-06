@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   repartition.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 10:16:23 by damboule          #+#    #+#             */
-/*   Updated: 2019/10/18 16:54:17 by damboule         ###   ########.fr       */
+/*   Updated: 2019/12/25 12:22:16 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,6 @@ void		ft_begin(t_stack *find, t_pos *pos, t_salle *room)
 	pos->ways = pos->ways->begin;
 	find->index_end = t_hash(find->n_end, room);
 	find->lenght = 1;
-}
-
-void	ft_set_reset(t_salle *room, t_stack *find, t_pos *pos, t_pos *path)
-{
-	int				count;
-	
-	ft_begin(find, pos, room);
-	ft_bfs(room, find, pos, path);
-	count = 0;
-	pos = pos->begin;
-	while (pos)
-    {
-		pos->colle = count;
-		if (pos->next == NULL)
-			break ;
-		count++;
-		pos = pos->next;
-	}
 }
 
 int		occur(int colle, t_pos *path, t_pos *pos)

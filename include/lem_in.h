@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by nabboufe          #+#    #+#             */
-/*   Updated: 2019/10/18 17:18:01 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/03 16:32:36 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,11 @@
 
 typedef struct       s_out
 {
-    unsigned long    touch;
-    int              truth; 
+    unsigned long    salle_prev;
+    unsigned long    index;
+    int              truth;
+    int              del;
+    int              open; 
     void             *out;
     struct s_out     *begin;
     struct s_out     *prev;
@@ -50,7 +53,6 @@ typedef struct       s_pos
     int              instruction;
     int              finish;
     t_out            *ways;
-    t_out            *colision;
     struct s_pos     *begin;
     struct s_pos     *next;
     struct s_pos     *prev;
@@ -62,10 +64,10 @@ typedef struct       s_pos
 
 typedef struct       s_salle
 {
-    int             path;
     int             n_lem;
+    int             free;
+    unsigned long   salle_prev[2];
     char            *salle;
-    t_out           *collision;
     t_out           *liens;
 }                   t_salle;
 
@@ -101,7 +103,6 @@ void	            ft_copy(t_pos *pos, t_stack *find, t_pos *path);
 int		            occur(int colle, t_pos *path, t_pos *pos);
 int			        ft_add_way(t_pos **pos, int colle);
 void	            ft_set_reset(t_salle *room, t_stack *find, t_pos *pos, t_pos *path);
-void		        ft_bfs(t_salle *room, t_stack *find, t_pos *pos, t_pos *path);
 void		        ft_reset_repertition(t_pos *pos);
 void		        ft_initia(t_pos *path, t_salle *room);
 void		        ft_room_colision(t_pos *path, t_salle *room);
@@ -114,7 +115,7 @@ int                 f_equal(t_pos *path, int fourmie);
 int		            f_repartition(t_pos *path);
 void	            print_list(t_out *p_list, t_salle *rooms);
 void                init_leak(t_out **reads, t_out **index, t_pos **path, t_pos **pos);
-void                stack_room_init(t_stack **info, t_salle **rooms);
+void	            stack_room_init(t_stack **info, t_salle **rooms);
 void                ft_initialisation(t_salle *rooms, t_stack *info);
 void                nout_next(t_out **list, unsigned int count);
 void                npos_next(t_pos **list, unsigned int count);
@@ -153,14 +154,24 @@ void                check_insert(t_out **reads, t_out **index, t_salle **rooms,
 void                leaks_out(t_out *leaks);
 void                leaks_pos(t_pos *leaks);
 void                leaks_salle(t_salle *s, int a, t_out *i);
-void		        cpy_length(t_out **dst, t_out *src, unsigned long max);
+void		        cpy_length(t_out **dst, t_out *src);
 void		        ft_index(t_pos *pos, long long *prev_index, long long *t_index, int *count);
 void		        ft_main_bfs(t_salle *room, t_stack *find, t_pos *pos, t_pos *path);
 void                leaks_struct(t_struct *way, int max);
 void                leaks_info(t_stack *info);
 void		        ft_take_path(t_pos *path);
 void		        ft_begin(t_stack *find, t_pos *pos, t_salle *room);
-
-
+int		            Bhandari(t_salle *room, t_stack *find, t_out *index);
+int		            algo(t_salle *room, t_stack *find, t_out *index);
+int		            bfs(t_salle *room, t_stack *find, t_out *position, t_out **stack);
+int		            ft_open(t_salle *room, t_out *liens, t_stack *find, unsigned long index);
+int		            suplink(t_out *link, t_stack *find);
+void	            blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, t_out **stack);
+void	            next(t_out **liens, t_out **stack);
+void	            print(t_out *stack, t_salle *room);
+void	            findpath(t_salle *room, t_stack *find, unsigned long end);
+void	            clear(t_salle *room, t_stack *find, t_out *index);
+void	            print_lien(t_out *stack, t_salle *room);
+void	            print_salle(t_out *stack, t_salle *room);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2019/10/17 15:06:16 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/03 16:31:05 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,10 @@ void	out_init(t_out **list, int i)
 	if (i == 0)
 		(*list)->begin = (*list);
 	(*list)->truth = 1;
-	(*list)->touch = 0;
+	(*list)->del = 0;
+	(*list)->salle_prev = 0;
+	(*list)->index = 0;
+	(*list)->open = 0;
 	(*list)->out = NULL;
 	(*list)->next = NULL;
 	(*list)->prev = NULL;
@@ -48,7 +51,7 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 		return ;
 	if (!((*rooms) = (t_salle *)malloc(sizeof(t_salle) * t_size)))
 		return ;
-	ft_memset(*rooms, 0, (sizeof(t_salle) * t_size));
+	ft_memset(*rooms, 0, (sizeof(t_salle) * t_size));	
 	(*info)->index_end = 0;
 	(*info)->index_start = 0;
 	(*info)->lenght = 0;

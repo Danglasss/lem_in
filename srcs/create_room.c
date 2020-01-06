@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_room.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 16:50:14 by damboule          #+#    #+#             */
-/*   Updated: 2019/10/09 05:22:54 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/03 16:32:24 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,12 @@ int				create_room(t_salle *room, char *hash, t_out **n_index)
 		return (-1);
 	}
 	out_init(&room[index].liens, 0);
-	out_init(&room[index].collision, 0);
 	room[index].salle = ft_strdup(hash, 0);
 	(*n_index)->out = (void *)index;
 	out_add_tolist(n_index, NULL, 1);
-	room[index].path = 0;
+	room->free = 0;
+	room->salle_prev[0] = 0;
+	room->salle_prev[1] = 0;
 	return (1);
 }
 

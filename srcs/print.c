@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/23 11:04:46 by nabboufe          #+#    #+#             */
-/*   Updated: 2019/10/17 17:48:22 by damboule         ###   ########.fr       */
+/*   Updated: 2019/12/27 22:12:08 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	print_list(t_out *p_list, t_salle *rooms)
 		rooms[(int)p_list->out].liens = rooms[(int)p_list->out].liens->begin;
 		while (rooms[(int)p_list->out].liens != NULL)
 		{
-			ft_printf("|Link (%d): '%s'| ", n_link,
+			ft_printf("|Link (%d): '%s'| ",
+				rooms[(int)p_list->out].liens->open,
 				rooms[(unsigned long)rooms[(int)p_list->out].liens->out].salle);
 			if (rooms[(int)p_list->out].liens->next != NULL)
 				rooms[(int)p_list->out].liens =
@@ -46,7 +47,7 @@ void	ft_print_out(t_out *store, t_salle *room)
 {
 	while (store != NULL)
 	{
-		ft_printf("path ==  %d | ", room[(unsigned long)store->out].path);
+		ft_printf("free ==  %d | ", room[(unsigned long)store->out].free);
 		ft_printf("to print : '%s' | truth == %d\n",
 		room[(unsigned long)store->out].salle, store->truth);
 		store = store->next;
@@ -115,3 +116,47 @@ void	ft_print_till(t_out *out, unsigned long lenght, t_salle *room)
 	}
 	ft_printf("\n\nEnd of ft_print_till\n\n");
 }
+
+/*
+** A enlever :
+**
+*/
+
+void	print(t_out *stack, t_salle *room)
+{
+	while (stack)
+	{
+		ft_printf("%s\n", room[stack->index].salle);
+		stack = stack->next;
+	}
+	ft_printf("\n");
+}
+
+void	print_lien(t_out *stack, t_salle *room)
+{
+	ft_printf("\nVoici les liens\n");
+	while (stack)
+	{
+		ft_printf("%s | state : %d\n", room[(unsigned long)stack->out].salle, stack->open);
+		if (stack->next == NULL)
+			break ;
+		stack = stack->next;
+	}
+	stack = stack->begin;
+	ft_printf("\n");
+}
+
+void	print_salle(t_out *stack, t_salle *room)
+{
+	ft_printf("\nVoici les salles\n");
+	while (stack)
+	{
+		ft_printf("%s\n", room[stack->index].salle);
+		if (stack->next == NULL)
+			break ;
+		stack = stack->next;
+	}
+	stack = stack->begin;
+	ft_printf("\n");
+}
+

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_insert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by nabboufe          #+#    #+#             */
-/*   Updated: 2019/09/18 17:19:58 by damboule         ###   ########.fr       */
+/*   Updated: 2019/12/25 19:06:38 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 
 	l_line = NULL;
 	get_next_line(0, &l_line);
-	//ft_printf("current line is == '%s'\n", l_line);
 	out_add_tolist(reads, l_line, 1);
 	if (check_rformat(l_line) == -1 && free_reset(l_line))
 		return (0);
@@ -33,7 +32,10 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 		info->index_start = t_hash(splited[0], *rooms);
 	}
 	if (info->ways == 1)
+	{
 		info->n_end = ft_strdup(splited[0], 0);
+		info->index_end = t_hash(splited[0], *rooms);	
+	}
 	free_reset(l_line);
 	free_all(splited, 0);
 	return (1);
@@ -96,7 +98,6 @@ void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 	while (free_reset(line) && get_next_line(0, &line))
 	{
 		out_add_tolist(reads, line, 0);
-		//ft_printf("current line is == '%s'\n", line);
 		if (line[0] == '#')
 		{
 			if ((!check_hash(info, index, rooms, reads)

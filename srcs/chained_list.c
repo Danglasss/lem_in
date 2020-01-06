@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chained_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by nabboufe          #+#    #+#             */
-/*   Updated: 2019/10/18 17:16:56 by damboule         ###   ########.fr       */
+/*   Updated: 2019/12/25 17:26:58 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,22 +63,18 @@ int		len_out(t_out *list, int origin)
 	return (i);
 }
 
-void	cpy_length(t_out **dst, t_out *src, unsigned long max)
+void	cpy_length(t_out **dst, t_out *src)
 {
-	(void)max;
-	while (src != NULL && src->out != NULL)
+	(*dst) = (*dst)->begin;
+	src = src->begin;
+	while (src && (*dst))
 	{
-		if ((*dst)->out == NULL)
-		{
-			(*dst)->out = (void *)src->out;
-			(*dst)->truth = max + 1;
-		}
-		else
-		{
+		(*dst)->index = src->index;
+		src->index = 0;
+		if ((*dst)->next == NULL)
 			out_add_tolist(dst, NULL, 1);
-			(*dst)->out = (void *)src->out;
-			(*dst)->truth = max + 1;
-		}
+		else
+			(*dst) = (*dst)->next;
 		src = src->next;
 	}
 }

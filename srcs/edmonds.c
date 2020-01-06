@@ -3,173 +3,208 @@
 /*                                                        :::      ::::::::   */
 /*   edmonds.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2019/10/18 17:29:44 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/03 16:38:51 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-int			ft_add_way(t_pos **pos, int colle)
+void	positif_link(t_salle *room, unsigned long index, t_stack *find)
 {
-	pos_add_tolist(pos, NULL, 1);
-	(*pos)->id = len_pos(*pos, 1);
-	(*pos)->colle = colle;
-	return (1);
+	if (index == find->index_start)
+		return ;
+	room[index].liens = room[index].liens->begin;		
+	while ((unsigned long)room[index].liens->out != room[index].salle_prev[0])
+		room[index].liens = room[index].liens->next;
+	if ((unsigned long)room[index].liens->out != find->index_end && (unsigned long)room[index].liens->out != find->index_start)
+		room[index].liens->open = 1;
 }
 
-void		ft_index(t_pos *pos, long long *prev_index, long long *t_index,
-			int *count)
+void	negatif_link(t_salle *room, unsigned long index,  unsigned long tmp, t_stack *find)
 {
-	if (pos->ways->prev != NULL)
-		*prev_index = (unsigned long)pos->ways->prev->out;
-	else
-		*prev_index = -1;
-	if (pos->ways->out != NULL)
-		*t_index = (unsigned long)pos->ways->out;
-	else
-		*t_index = (unsigned long)pos->ways->prev->out;
-	*count = 0;
+	room[index].liens = room[index].liens->begin;		
+	while ((unsigned long)room[index].liens->out != tmp)
+		room[index].liens = room[index].liens->next;
+	//if ((unsigned long)room[index].liens->out != find->index_end/* && (unsigned long)room[index].liens->out != find->index_start*/)
+		room[index].liens->open = -1;
+	//if (find->index_start == index)
+	//	ft_printf("\nTOUCH\n");
 }
 
-void		ft_bfs(t_salle *room, t_stack *find, t_pos *pos, t_pos *path)
+void	lucky_link(t_salle *room, unsigned long index,  unsigned long tmp, t_stack *find)
 {
-	unsigned long		n_path;
-	int					tmp;
-
-	n_path = len_pos(pos, 1);
-	tmp = len_pos(pos, 1);
-	pos->id = 1;
-	while (n_path-- && path->ways != NULL && pos != NULL)
+	room[index].liens = room[index].liens->begin;		
+	while ((unsigned long)room[index].liens->out != tmp)
 	{
-		ft_main_bfs(room, find, pos, path);
-		find->lenght += 1;
-		pos = pos->next;
-		if (pos != NULL && tmp < len_pos(pos, 1))
-		{
-			while (tmp < len_pos(pos, 1))
-			{
-				tmp = tmp + 1;
-				if (pos->next != NULL)
-					pos = pos->next;
-			}
-		}
-	}
-}
-
-void		ft_pathfirst(t_salle *room, t_stack *find, t_pos *pos, t_pos *path)
-{
-	while (find->result == 0)
-	{
-		ft_bfs(room, find, pos, path);
-		pos = pos->begin;
-	}
-}
-
-void		ft_clear(t_salle *room, int valide, t_pos *pos)
-{
-	pos = pos->begin;
-	while (pos != NULL)
-	{
-		pos->ways = pos->ways->begin;
-		while (pos->ways != NULL)
-		{
-			if (valide == 0 || valide == 2)
-				room[(unsigned long)pos->ways->out].path = 0;
-			if (valide == 1)
-				room[(unsigned long)pos->ways->out].path = 1;
-			if (pos->ways->next == NULL)
-				break ;
-			pos->ways = pos->ways->next;
-		}
-		if (pos->next == NULL)
-			break ;
-		pos = pos->next;
-	}
-	if (valide == 0)
-		leaks_pos(pos);
-}
-
-void		ft_clear_data(t_pos *pos)
-{
-	pos = pos->begin;
-	while (pos != NULL)
-	{
-		pos->instruction = 0;
-		pos->fourmies = 0;
-		if (pos->next == NULL)
-			break ;
-		pos = pos->next;
-	}
-}
-
-void		ft_reset(t_stack *find, t_pos **pos, unsigned int *max)
-{
-	*max = 0;
-	find->result = 0;
-	find->espoir = 1;
-	pos_init(pos, 0);
-}
-
-int			ft_saturation(t_salle *room, t_stack *find, int a)
-{
-	unsigned int index;
-
-	if (a == 0)
-		return (1);
-	index = find->index_start;
-	room[index].liens = room[index].liens->begin;
-	while (room[index].liens != NULL)
-	{
-		if (room[(unsigned int)room[index].liens->out].path == 0 &&
-		room[(unsigned int)room[index].liens->out].salle != NULL)
-			return (1);
 		if (room[index].liens->next == NULL)
 			break ;
 		room[index].liens = room[index].liens->next;
 	}
-	return (0);
+	room[index].liens->open = 3;
+	room[index].liens = room[index].liens->begin;
 }
 
-int			ft_edmonds(t_salle *room, t_stack *find, t_pos *pos, t_pos *path)
+void	neutral_link(t_salle *room, unsigned long index,  unsigned long tmp, t_stack *find)
 {
-	int						a;
-	unsigned int			t_instruct;
-	unsigned int			max_instruct;
-
-	a = 0;
-	find->espoir = 1; 
-	find->lenght = 0;
-	ft_set_reset(room, find, pos, path);
-	ft_pathfirst(room, find, pos, path);
-	find->result = 0;
-	max_instruct = 0;
-	while (ft_saturation(room, find, a))
+	if (len_out(room[index].liens, 1) < 3)
+		return ;
+	room[index].liens = room[index].liens->begin;		
+	while (room[index].liens != NULL)
 	{
-		a = 1;
-		t_instruct = f_equal(path, find->fourmies - f_repartition(path));
-		/*ft_clear(room, 0, pos);
-		ft_clear(room, 1, path);
-		ft_reset(find, &pos, &max_instruct);
-		ft_set_reset(room, find, pos, path);*/
-		while (max_instruct < t_instruct)
-		{
-			ft_bfs(room, find, pos, path);
-			if (find->result == 1)
-			{
-				//ft_clear_data(path);
-				t_instruct = f_equal(path, find->fourmies - f_repartition(path));
-				find->result = 0;
-			}
-			max_instruct++;
-			pos = pos->begin;
-		}
+		if ((unsigned long)room[index].liens->out != tmp &&
+		(unsigned long)room[index].liens->out != room[index].salle_prev[0]
+		&& (unsigned long)room[index].liens->out != 0)
+			lucky_link(room, (unsigned long)room[index].liens->out, index, find);
+		if (room[index].liens->next == NULL)
+			break ;
+		room[index].liens = room[index].liens->next;
 	}
-	ft_clear(room, 2, path);
-	ft_clear_data(path);
-	//print_allpos(path->begin, room);
-	//exit(1);
+	room[index].liens = room[index].liens->begin;
+}
+
+void	path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_prev)
+{
+	unsigned long index;
+	unsigned long tmp;
+	
+	index = end;
+	while (index != find->index_start)
+	{
+		ft_printf("salle : %s\n", room[index].salle);
+		if (index != find->index_end)
+		{
+			negatif_link(room, index, tmp, find);
+			positif_link(room, index, find);
+			neutral_link(room, index, tmp, find);
+		}
+		tmp = index;
+		if (index == find->index_end)
+		{
+			index = salle_prev;
+			continue ;
+		}
+		index = room[index].salle_prev[0];
+	}
+	ft_printf("%s ", room[index].salle);
+	negatif_link(room, index, tmp, find);
+	positif_link(room, index, find);
+}
+
+void	findpath(t_salle *room, t_stack *find, unsigned long end)
+{
+	int len;
+	int index;
+
+	len = 0;
+	index = 0;
+	path(room, find, find->index_end, room[end].salle_prev[0]);
+	while (room[end].liens->salle_prev != 0)
+	{
+		path(room, find, find->index_end, room[end].liens->salle_prev);
+		if (room[end].liens->next == NULL)
+			break ;
+		room[end].liens = room[end].liens->next;
+	}
+	room[end].liens = room[end].liens->begin;
+}
+
+void	clear(t_salle *room, t_stack *find, t_out *index)
+{
+	int len;
+
+	index = index->begin;
+	len = len_out(index, 1) - 1;
+	while (len)
+	{ 
+		room[(unsigned long)index->out].free = 0;
+		len = len - 1;
+		index = index->next;
+	}
+}
+
+void	ft_clean(t_salle *room, t_out *index)
+{
+	int len_room;
+	int len_lien;
+
+	index = index->begin;
+	len_room = len_out(index, 1) - 1;
+	while (len_room)
+	{
+		len_lien = len_out(room[(unsigned long)index->out].liens, 1) - 1;
+		ft_printf("\nsalle : %s\n", room[(unsigned long)index->out].salle);
+		room[(unsigned long)index->out].liens = room[(unsigned long)index->out].liens->begin;		
+		while (len_lien)
+		{
+			ft_printf("salle : %s || ", room[(unsigned long)room[(unsigned long)index->out].liens->out].salle);
+			ft_printf("liens : %d\n", room[(unsigned long)index->out].liens->open);
+			room[(unsigned long)index->out].liens->open = 0;
+			if (room[(unsigned long)index->out].liens->next == NULL)
+				len_lien = 0;
+			else
+				room[(unsigned long)index->out].liens = room[(unsigned long)index->out].liens->next;
+		}
+		room[(unsigned long)index->out].liens = room[(unsigned long)index->out].liens->begin;
+		index = index->next;
+		len_room--;
+	}
+	index = index->begin;
+}
+
+void	ft_reset(t_salle *room, t_out *index)
+{
+	int len_room;
+	int len_lien;
+
+	index = index->begin;
+	len_room = len_out(index, 1) - 1;
+	while (len_room)
+	{
+		len_lien = len_out(room[(unsigned long)index->out].liens, 1) - 1;
+		room[(unsigned long)index->out].liens = room[(unsigned long)index->out].liens->begin;		
+		while (len_lien)
+		{
+			if (room[(unsigned long)index->out].liens->next == NULL)
+				len_lien = 0;
+			else
+				room[(unsigned long)index->out].liens = room[(unsigned long)index->out].liens->next;
+		}
+		room[(unsigned long)index->out].liens = room[(unsigned long)index->out].liens->begin;
+		index = index->next;
+		len_room--;
+	}
+	index = index->begin;
+}
+
+int		Bhandari(t_salle *room, t_stack *find, t_out *index)
+{
+	int		bhandari_state;
+	int len = 0;
+
+	bhandari_state = 0;
+	while (bhandari_state < 1)
+	{
+		bhandari_state = algo(room, find, index);
+		ft_printf("\n-----------------------------------\n");
+		ft_reset(room, index);	
+		if (bhandari_state == -1)
+		{
+			ft_clean(room, index);
+			room[find->index_end].salle_prev[0] = 0;
+			while (room[find->index_end].liens->salle_prev != 0)
+			{
+				room[find->index_end].liens->salle_prev = 0;
+				if (room[find->index_end].liens->next == NULL)
+					break ;
+				room[find->index_end].liens = room[find->index_end].liens->next;
+			}
+			room[find->index_end].liens->salle_prev = 0;
+			room[find->index_end].liens = room[find->index_end].liens->begin;
+		}
+		len++;
+	}
 	return (1);
 }

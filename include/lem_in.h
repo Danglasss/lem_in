@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/03 16:32:36 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/06 14:51:36 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ int                 fourmies;
 int                 nb;
 }                   t_struct;
 
+void	            affichage(t_salle *room, t_stack *find);
 void	            ft_copy(t_pos *pos, t_stack *find, t_pos *path);
 int		            occur(int colle, t_pos *path, t_pos *pos);
 int			        ft_add_way(t_pos **pos, int colle);

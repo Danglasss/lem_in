@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: danglass <danglass@student.42.fr>          +#+  +:+       +#+         #
+#    By: damboule <damboule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:29:33 by nabboufe          #+#    #+#              #
-#    Updated: 2019/12/26 19:19:58 by danglass         ###   ########.fr        #
+#    Updated: 2020/01/06 14:49:59 by damboule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS		=		srcs/main.c					\
 					srcs/free.c					\
 					srcs/print.c				\
 					srcs/leaks.c				\
+					srcs/affichage.c			\
 					srcs/edmonds.c				\
 
 OBJ			=		$(SRCS:.c=.o)

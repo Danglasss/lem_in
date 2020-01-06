@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   affichage.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/01/03 17:09:37 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/06 15:17:27 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 void	turnpath(t_salle *room, t_stack *find)
 {
-	unsigned long index;
+	unsigned long salle;
+	unsigned long stack;
 	unsigned long tmp;
 
-	index = find->index_end;
-	while (index != find->index_start)
-	{
-		tmp = index;
-		index = room[index].salle_prev[0];
+	stack = room[find->index_end].salle_prev[0];
+	salle = find->index_end;
+	while (salle != find->index_start)
+	{	
+		tmp = room[stack].salle_prev[0];
+		room[stack].salle_prev[0] = salle;
+		salle = stack;
+		stack = tmp;
 	}
 }
 

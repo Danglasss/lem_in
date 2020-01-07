@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/06 14:59:42 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/07 19:52:55 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	out_init(t_out **list, int i)
 		return ;
 	if (i == 0)
 		(*list)->begin = (*list);
+	(*list)->nb_salle = 0;
+	(*list)->ant_numb = 0;
 	(*list)->truth = 1;
 	(*list)->del = 0;
 	(*list)->salle_prev = 0;

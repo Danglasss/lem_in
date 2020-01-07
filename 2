@@ -1,0 +1,107 @@
+
+salle : start
+salle : 1 || liens : -1
+salle : 2 || liens : -1
+salle : 3 || liens : -1
+salle : (null) || liens : 0
+
+salle : end
+salle : 9 || liens : 0
+salle : 8 || liens : 0
+salle : 11 || liens : 0
+salle : (null) || liens : 0
+
+salle : 1
+salle : start || liens : 0
+salle : 7 || liens : -1
+salle : 2 || liens : 3
+salle : (null) || liens : 0
+
+salle : 2
+salle : start || liens : 0
+salle : 1 || liens : 3
+salle : 4 || liens : 3
+salle : 8 || liens : 3
+salle : (null) || liens : 0
+
+salle : 3
+salle : start || liens : 0
+salle : 4 || liens : -1
+salle : 5 || liens : 0
+salle : (null) || liens : 0
+
+salle : 4
+salle : 2 || liens : 3
+salle : 3 || liens : 1
+salle : 6 || liens : 0
+salle : 9 || liens : -1
+salle : (null) || liens : 0
+
+salle : 5
+salle : 3 || liens : 3
+salle : 6 || liens : 0
+salle : (null) || liens : 0
+
+salle : 6
+salle : 4 || liens : 3
+salle : 5 || liens : 0
+salle : 10 || liens : 0
+salle : (null) || liens : 0
+
+salle : 7
+salle : 1 || liens : 1
+salle : 8 || liens : -1
+salle : (null) || liens : 0
+
+salle : 8
+salle : 2 || liens : 1
+salle : 7 || liens : 1
+salle : 9 || liens : 3
+salle : end || liens : -1
+salle : (null) || liens : 0
+
+salle : 9
+salle : 4 || liens : 1
+salle : 8 || liens : 3
+salle : 10 || liens : 0
+salle : end || liens : -1
+salle : (null) || liens : 0
+
+salle : 10
+salle : 6 || liens : 0
+salle : 11 || liens : 0
+salle : 9 || liens : 3
+salle : (null) || liens : 0
+
+salle : 11
+salle : 10 || liens : 0
+salle : end || liens : 0
+salle : (null) || liens : 0
+salle == end || stack == 8
+salle == 8 || stack == 7
+salle == 7 || stack == 1
+salle == 1 || stack == start
+salle == end || stack == 9
+salle == 9 || stack == 4
+salle == 4 || stack == 2
+salle == 2 || stack == start
+salle == end || stack == 11
+salle == 11 || stack == 10
+salle == 10 || stack == 6
+salle == 6 || stack == 5
+salle == 5 || stack == 3
+salle == 3 || stack == start
+ L1-1  L2-2  L3-3 
+ L1-7 L4-2  L4-4 L5-3  L5-5
+ L1-7 L1-8 L6-2  L6-4 L4-9 L7-3  L7-5 L5-6
+ L1-7 L1-8 L1-end L8-2  L8-4 L6-9 L4-end L9-3  L9-5 L7-6 L5-10
+ L1-7 L1-8 L1-end L10-2  L10-4 L8-9 L6-end L11-3  L11-5 L9-6 L7-10 L5-11
+ L1-7 L1-8 L1-end L12-2  L12-4 L10-9 L8-end L13-3  L13-5 L11-6 L9-10 L7-11 L5-end
+ L1-7 L1-8 L1-end L14-2  L14-4 L12-9 L10-end L15-3  L15-5 L13-6 L11-10 L9-11 L7-end
+ L1-7 L1-8 L1-end L16-2  L16-4 L14-9 L12-end L17-3  L17-5 L15-6 L13-10 L11-11 L9-end
+ L1-7 L1-8 L1-end L18-2  L18-4 L16-9 L14-end L19-3  L19-5 L17-6 L15-10 L13-11 L11-end
+ L1-7 L1-8 L1-end L20-2  L20-4 L18-9 L16-end L21-3  L21-5 L19-6 L17-10 L15-11 L13-end
+ L1-7 L1-8 L1-end L22-2  L22-4 L20-9 L18-end L23-3  L23-5 L21-6 L19-10 L17-11 L15-end
+ L1-7 L1-8 L1-end L24-2  L24-4 L22-9 L20-end L25-3  L25-5 L23-6 L21-10 L19-11 L17-end
+ L1-7 L1-8 L1-end L26-2  L26-4 L24-9 L22-end L27-3  L27-5 L25-6 L23-10 L21-11 L19-end
+ L1-7 L1-8 L1-end L28-2  L28-4 L26-9 L24-end L29-3  L29-5 L27-6 L25-10 L23-11 L21-end

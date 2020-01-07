@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bfs.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:36:38 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/06 14:54:17 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/07 21:19:46 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,7 +165,7 @@ int		bfs(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 
 	liens = room[position->index].liens;
 	bhandari_state = 0;
-	print_lien(liens, room);
+	//print_lien(liens, room);
 	while (liens)
 	{
 		if (ft_open(room, liens, find, position->index))
@@ -229,7 +229,7 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 		while (position)
 		{
 			//if (room[position->index].salle != NULL)
-			ft_printf("\n\nSALLE : %s\n", room[position->index].salle);
+			//ft_printf("\n\nSALLE : %s\n", room[position->index].salle);
 			if (position->index != 0)
 				bhandari_state += bfs(room, find, position, &stack);
 			//print(stack->begin, room);			
@@ -237,7 +237,7 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 				break ;
 			position = position->next;
 		}
-		ft_printf("\n___________\n");
+		//ft_printf("\n___________\n");
 		cpy_length(&position, stack);
 		position = position->begin;
 		stack = stack->begin;

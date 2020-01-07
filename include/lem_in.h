@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/07 12:00:52 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/07 19:52:37 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 
 typedef struct       s_out
 {
+    int              nb_salle;
+    int              ant_numb;
     unsigned long    salle_prev;
     unsigned long    index;
     int              truth;
@@ -64,6 +66,8 @@ typedef struct       s_pos
 
 typedef struct       s_salle
 {
+    int             nb_salle;
+    int             ant_numb;
     int             n_lem;
     int             free;
     unsigned long   salle_prev[2];

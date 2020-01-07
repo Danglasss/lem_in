@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/01/07 12:22:46 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/07 14:30:42 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ void	affichage(t_salle *room, t_stack *find)
 	mainturn(room, find);
 	while (room[find->index_end].n_lem == total_fourmies)
 	{
-		bfs_print(room, find, room[index_start].salle_prev[0])
+		bfs_print(room, find, room[find->index_start].salle_prev[0]);
 		while (room[find->index_end].liens->salle_prev != 0)
 		{
-			bfs_print(room, find, room[index_start].liens->salle_prev[0])
+			bfs_print(room, find, room[find->index_start].liens->salle_prev);
 			room[find->index_end].liens = room[find->index_end].liens->next;
 		}
 		room[find->index_end].liens = room[find->index_end].liens->begin;	

@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/07 21:17:46 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/08 10:26:55 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,12 +135,11 @@ void	ft_clean(t_salle *room, t_out *index)
 	while (len_room)
 	{
 		len_lien = len_out(room[(unsigned long)index->out].liens, 1) - 1;
-		ft_printf("\nsalle : %s\n", room[(unsigned long)index->out].salle);
 		room[(unsigned long)index->out].liens = room[(unsigned long)index->out].liens->begin;		
 		while (len_lien)
 		{
-			ft_printf("salle : %s || ", room[(unsigned long)room[(unsigned long)index->out].liens->out].salle);
-			ft_printf("liens : %d\n", room[(unsigned long)index->out].liens->open);
+			//ft_printf("salle : %s || ", room[(unsigned long)room[(unsigned long)index->out].liens->out].salle);
+			//ft_printf("liens : %d\n", room[(unsigned long)index->out].liens->open);
 			room[(unsigned long)index->out].liens->open = 0;
 			if (room[(unsigned long)index->out].liens->next == NULL)
 				len_lien = 0;
@@ -188,7 +187,6 @@ int		Bhandari(t_salle *room, t_stack *find, t_out *index)
 	while (bhandari_state < 1)
 	{
 		bhandari_state = algo(room, find, index);
-		//ft_printf("\n-----------------------------------\n");
 		ft_reset(room, index);	
 		if (bhandari_state == -1)
 		{

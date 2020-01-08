@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/01/07 23:26:51 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/08 10:25:35 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	turnpath(t_salle *room, t_stack *find, unsigned long stack, int begin)
 	index = 0;
 	while (salle != find->index_start)
 	{
-		ft_printf("salle == %s || stack == %s\n", room[salle].salle, room[stack].salle);
 		tmp = room[stack].salle_prev[0];
 		if (room[stack].salle_prev[0] != 0 && stack == find->index_start
 		&& room[stack].salle_prev[0] != find->index_start)
@@ -94,86 +93,89 @@ void	repartition(t_salle *room, t_stack *find, unsigned long v_goals, int ants)
 	}
 }
 
-unsigned long	put_ant(t_salle *room, t_stack *find, int pose, unsigned long salle)
+unsigned long	put_ant(t_salle *room, t_stack *find, unsigned long salle, int *ants)
 {
 	unsigned long num;
-
-	if (pose == 0)
-		return (room[salle].n_lem);
-	if (room[salle].n_lem == 0 && room[room[salle].salle_prev[0]].n_lem == 0)
-		pose = 0;
-	room[salle].n_lem = find->fourmies;
-	num = room[salle].n_lem;
-	find->fourmies += 1;
-	ft_printf(" L%d-%s ", room[salle].n_lem, room[salle].salle);
-	if (pose == 0)
-		return (0);
+	
+	num = 0;
+	if (*ants > 0 && room[salle].n_lem == 0)
+	{
+		num = room[salle].n_lem;
+		room[salle].n_lem = find->fourmies;
+		ft_printf("L%d-%s", room[salle].n_lem, room[salle].salle);
+		*ants -= 1;
+		find->fourmies += 1;
+		return (num);
+	}
+	else if (*ants > 0 && room[salle].n_lem > 0)
+	{
+		num = room[salle].n_lem;
+		room[salle].n_lem = find->fourmies;
+		ft_printf("L%d-%s", room[salle].n_lem, room[salle].salle);
+		*ants -= 1;
+		find->fourmies += 1;
+		return (num);
+	}
+	else if (*ants == 0 && room[salle].n_lem > 0)
+	{
+		num = room[salle].n_lem;
+		room[salle].n_lem = 0;
+		return (num);
+	}
+	else if (*ants == 0 && room[salle].n_lem == 0)
+	{
+		num = 0;
+		room[salle].n_lem = 0;
+		return (num);
+	}
 	return (num);
 }
 
-void	print_graph(t_salle *room, t_stack *find, unsigned long salle, int pose)
+void	print_graph(t_salle *room, t_stack *find, unsigned long salle, unsigned long num)
 {
-	unsigned long num;
-	unsigned long tmp;
+	unsigned long stack;
 
-	if ((num = put_ant(room, find, pose, salle)) == 0)
-		return ;
-	salle = room[salle].salle_prev[0];
 	while (salle != find->index_end)
 	{
-		if (room[salle].n_lem != 0 || num != 0)
-		{
-			tmp = room[salle].n_lem;
-			room[salle].n_lem = num;
-			if (room[salle].n_lem != 0)
-				ft_printf(" L%d-%s", room[salle].n_lem, room[salle].salle);
-			num = tmp;
-		}
+		stack = room[salle].n_lem;
+		room[salle].n_lem = num;
+		if (room[salle].n_lem != 0)
+			ft_printf("L%d-%s", room[salle].n_lem, room[salle].salle);
+		num = stack;	
 		salle = room[salle].salle_prev[0];
 	}
 	if (num != 0)
 	{
+		ft_printf("L%d-%s", num, room[salle].salle);
 		room[find->index_end].n_lem += 1;
-		ft_printf(" L%d-%s", num, room[salle].salle);
 	}
+
 }
 
 void	affichage(t_salle *room, t_stack *find)
 {
-	int max_fourmies;
-	int ants;
-	int pose;
+	unsigned long		num;
+	unsigned long		total_ants;
 
-	ants = 1;
-	pose = 0;
-	max_fourmies = find->fourmies;
-	find->fourmies = 1;
 	mainturn(room, find);
 	repartition(room, find, room[find->index_start].liens->nb_salle, find->fourmies);
-	while (room[find->index_end].n_lem < max_fourmies)
+	total_ants = find->fourmies;
+	find->fourmies = 1;
+	while (total_ants != room[find->index_end].n_lem)
 	{
-		pose = 0;
-		if (room[find->index_start].ant_numb > 0)
-		{
-			room[find->index_start].ant_numb--;
-			pose = 1;
-		}
-		print_graph(room, find, room[find->index_start].salle_prev[0], pose);
+		num = put_ant(room, find, room[find->index_start].salle_prev[0], &room[find->index_start].ant_numb);
+		print_graph(room, find, room[room[find->index_start].salle_prev[0]].salle_prev[0], num);
+		room[find->index_start].liens = room[find->index_start].liens->begin;		
 		while (room[find->index_start].liens)
 		{
-			pose = 0;
-			if (room[find->index_start].liens->ant_numb > 0)
-			{
-				room[find->index_start].liens->ant_numb--;
-				pose = 1;
-			}
+			num = put_ant(room, find, room[find->index_start].liens->salle_prev, &room[find->index_start].liens->ant_numb);
 			if (room[find->index_start].liens->salle_prev != 0)
-				print_graph(room, find, room[find->index_start].liens->salle_prev, find->index_start);
+				print_graph(room, find, room[room[find->index_start].liens->salle_prev].salle_prev[0], num);
 			if (room[find->index_start].liens->next == NULL)
 				break ;
 			room[find->index_start].liens = room[find->index_start].liens->next;
 		}
-		ft_printf("\n");
 		room[find->index_start].liens = room[find->index_start].liens->begin;
+		ft_printf("\n");
 	}
 }

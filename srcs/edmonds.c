@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/10 08:47:13 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/10 10:57:49 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void	path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_p
 {
 	unsigned long index;
 	unsigned long tmp;
+	unsigned long sale;
 	
 	index = end;
 	while (index != find->index_start)
@@ -100,15 +101,18 @@ void	findpath(t_salle *room, t_stack *find, unsigned long end)
 
 	len = 0;
 	index = 0;
+	//ft_printf("\n\n");
 	path(room, find, find->index_end, room[end].salle_prev[0]);
 	while (room[end].liens->salle_prev != 0)
 	{
 		path(room, find, find->index_end, room[end].liens->salle_prev);
+		//ft_printf("\n\n");
 		if (room[end].liens->next == NULL)
 			break ;
 		room[end].liens = room[end].liens->next;
 	}
 	room[end].liens = room[end].liens->begin;
+	//ft_printf("\n\n");
 }
 
 void	clear(t_salle *room, t_stack *find, t_out *index)
@@ -187,7 +191,10 @@ int		Bhandari(t_salle *room, t_stack *find, t_out *index)
 	bhandari_state = 0;
 	while (bhandari_state < 1)
 	{
+		find->finish = 0;
 		bhandari_state = algo(room, find, index);
+		if (find->finish == 0)
+			break ;
 		ft_reset(room, index);	
 		if (bhandari_state == -1)
 		{

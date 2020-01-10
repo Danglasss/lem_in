@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/07 19:52:37 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/10 10:49:22 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ typedef struct       s_salle
 
 typedef struct      s_stack
 {
+    int             finish;
     int             lenght;
     int             operation;
     int             result;
@@ -171,7 +172,7 @@ int		            algo(t_salle *room, t_stack *find, t_out *index);
 int		            bfs(t_salle *room, t_stack *find, t_out *position, t_out **stack);
 int		            ft_open(t_salle *room, t_out *liens, t_stack *find, unsigned long index);
 int		            suplink(t_out *link, t_stack *find);
-void	            blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, t_out **stack);
+void 	            blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, t_out **stack);
 void	            next(t_out **liens, t_out **stack);
 void	            print(t_out *stack, t_salle *room);
 void	            findpath(t_salle *room, t_stack *find, unsigned long end);

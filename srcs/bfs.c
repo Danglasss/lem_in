@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:36:38 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/10 08:49:36 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/10 11:21:52 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int		toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index)
 	link = link->begin;
 	while (link)
 	{
-		if ((unsigned long)link->out == room[index].salle_prev[0] || (unsigned long)link->out == 0)
+		if ((unsigned long)link->out == room[index].salle_prev[1] || (unsigned long)link->out == 0)
 		{
 			if (link->next == NULL)
 				break ;
@@ -139,23 +139,42 @@ int		verify_colision(t_salle *room, unsigned long salle, t_stack *find, t_out **
 			room[end].liens = room[end].liens->next;
 		}
 		room[end].liens = room[end].liens->begin;
-		index = room[index].salle_prev[0];
+		index = room[index].salle_prev[1];
 	}
 	return (1);
+}
+
+void	transfert_true(t_salle *room, t_stack *find, unsigned long salle)
+{
+	while (find->index_start != salle)
+	{
+		room[salle].salle_prev[0] = room[salle].salle_prev[1];
+		room[salle].salle_prev[1] = 0;
+		salle = room[salle].salle_prev[0];
+	}
 }
 
 void	blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, t_out **stack)
 {
 	room[(*stack)->index].free = 1;
 	if (find->index_end != (*stack)->index || room[(*stack)->index].salle_prev[0] == 0)
-		room[(*stack)->index].salle_prev[0] = salle_prev;
+	{
+		room[(*stack)->index].salle_prev[1] = salle_prev;
+		if (find->index_end == (*stack)->index)
+		{
+			transfert_true(room, find, salle_prev);
+			room[find->index_end].salle_prev[0] = room[find->index_end].salle_prev[1];
+			find->finish = 1;
+		}
+	}
 	else if (find->index_end == (*stack)->index && verify_colision(room, salle_prev, find, stack))
 	{
 		while (room[(*stack)->index].liens->salle_prev != 0)
 			room[(*stack)->index].liens = room[(*stack)->index].liens->next;
 		room[(*stack)->index].liens->salle_prev = salle_prev;
 		room[(*stack)->index].liens = room[(*stack)->index].liens->begin;
-		//transfert_true(room, find);
+		transfert_true(room, find, salle_prev);
+		find->finish = 1;
 	}
 }
 
@@ -163,6 +182,7 @@ int		bfs(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 {
 	int		bhandari_state;
 	t_out	*liens;
+	int		finish;
 
 	liens = room[position->index].liens;
 	bhandari_state = 0;
@@ -239,6 +259,7 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 			position = position->next;
 		}
 		//ft_printf("\n___________\n");
+		//ft_printf("\n1\n");
 		cpy_length(&position, stack);
 		position = position->begin;
 		stack = stack->begin;

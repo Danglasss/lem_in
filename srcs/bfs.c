@@ -235,6 +235,7 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 	t_out	*position;
 	t_out	*stack;
 	int		bhandari_state;
+	int 	len;
 
 	out_init(&position, 0);
 	out_init(&stack, 0);
@@ -247,15 +248,23 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 	while (room[find->index_end].free == 0)
 	{
 		//ft_printf("\nCommence \n");
+		len = len_out(position, 1) - 1;
 		while (position)
 		{
 			//if (room[position->index].salle != NULL)
 			//ft_printf("\n\nSALLE : %s\n", room[position->index].salle);
+			if (position->index == 0)
+				len--;
 			if (position->index != 0)
 				bhandari_state += bfs(room, find, position, &stack);
 			//print(stack->begin, room);			
 			if (position->next == NULL)
 				break ;
+			if (len == 0)
+			{
+				find->finish = 0;
+				room[find->index_end].free = 1;
+			}
 			position = position->next;
 		}
 		//ft_printf("\n___________\n");
@@ -264,7 +273,8 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 		position = position->begin;
 		stack = stack->begin;
 	}
-	findpath(room, find, find->index_end);
+	if (find->finish != 0)
+		findpath(room, find, find->index_end);
 	clear(room, find, index);
 	if (bhandari_state != -1)
 		bhandari_state += finish(room, find, index);

@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:36:38 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/07 21:19:46 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/10 08:49:36 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,7 @@ void	blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, t_out **
 			room[(*stack)->index].liens = room[(*stack)->index].liens->next;
 		room[(*stack)->index].liens->salle_prev = salle_prev;
 		room[(*stack)->index].liens = room[(*stack)->index].liens->begin;
+		//transfert_true(room, find);
 	}
 }
 

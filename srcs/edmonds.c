@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/08 10:26:55 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/10 08:47:13 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,7 @@ void	ft_reset(t_salle *room, t_out *index)
 		room[(unsigned long)index->out].liens = room[(unsigned long)index->out].liens->begin;		
 		while (len_lien)
 		{
+			room[(unsigned long)index->out].salle_prev[1] = 0;
 			if (room[(unsigned long)index->out].liens->next == NULL)
 				len_lien = 0;
 			else

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:10:28 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/06 15:13:15 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/10 20:31:22 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		ft_main_algo(t_out *reads, t_out *index, t_pos *path, t_pos *pos)
 	if (ft_error(rooms, info))
 		return (write(2, "ERROR\n", 6));
 	way_back(index, rooms);
-	Bhandari(rooms, info, index);
+	bhandari(rooms, info, index);
 	affichage(rooms, info);
 	path = path->begin;
 	//t_end(info, rooms, path->begin);

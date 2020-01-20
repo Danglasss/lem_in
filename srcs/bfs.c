@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:36:38 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/10 20:30:36 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/01/11 11:00:33 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,16 +252,17 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 		while (position)
 		{
 			//if (room[position->index].salle != NULL)
-			//ft_printf("\n\nSALLE : %s\n", room[position->index].salle);
+		//	ft_printf("\n\nSALLE : %s\n", room[position->index].salle);
 			if (position->index == 0)
 				len--;
 			if (position->index != 0)
 				bhandari_state += bfs(room, find, position, &stack);
-			//print(stack->begin, room);			
+		//	print(stack->begin, room);			
 			if (position->next == NULL)
 				break ;
 			if (len == 0)
 			{
+		//		ft_printf("\n_____Cool______\n");
 				find->finish = 0;
 				room[find->index_end].free = 1;
 			}
@@ -273,8 +274,10 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 		position = position->begin;
 		stack = stack->begin;
 	}
+	ft_printf("\n_____Finish______\n");
 	if (find->finish != 0)
 		findpath(room, find, find->index_end);
+	ft_printf("\n_____Finish__2____\n");
 	clear(room, find, index);
 	if (bhandari_state != -1)
 		bhandari_state += finish(room, find, index);

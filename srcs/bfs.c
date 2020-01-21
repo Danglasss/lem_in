@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bfs.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:36:38 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/11 11:00:33 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/21 17:37:01 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -274,10 +274,10 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 		position = position->begin;
 		stack = stack->begin;
 	}
-	ft_printf("\n_____Finish______\n");
+	//ft_printf("\n_____Finish______\n");
 	if (find->finish != 0)
 		findpath(room, find, find->index_end);
-	ft_printf("\n_____Finish__2____\n");
+	//ft_printf("\n_____Finish__2____\n");
 	clear(room, find, index);
 	if (bhandari_state != -1)
 		bhandari_state += finish(room, find, index);

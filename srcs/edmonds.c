@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/21 17:37:50 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/22 15:10:19 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_p
 	index = end;
 	while (index != find->index_start)
 	{
+		//ft_printf("%s\n", room[index].salle);		
 		if (index != find->index_end)
 		{
 			negatif_link(room, index, tmp, find);
@@ -184,11 +185,13 @@ int		bhandari(t_salle *room, t_stack *find, t_out *index)
 	{
 		find->finish = 0;
 		bhandari_state = algo(room, find, index);
+		//printpath(room, find);
 		if (find->finish == 0)
 			break ;
 		ft_reset(room, index);		
 		if (bhandari_state == -1)
 		{
+			//ft_printf("checks\n");
 			ft_clean(room, index);
 			room[find->index_end].salle_prev[0] = 0;
 			while (room[find->index_end].liens->salle_prev != 0)

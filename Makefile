@@ -6,7 +6,7 @@
 #    By: damboule <damboule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:29:33 by nabboufe          #+#    #+#              #
-#    Updated: 2020/01/06 14:49:59 by damboule         ###   ########.fr        #
+#    Updated: 2020/01/22 13:05:37 by damboule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ SRCS		=		srcs/main.c					\
 					srcs/leaks.c				\
 					srcs/affichage.c			\
 					srcs/edmonds.c				\
+					srcs/printpath.c			\
 
 OBJ			=		$(SRCS:.c=.o)
 

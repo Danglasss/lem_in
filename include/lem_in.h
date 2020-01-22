@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/10 20:30:32 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/01/22 13:07:38 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,6 +152,7 @@ void				outn_prev(t_out **out, unsigned int n);
 void				out_end(t_out **list);
 void				pos_end(t_pos **list);
 t_out				*out_cpy(t_out *src);
+void				printpath(t_salle *room, t_stack *find);
 void				out_init(t_out **list, int i);
 void				out_add_tolist(t_out **list, char *data, int truth);
 void				outfill_out(t_out **dst, t_out *src);

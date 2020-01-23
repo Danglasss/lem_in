@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/10 10:53:10 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/23 10:04:06 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	out_init(t_out **list, int i)
 	(*list)->nb_salle = 0;
 	(*list)->ant_numb = 0;
 	(*list)->truth = 1;
-	(*list)->del = 0;
+	(*list)->del[0] = 0;
+	(*list)->del[1] = 0;
 	(*list)->salle_prev = 0;
 	(*list)->index = 0;
 	(*list)->open = 0;
@@ -57,6 +58,8 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	(*info)->finish = 0;
 	(*info)->index_end = 0;
 	(*info)->index_start = 0;
+	(*info)->bhandari[0] = 0;
+	(*info)->bhandari[1] = 0;
 	(*info)->lenght = 0;
 	(*info)->operation = 0;
 	(*info)->result = 0;

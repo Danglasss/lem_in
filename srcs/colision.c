@@ -6,96 +6,147 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:41:22 by damboule          #+#    #+#             */
-/*   Updated: 2019/10/18 17:35:45 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/23 10:16:18 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-void		ft_reset_repertition(t_pos *pos)
+int		ft_delcheck(unsigned long path, t_salle *room, t_stack *find, unsigned long s_room)
 {
-	pos = pos->begin;
-	while (pos != NULL)
+	while (room[path].liens)
 	{
-		pos->fourmies = 0;
-		pos->salle = 0;
-		pos->instruction = 0;
-		if (pos->next == NULL)
+		if (room[path].liens->del[1] == 1 /*&& (unsigned long)room[path].liens->out == s_room*/)
+		{
+			find->bhandari[1] = -1;
+			room[path].liens = room[path].liens->begin;
+			return (0);
+		}
+		if (room[path].liens->next == NULL)
 			break ;
-		pos = pos->next;
+		room[path].liens = room[path].liens->next;
+	}
+	room[path].liens = room[path].liens->begin;
+	return (1);
+}
+
+int		ft_check(unsigned long path, unsigned long salle, t_stack *find, t_salle *room)
+{	
+	while (path != find->index_start)
+	{
+		if (path == salle && ft_delcheck(path, room, find, room[path].salle_prev[0])) // also check if lien del
+			return (1);
+		path = room[path].salle_prev[0];
+	}
+	return (0);
+}
+
+void	permanant_delink(t_salle *room, t_stack *find, unsigned long index)
+{
+	find->bhandari[1] = 0;
+	find->bhandari[0] = -1;
+	while (index != find->index_start)
+	{
+		while (room[index].liens)
+		{
+			if (room[index].liens->del[1] == 1 /*&& (unsigned long)room[path].liens->out == s_room*/)
+			{
+				room[index].liens->del[0] = room[index].liens->del[1];
+				room[index].liens->del[1] = 0;
+			}
+			if (room[index].liens->next == NULL)
+				break ;
+			room[index].liens = room[index].liens->next;
+		}
+		room[index].liens = room[index].liens->begin;
+		index = room[index].salle_prev[1];
 	}
 }
 
-int			ft_max(t_pos *path)
+int		verify_colision(t_salle *room, unsigned long salle, t_stack *find, t_out **stack)
 {
-	int ret;
-
-	ret = 0;
-	while (path != NULL)
+	unsigned long index;
+	unsigned long end;
+	
+	index = salle;
+	end = find->index_end;
+	while (index != find->index_start)
 	{
-		if (ret < path->salle)
-			ret = path->salle;
-		path = path->next;
+		if (ft_check(room[end].salle_prev[0], index, find, room))
+			return (0);
+		while (room[end].liens->salle_prev != 0)
+		{
+			if (ft_check(room[end].liens->salle_prev, index, find, room))
+				return (0);
+			if (room[end].liens->next == NULL)
+				break ;
+			room[end].liens = room[end].liens->next;
+		}
+		room[end].liens = room[end].liens->begin;
+		index = room[index].salle_prev[1];
 	}
-	return (ret);
+	if (find->bhandari[1] == -1)
+		permanant_delink(room, find, salle);
+	return (1);
 }
 
-int		f_equal(t_pos *path, int fourmie)
+int		suplink(t_out *link, t_stack *find)
 {
-	int		instruction;
-	int		nb_ways;
-	int		equal;
-	int		reste;
-	t_pos	*temp;
-
-	temp = path;
-	nb_ways = len_pos(temp, 0);
-	equal = fourmie / nb_ways;
-	reste = fourmie % nb_ways;
-	instruction = 0;
-	while (path != NULL)
+	link = link->begin;
+	while (link)
 	{
-		path->fourmies += equal;
-		path->instruction += equal;
-		if (instruction < path->instruction)
-			instruction = path->instruction;
-		if (reste - 1 >= 0)
-		{
-			reste = reste - 1;
-			path->fourmies += 1;
-			path->instruction += 1;
-			instruction = path->instruction;
-		}
-		path = path->next;
+		if (link->open == 1 && find->index_start != (unsigned long)link->out)
+			return (1);
+		if (link->next  == NULL)
+			break ;
+		link = link->next;
 	}
-	return (instruction);
+	link = link->begin;
+	return (0);
+} 
+
+int		toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index)
+{
+	link = link->begin;
+	while (link)
+	{
+		if ((unsigned long)link->out == room[index].salle_prev[1] || (unsigned long)link->out == 0)
+		{
+			if (link->next == NULL)
+				break ;
+			link = link->next;
+			continue ;
+		}
+		if ((link->open == 0 || link->open == 1) && find->index_start != (unsigned long)link->out)
+			return (1);
+		if (link->next  == NULL)
+			break ;
+		link = link->next;
+	}
+	link = link->begin;
+	return (0);
 }
 
-int			f_repartition(t_pos *path)
+int		finish(t_salle *room, t_stack *find, t_out *index)
 {
-	int		ret;
-	int		fourmie;
+	int				len;
+	int				lenght;
 
-	ret = ft_max(path);
-	fourmie = 0;
-	while (path != NULL)
+	if (room[find->index_end].salle_prev[0] != 0)
+		len = 1;
+	lenght = len_out(room[find->index_end].liens, 1) - 1;
+	while (room[find->index_end].liens)
 	{
-		//ft_printf("0\n");
-		if (ret == path->salle && path->fourmies == 0)
-		{
-			//ft_printf("1\n");
-			fourmie += 1;
-			path->fourmies = 1;
-			path->instruction = path->fourmies + path->salle;
-		}
-		else if (ret > path->salle)
-		{
-			//ft_printf("2\n");
-			fourmie += (ret - path->salle) + 1;
-			path->fourmies = (ret - path->salle) + 1;
-			path->instruction = path->fourmies + path->salle;
-		}
-		path = path->next;
+		if (room[find->index_end].liens->open == -1)
+			len++;
+		else if (room[find->index_end].liens->salle_prev != 0)
+			len++;
+		if (lenght == len)
+			return (1);
+		if (room[find->index_end].liens->next == NULL)
+			break ;
+		room[find->index_end].liens = room[find->index_end].liens->next;
 	}
-	return (fourmie);
+	room[find->index_end].liens = room[find->index_end].liens->begin;
+	return (0);
 }

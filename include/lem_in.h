@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/10 20:30:32 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/01/23 11:00:11 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef struct       s_out
 	unsigned long    salle_prev;
 	unsigned long    index;
 	int              truth;
-	int              del;
+	int              del[2];
 	int              open;
 	void             *out;
 	struct s_out     *begin;
@@ -90,6 +90,7 @@ typedef struct		s_stack
 	int             salle;
 	int             ways;
 	int             espoir;
+	int             bhandari[2];
 	unsigned long   index_end;
 	unsigned long	index_start;
 	char			*n_start;
@@ -104,6 +105,17 @@ typedef struct		s_struct
 	int				nb;
 }                   t_struct;
 
+void				printpath(t_salle *room, t_stack *find);
+void				path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_prev);
+int					suplink(t_out *link, t_stack *find);
+int					toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index);
+int					finish(t_salle *room, t_stack *find, t_out *index);
+void				next(t_out **liens, t_out **stack);
+void				ft_reset(t_salle *room, t_out *index);
+void				ft_clean(t_salle *room, t_out *index);
+void				clear(t_salle *room, t_stack *find, t_out *index);
+void				transfert_true(t_salle *room, t_stack *find, unsigned long salle);
+int					verify_colision(t_salle *room, unsigned long salle, t_stack *find, t_out **stack);
 void	            affichage(t_salle *room, t_stack *find);
 void	            ft_copy(t_pos *pos, t_stack *find, t_pos *path);
 int		            occur(int colle, t_pos *path, t_pos *pos);

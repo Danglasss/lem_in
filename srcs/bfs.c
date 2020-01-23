@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:36:38 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/23 12:06:29 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:19:26 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		ft_open(t_salle *room, t_out *liens, t_stack *find, unsigned long index)
 {
+	//if (index == 14390 && (unsigned long)liens->out == 39929)
+	//	ft_printf("---------------------yes-----------------------\n");
 	if (room[(unsigned long)liens->out].free == 1 &&
 		(unsigned long)liens->out != find->index_end)
 		return (1);
@@ -31,7 +33,7 @@ int		ft_open(t_salle *room, t_out *liens, t_stack *find, unsigned long index)
 void	delete_link(t_out **liens, t_salle *room, unsigned long salle)
 {
 	int len;
-	
+
 	(*liens)->del[1] = 1;
 	room[(unsigned long)(*liens)->out].liens = room[(unsigned long)(*liens)->out].liens->begin;
 	len = len_out(room[(unsigned long)(*liens)->out].liens, 1) - 1;
@@ -137,15 +139,15 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 			position = position->next;
 		}
 		//ft_printf("\n___________\n");
-		//ft_printf("\n1\n");
 		cpy_length(&position, stack);
 		position = position->begin;
 		stack = stack->begin;
 	}
 	//ft_printf("\n_____Finish______\n");
-	if (find->finish != 0)
+	if (find->finish != 0 && find->bhandari[0] != -1)
 		findpath(room, find, find->index_end);
 	//ft_printf("\n_____Finish__2____\n");
+	//exit(1);
 	clear(room, find, index);
 	if (find->bhandari[0] != -1)
 		find->bhandari[0] += finish(room, find, index);

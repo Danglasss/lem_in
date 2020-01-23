@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 09:17:41 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/23 09:18:29 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:19:05 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	lucky_link(t_salle *room, unsigned long index,  unsigned long tmp, t_stack 
 			break ;
 		room[index].liens = room[index].liens->next;
 	}
+	//ft_printf("%s\n", room[index].salle);
+	//ft_printf("%s\n", room[(unsigned long)room[index].liens->out].salle);
 	room[index].liens->open = 3;
 	room[index].liens = room[index].liens->begin;
 }
@@ -54,7 +56,10 @@ void	neutral_link(t_salle *room, unsigned long index,  unsigned long tmp, t_stac
 		if ((unsigned long)room[index].liens->out != tmp &&
 				(unsigned long)room[index].liens->out != room[index].salle_prev[0]
 				&& (unsigned long)room[index].liens->out != 0)
+		{
 			lucky_link(room, (unsigned long)room[index].liens->out, index, find);
+			room[index].liens->open = 3;
+		}
 		if (room[index].liens->next == NULL)
 			break ;
 		room[index].liens = room[index].liens->next;
@@ -71,12 +76,14 @@ void	path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_p
 	index = end;
 	while (index != find->index_start)
 	{
+		//ft_printf("salle == %s\n", room[index].salle);
 		if (index != find->index_end)
 		{
 			negatif_link(room, index, tmp, find);
 			positif_link(room, index, find);
 			neutral_link(room, index, tmp, find);
 		}
+		//print_lien(room[index].liens->begin, room);
 		tmp = index;
 		if (index == find->index_end)
 		{

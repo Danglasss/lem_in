@@ -1,0 +1,1129 @@
+
+Commence 
+
+
+SALLE : start || 25103
+
+Voici les liens
+1 | state : 0
+2 | state : 0
+3 | state : 0
+(null) | state : 0
+
+1
+2
+3
+(null)
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 1 || 9937
+
+Voici les liens
+start | state : 0
+7 | state : 0
+2 | state : 0
+(null) | state : 0
+
+7
+(null)
+(null)
+(null)
+(null)
+
+
+
+SALLE : 2 || 14390
+
+Voici les liens
+start | state : 0
+1 | state : 0
+4 | state : 0
+8 | state : 0
+(null) | state : 0
+
+7
+4
+8
+(null)
+(null)
+
+
+
+SALLE : 3 || 36051
+
+Voici les liens
+start | state : 0
+4 | state : 0
+5 | state : 0
+(null) | state : 0
+
+7
+4
+8
+5
+(null)
+
+
+
+SALLE : (null) || 0
+7
+4
+8
+5
+(null)
+
+
+
+SALLE : (null) || 0
+7
+4
+8
+5
+(null)
+
+
+
+SALLE : (null) || 0
+7
+4
+8
+5
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 7 || 40908
+
+Voici les liens
+1 | state : 0
+8 | state : 0
+(null) | state : 0
+
+(null)
+(null)
+(null)
+(null)
+(null)
+
+
+
+SALLE : 4 || 39929
+
+Voici les liens
+2 | state : 0
+3 | state : 0
+6 | state : 0
+9 | state : 0
+(null) | state : 0
+
+6
+9
+(null)
+(null)
+(null)
+
+
+
+SALLE : 8 || 49984
+
+Voici les liens
+2 | state : 0
+7 | state : 0
+9 | state : 0
+end | state : 0
+(null) | state : 0
+
+6
+9
+end
+(null)
+(null)
+
+
+
+SALLE : 5 || 25911
+
+Voici les liens
+3 | state : 0
+6 | state : 0
+(null) | state : 0
+
+6
+9
+end
+(null)
+(null)
+
+
+
+SALLE : (null) || 0
+6
+9
+end
+(null)
+(null)
+
+
+
+SALLE : (null) || 0
+6
+9
+end
+(null)
+(null)
+
+
+___________
+
+____________________________________
+salle == end
+salle == 8
+salle == 2
+
+Commence 
+
+
+SALLE : start || 25103
+
+Voici les liens
+1 | state : 0
+2 | state : -1
+3 | state : 0
+(null) | state : 0
+
+1
+3
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 1 || 9937
+
+Voici les liens
+start | state : 0
+7 | state : 0
+2 | state : 3
+(null) | state : 0
+
+7
+(null)
+(null)
+
+
+
+SALLE : 3 || 36051
+
+Voici les liens
+start | state : 0
+4 | state : 0
+5 | state : 0
+(null) | state : 0
+
+7
+4
+5
+(null)
+
+
+
+SALLE : (null) || 0
+7
+4
+5
+(null)
+
+
+
+SALLE : (null) || 0
+7
+4
+5
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 7 || 40908
+
+Voici les liens
+1 | state : 0
+8 | state : 3
+(null) | state : 0
+
+8
+(null)
+(null)
+(null)
+
+
+
+SALLE : 4 || 39929
+
+Voici les liens
+2 | state : 3
+3 | state : 0
+6 | state : 0
+9 | state : 0
+(null) | state : 0
+
+8
+6
+9
+(null)
+
+
+
+SALLE : 5 || 25911
+
+Voici les liens
+3 | state : 0
+6 | state : 0
+(null) | state : 0
+
+8
+6
+9
+(null)
+
+
+
+SALLE : (null) || 0
+8
+6
+9
+(null)
+
+
+
+SALLE : (null) || 0
+8
+6
+9
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 8 || 49984
+
+Voici les liens
+2 | state : 1
+7 | state : 3
+9 | state : 3
+end | state : -1
+(null) | state : 0
+
+2
+(null)
+(null)
+(null)
+
+
+
+SALLE : 6 || 14016
+
+Voici les liens
+4 | state : 0
+5 | state : 0
+10 | state : 0
+(null) | state : 0
+
+2
+10
+(null)
+(null)
+
+
+
+SALLE : 9 || 45205
+
+Voici les liens
+4 | state : 0
+8 | state : 3
+10 | state : 0
+end | state : 0
+(null) | state : 0
+
+2
+10
+end
+(null)
+
+
+
+SALLE : (null) || 0
+2
+10
+end
+(null)
+
+
+
+SALLE : (null) || 0
+2
+10
+end
+(null)
+
+
+___________
+
+____________________________________
+salle == end
+salle == 8
+salle == 2
+
+
+salle == end
+salle == 9
+salle == 4
+salle == 3
+
+Commence 
+
+
+SALLE : start || 25103
+
+Voici les liens
+1 | state : 0
+2 | state : -1
+3 | state : -1
+(null) | state : 0
+
+1
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 1 || 9937
+
+Voici les liens
+start | state : 0
+7 | state : 0
+2 | state : 3
+(null) | state : 0
+
+7
+(null)
+
+
+
+SALLE : (null) || 0
+7
+(null)
+
+
+
+SALLE : (null) || 0
+7
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 7 || 40908
+
+Voici les liens
+1 | state : 0
+8 | state : 3
+(null) | state : 0
+
+8
+(null)
+
+
+
+SALLE : (null) || 0
+8
+(null)
+
+
+
+SALLE : (null) || 0
+8
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 8 || 49984
+
+Voici les liens
+2 | state : 1
+7 | state : 3
+9 | state : 3
+end | state : -1
+(null) | state : 0
+
+2
+(null)
+
+
+
+SALLE : (null) || 0
+2
+(null)
+
+
+
+SALLE : (null) || 0
+2
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 2 || 14390
+
+Voici les liens
+start | state : 0
+1 | state : 3
+4 | state : 3
+8 | state : -1
+(null) | state : 0
+
+4
+(null)
+
+
+
+SALLE : (null) || 0
+4
+(null)
+
+
+
+SALLE : (null) || 0
+4
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 4 || 39929
+
+Voici les liens
+2 | state : 3
+3 | state : 1
+6 | state : 3
+9 | state : -1
+(null) | state : 0
+
+3
+(null)
+
+
+
+SALLE : (null) || 0
+3
+(null)
+
+
+
+SALLE : (null) || 0
+3
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 3 || 36051
+
+Voici les liens
+start | state : 0
+4 | state : -1
+5 | state : 3
+(null) | state : 0
+
+5
+(null)
+
+
+
+SALLE : (null) || 0
+5
+(null)
+
+
+
+SALLE : (null) || 0
+5
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 5 || 25911
+
+Voici les liens
+3 | state : 3
+6 | state : 0
+(null) | state : 0
+
+6
+(null)
+
+
+
+SALLE : (null) || 0
+6
+(null)
+
+
+
+SALLE : (null) || 0
+6
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 6 || 14016
+
+Voici les liens
+4 | state : 3
+5 | state : 0
+10 | state : 0
+(null) | state : 0
+
+10
+(null)
+
+
+
+SALLE : (null) || 0
+10
+(null)
+
+
+
+SALLE : (null) || 0
+10
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 10 || 15061
+
+Voici les liens
+6 | state : 0
+11 | state : 0
+9 | state : 3
+(null) | state : 0
+
+11
+(null)
+
+
+
+SALLE : (null) || 0
+11
+(null)
+
+
+
+SALLE : (null) || 0
+11
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 11 || 14793
+
+Voici les liens
+10 | state : 0
+end | state : 0
+(null) | state : 0
+
+end
+(null)
+
+
+
+SALLE : (null) || 0
+end
+(null)
+
+
+
+SALLE : (null) || 0
+end
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : start || 25103
+
+Voici les liens
+1 | state : 0
+2 | state : 0
+3 | state : 0
+(null) | state : 0
+
+1
+2
+3
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 1 || 9937
+
+Voici les liens
+start | state : 0
+7 | state : 0
+2 | state : 0
+(null) | state : 0
+
+7
+(null)
+(null)
+(null)
+
+
+
+SALLE : 2 || 14390
+
+Voici les liens
+start | state : 0
+1 | state : 0
+4 | state : 0
+8 | state : 0
+(null) | state : 0
+
+7
+4
+(null)
+(null)
+
+
+
+SALLE : 3 || 36051
+
+Voici les liens
+start | state : 0
+4 | state : 0
+5 | state : 0
+(null) | state : 0
+
+7
+4
+5
+(null)
+
+
+
+SALLE : (null) || 0
+7
+4
+5
+(null)
+
+
+
+SALLE : (null) || 0
+7
+4
+5
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 7 || 40908
+
+Voici les liens
+1 | state : 0
+8 | state : 0
+(null) | state : 0
+
+8
+(null)
+(null)
+(null)
+
+
+
+SALLE : 4 || 39929
+
+Voici les liens
+2 | state : 0
+3 | state : 0
+6 | state : 0
+9 | state : 0
+(null) | state : 0
+
+8
+6
+9
+(null)
+
+
+
+SALLE : 5 || 25911
+
+Voici les liens
+3 | state : 0
+6 | state : 0
+(null) | state : 0
+
+8
+6
+9
+(null)
+
+
+
+SALLE : (null) || 0
+8
+6
+9
+(null)
+
+
+
+SALLE : (null) || 0
+8
+6
+9
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 8 || 49984
+
+Voici les liens
+2 | state : 0
+7 | state : 0
+9 | state : 0
+end | state : 0
+(null) | state : 0
+
+end
+(null)
+(null)
+(null)
+
+
+
+SALLE : 6 || 14016
+
+Voici les liens
+4 | state : 0
+5 | state : 0
+10 | state : 0
+(null) | state : 0
+
+end
+10
+(null)
+(null)
+
+
+
+SALLE : 9 || 45205
+
+Voici les liens
+4 | state : 0
+8 | state : 0
+10 | state : 0
+end | state : 0
+(null) | state : 0
+
+end
+10
+end
+(null)
+
+
+
+SALLE : (null) || 0
+end
+10
+end
+(null)
+
+
+
+SALLE : (null) || 0
+end
+10
+end
+(null)
+
+
+___________
+
+____________________________________
+salle == end
+salle == 8
+salle == 7
+salle == 1
+
+
+salle == end
+salle == 9
+salle == 4
+salle == 2
+
+Commence 
+
+
+SALLE : start || 25103
+
+Voici les liens
+1 | state : -1
+2 | state : -1
+3 | state : 0
+(null) | state : 0
+
+3
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 3 || 36051
+
+Voici les liens
+start | state : 0
+4 | state : 3
+5 | state : 0
+(null) | state : 0
+
+5
+(null)
+
+
+
+SALLE : (null) || 0
+5
+(null)
+
+
+
+SALLE : (null) || 0
+5
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 5 || 25911
+
+Voici les liens
+3 | state : 0
+6 | state : 0
+(null) | state : 0
+
+6
+(null)
+
+
+
+SALLE : (null) || 0
+6
+(null)
+
+
+
+SALLE : (null) || 0
+6
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 6 || 14016
+
+Voici les liens
+4 | state : 3
+5 | state : 0
+10 | state : 0
+(null) | state : 0
+
+10
+(null)
+
+
+
+SALLE : (null) || 0
+10
+(null)
+
+
+
+SALLE : (null) || 0
+10
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 10 || 15061
+
+Voici les liens
+6 | state : 0
+11 | state : 0
+9 | state : 3
+(null) | state : 0
+
+11
+(null)
+
+
+
+SALLE : (null) || 0
+11
+(null)
+
+
+
+SALLE : (null) || 0
+11
+(null)
+
+
+___________
+
+Commence 
+
+
+SALLE : 11 || 14793
+
+Voici les liens
+10 | state : 0
+end | state : 0
+(null) | state : 0
+
+end
+(null)
+
+
+
+SALLE : (null) || 0
+end
+(null)
+
+
+
+SALLE : (null) || 0
+end
+(null)
+
+
+___________
+
+____________________________________
+salle == end
+salle == 8
+salle == 7
+salle == 1
+
+
+salle == end
+salle == 9
+salle == 4
+salle == 2
+
+
+salle == end
+salle == 11
+salle == 10
+salle == 6
+salle == 5
+salle == 3
+L1-1L2-2L3-3
+L4-1L1-7L5-2L2-4L6-3L3-5
+L7-1L4-7L1-8L8-2L5-4L2-9L9-3L6-5L3-6
+L10-1L7-7L4-8L1-endL11-2L8-4L5-9L2-endL12-3L9-5L6-6L3-10
+L13-1L10-7L7-8L4-endL14-2L11-4L8-9L5-endL15-3L12-5L9-6L6-10L3-11
+L16-1L13-7L10-8L7-endL17-2L14-4L11-9L8-endL18-3L15-5L12-6L9-10L6-11L3-end
+L19-1L16-7L13-8L10-endL20-2L17-4L14-9L11-endL21-3L18-5L15-6L12-10L9-11L6-end
+L22-1L19-7L16-8L13-endL23-2L20-4L17-9L14-endL24-3L21-5L18-6L15-10L12-11L9-end
+L25-1L22-7L19-8L16-endL26-2L23-4L20-9L17-endL24-5L21-6L18-10L15-11L12-end
+L27-1L25-7L22-8L19-endL28-2L26-4L23-9L20-endL24-6L21-10L18-11L15-end
+L29-1L27-7L25-8L22-endL30-2L28-4L26-9L23-endL24-10L21-11L18-end
+L29-7L27-8L25-endL30-4L28-9L26-endL24-11L21-end
+L29-8L27-endL30-9L28-endL24-end
+L29-endL30-end

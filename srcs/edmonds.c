@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/23 11:06:55 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/23 15:19:00 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	findpath(t_salle *room, t_stack *find, unsigned long end)
 
 	len = 0;
 	index = 0;
-	//ft_printf("\n\n");
+	//ft_printf("\n____________________________________\n");
 	path(room, find, find->index_end, room[end].salle_prev[0]);
 	while (room[end].liens->salle_prev != 0)
 	{
@@ -41,7 +41,7 @@ int		bhandari(t_salle *room, t_stack *find, t_out *index)
 	{
 		find->finish = 0;
 		find->bhandari[0] = 0;
-		bhandari_state = algo(room, find, index);
+		algo(room, find, index);
 		//printpath(room, find);
 		if (find->finish == 0)
 			break ;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   affichage.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/01/21 17:36:35 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/11 11:14:51 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	turnpath(t_salle *room, t_stack *find, unsigned long stack, int begin)
 	index = 0;
 	while (salle != find->index_start)
 	{
-		//ft_printf("salle : %s\n", room[room[stack].salle_prev[0]].salle);
+		ft_printf("salle : %s\n", room[room[stack].salle_prev[0]].salle);
 		tmp = room[stack].salle_prev[0];
 		if (room[stack].salle_prev[0] != 0 && stack == find->index_start
 		&& room[stack].salle_prev[0] != find->index_start)
@@ -44,9 +44,9 @@ void	mainturn(t_salle *room, t_stack *find)
 	turnpath(room, find, room[find->index_end].salle_prev[0], 0);
 	while (room[find->index_end].liens->salle_prev != 0)
 	{
-		//ft_printf("\n_begin_\n");
+		ft_printf("\n_begin_\n");
 		turnpath(room, find, room[find->index_end].liens->salle_prev, 1);
-		//ft_printf("\n_last_\n");
+		ft_printf("\n_last_\n");
 		room[find->index_end].liens = room[find->index_end].liens->next;
 		room[find->index_start].liens = room[find->index_start].liens->next;
 	}

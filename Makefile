@@ -6,7 +6,7 @@
 #    By: damboule <damboule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:29:33 by nabboufe          #+#    #+#              #
-#    Updated: 2020/01/23 10:59:09 by damboule         ###   ########.fr        #
+#    Updated: 2020/01/24 09:56:20 by damboule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ INCLUDES	=		-Iinclude
 
 SRCS		=		srcs/main.c					\
 					srcs/chained_list.c			\
+					srcs/clean_map.c			\
 					srcs/bfs.c					\
 					srcs/create_room.c			\
 					srcs/list_pos.c				\

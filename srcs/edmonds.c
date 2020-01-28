@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/23 15:19:00 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/28 15:36:03 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int		bhandari(t_salle *room, t_stack *find, t_out *index)
 		ft_reset(room, index);		
 		if (find->bhandari[0] == -1)
 		{
+			//ft_printf("---------- RESET -----------\n");
 			ft_clean(room, index);
 			room[find->index_end].salle_prev[0] = 0;
 			while (room[find->index_end].liens->salle_prev != 0)

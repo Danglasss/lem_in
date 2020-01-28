@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 09:17:41 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/23 15:19:05 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/28 16:27:12 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,19 @@ void	positif_link(t_salle *room, unsigned long index, t_stack *find)
 {
 	if (index == find->index_start)
 		return ;
+	//ft_printf("A\n");	
 	room[index].liens = room[index].liens->begin;
+	//ft_printf("B\n");	
 	while ((unsigned long)room[index].liens->out != room[index].salle_prev[0])
+	{
+		//ft_printf("salle prev == %s || liens == %s || index == %d\n", room[room[index].salle_prev[0]].salle, room[(unsigned long)room[index].liens->out].salle, index);
 		room[index].liens = room[index].liens->next;
+		//ft_printf("salle prev == %s || liens == %s\n", room[room[index].salle_prev[0]].salle, room[(unsigned long)room[index].liens->out].salle);
+		//if (room[index].liens->next == NULL)
+		//	break ;
+	}
+	//ft_printf("salle prev == %s || liens == %s\n", room[room[index].salle_prev[0]].salle, room[(unsigned long)room[index].liens->out].salle);
+	//ft_printf("C\n");	
 	if ((unsigned long)room[index].liens->out != find->index_end && (unsigned long)room[index].liens->out != find->index_start)
 		room[index].liens->open = 1;
 }
@@ -77,13 +87,17 @@ void	path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_p
 	while (index != find->index_start)
 	{
 		//ft_printf("salle == %s\n", room[index].salle);
+		//print_lien(room[index].liens->begin, room);
 		if (index != find->index_end)
 		{
+			//ft_printf("0\n");
 			negatif_link(room, index, tmp, find);
+			//ft_printf("1\n");
 			positif_link(room, index, find);
+			//ft_printf("2\n");
 			neutral_link(room, index, tmp, find);
+			//ft_printf("3\n");
 		}
-		//print_lien(room[index].liens->begin, room);
 		tmp = index;
 		if (index == find->index_end)
 		{

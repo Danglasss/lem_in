@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/23 11:00:11 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:02:06 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,9 @@ typedef struct		s_struct
 	int				nb;
 }                   t_struct;
 
+void				clean_map(t_salle *room, t_stack *find, t_out *index);
+int					toplink2(t_out *link, t_stack *find, t_salle *room, unsigned long index);
+int					lien_double(t_salle *room, unsigned long salle_prev, t_out *link);
 void				printpath(t_salle *room, t_stack *find);
 void				path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_prev);
 int					suplink(t_out *link, t_stack *find);
@@ -183,7 +186,7 @@ void		        ft_take_path(t_pos *path);
 void		        ft_begin(t_stack *find, t_pos *pos, t_salle *room);
 int		            bhandari(t_salle *room, t_stack *find, t_out *index);
 int		            algo(t_salle *room, t_stack *find, t_out *index);
-int		            bfs(t_salle *room, t_stack *find, t_out *position,
+int		            bfs(t_salle *room, t_stack *find, unsigned long position,
 		t_out **stack);
 int		            ft_open(t_salle *room, t_out *liens, t_stack *find,
 		unsigned long index);

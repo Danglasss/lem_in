@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:41:22 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/23 15:18:07 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/28 13:05:29 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int		verify_colision(t_salle *room, unsigned long salle, t_stack *find, t_out **
 	end = find->index_end;
 	while (index != find->index_start)
 	{
+		if (find->bhandari[0] == -1)
+			break ;
 		if (ft_check(room[end].salle_prev[0], index, find, room))
 			return (0);
 		while (room[end].liens->salle_prev != 0)
@@ -82,6 +84,8 @@ int		verify_colision(t_salle *room, unsigned long salle, t_stack *find, t_out **
 				break ;
 			room[end].liens = room[end].liens->next;
 		}
+		if (find->bhandari[0] == -1)
+			break ;
 		room[end].liens = room[end].liens->begin;
 		index = room[index].salle_prev[1];
 	}
@@ -95,7 +99,7 @@ int		suplink(t_out *link, t_stack *find)
 	link = link->begin;
 	while (link)
 	{
-		if (link->open == 1 && find->index_start != (unsigned long)link->out)
+		if ((link->open == 1) && find->index_start != (unsigned long)link->out)
 			return (1);
 		if (link->next  == NULL)
 			break ;
@@ -104,6 +108,19 @@ int		suplink(t_out *link, t_stack *find)
 	link = link->begin;
 	return (0);
 } 
+
+int		lien_double(t_salle *room, unsigned long salle_prev, t_out *link)
+{
+	while (link)
+	{
+		if (salle_prev == (unsigned long)link->out && link->del[1] == 1)
+			return (0);
+		if (link->next == NULL)
+			break ;
+		link = link->next;
+	}
+	return (1);
+}
 
 int		toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index)
 {
@@ -117,7 +134,31 @@ int		toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index)
 			link = link->next;
 			continue ;
 		}
-		if ((link->open == 0 || link->open == 1) && find->index_start != (unsigned long)link->out)
+		if ((((link->open == 0 || link->open == 1) && find->index_start != (unsigned long)link->out))
+				/*|| (link->open == 1 && lien_double(room, room[index].salle_prev[1], link->begin))*/)
+			return (1);
+		if (link->next  == NULL)
+			break ;
+		link = link->next;
+	}
+	link = link->begin;
+	return (0);
+}
+
+int		toplink2(t_out *link, t_stack *find, t_salle *room, unsigned long index)
+{
+	link = link->begin;
+	while (link)
+	{
+		if ((unsigned long)link->out == room[index].salle_prev[1] || (unsigned long)link->out == 0)
+		{
+			if (link->next == NULL)
+				break ;
+			link = link->next;
+			continue ;
+		}
+		if (((link->open == 0 && find->index_start != (unsigned long)link->out))
+				|| (link->open == 1 && lien_double(room, room[index].salle_prev[1], link->begin)))
 			return (1);
 		if (link->next  == NULL)
 			break ;

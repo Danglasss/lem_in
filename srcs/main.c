@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:10:28 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/11 10:41:23 by danglass         ###   ########.fr       */
+/*   Updated: 2020/01/28 14:34:14 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int		ft_main_algo(t_out *reads, t_out *index, t_pos *path, t_pos *pos)
 	if (ft_error(rooms, info))
 		return (write(2, "ERROR\n", 6));
 	way_back(index, rooms);
+	clean_map(rooms, info, index);
 	bhandari(rooms, info, index);
 	affichage(rooms, info);
 	path = path->begin;
@@ -53,6 +54,7 @@ int		ft_main_algo(t_out *reads, t_out *index, t_pos *path, t_pos *pos)
 	//leaks_salle(rooms, t_size, index);
 	//leaks_info(info);
 	init_leak(&reads, &index, &path, &pos);
+	//while (1);
 	// pos deja free dans ft_edmonds;
 	return (1);
 }

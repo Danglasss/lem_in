@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/28 13:02:06 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/29 15:35:20 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 # include <limits.h>
 
 # define t_size 52232
+# define DEL 1
+# define CLOSE -1
+# define EMPTY 0
+# define VISITED 1
 
 /*
 ** Stocker tout et rien
@@ -66,6 +70,8 @@ typedef struct       s_pos
 
 typedef struct       s_salle
 {
+	int				lenght;
+	int				ascend;
 	int             nb_salle;
 	int             ant_numb;
 	int             n_lem;
@@ -118,7 +124,7 @@ void				ft_reset(t_salle *room, t_out *index);
 void				ft_clean(t_salle *room, t_out *index);
 void				clear(t_salle *room, t_stack *find, t_out *index);
 void				transfert_true(t_salle *room, t_stack *find, unsigned long salle);
-int					verify_colision(t_salle *room, unsigned long salle, t_stack *find, t_out **stack);
+int					verify_colision(t_salle *room, unsigned long salle, t_stack *find);
 void	            affichage(t_salle *room, t_stack *find);
 void	            ft_copy(t_pos *pos, t_stack *find, t_pos *path);
 int		            occur(int colle, t_pos *path, t_pos *pos);
@@ -192,7 +198,7 @@ int		            ft_open(t_salle *room, t_out *liens, t_stack *find,
 		unsigned long index);
 int		            suplink(t_out *link, t_stack *find);
 void	            blockchain(t_salle *room, unsigned long salle_prev,
-		t_stack *find, t_out **stack);
+		t_stack *find, unsigned long stack);
 void	            next(t_out **liens, t_out **stack);
 void	            print(t_out *stack, t_salle *room);
 void	            findpath(t_salle *room, t_stack *find, unsigned long end);

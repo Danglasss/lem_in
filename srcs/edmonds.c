@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/28 15:36:03 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/30 11:30:11 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ void	findpath(t_salle *room, t_stack *find, unsigned long end)
 
 int		bhandari(t_salle *room, t_stack *find, t_out *index)
 {
-	int		bhandari_state;
-
-	bhandari_state = 0;
 	while (find->bhandari[0] < 1)
 	{
 		find->finish = 0;

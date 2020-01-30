@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 10:16:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/28 15:05:42 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/29 12:13:34 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	clear(t_salle *room, t_stack *find, t_out *index)
 	while (len)
 	{
 		room[(unsigned long)index->out].free = 0;
+		room[(unsigned long)index->out].ascend = 0;
+		room[(unsigned long)index->out].lenght = 0;
 		len = len - 1;
 		index = index->next;
 	}

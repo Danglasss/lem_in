@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 16:50:14 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/23 11:57:35 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/29 12:10:32 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int				create_room(t_salle *room, char *hash, t_out **n_index)
 	(*n_index)->out = (void *)index;
 	out_add_tolist(n_index, NULL, 1);
 	room->free = 0;
+	room->lenght = 0;
+	room->ascend = 0;
 	room->ant_numb = 0;
 	room->nb_salle = 0;
 	room->salle_prev[0] = 0;

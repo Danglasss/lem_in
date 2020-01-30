@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:41:22 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/28 13:05:29 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/30 11:43:01 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	permanant_delink(t_salle *room, t_stack *find, unsigned long index)
 	}
 }
 
-int		verify_colision(t_salle *room, unsigned long salle, t_stack *find, t_out **stack)
+int		verify_colision(t_salle *room, unsigned long salle, t_stack *find)
 {
 	unsigned long index;
 	unsigned long end;
@@ -80,6 +80,8 @@ int		verify_colision(t_salle *room, unsigned long salle, t_stack *find, t_out **
 		{
 			if (ft_check(room[end].liens->salle_prev, index, find, room))
 				return (0);
+			if (find->bhandari[0] == -1)
+				break ;
 			if (room[end].liens->next == NULL)
 				break ;
 			room[end].liens = room[end].liens->next;
@@ -134,31 +136,8 @@ int		toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index)
 			link = link->next;
 			continue ;
 		}
-		if ((((link->open == 0 || link->open == 1) && find->index_start != (unsigned long)link->out))
-				/*|| (link->open == 1 && lien_double(room, room[index].salle_prev[1], link->begin))*/)
-			return (1);
-		if (link->next  == NULL)
-			break ;
-		link = link->next;
-	}
-	link = link->begin;
-	return (0);
-}
-
-int		toplink2(t_out *link, t_stack *find, t_salle *room, unsigned long index)
-{
-	link = link->begin;
-	while (link)
-	{
-		if ((unsigned long)link->out == room[index].salle_prev[1] || (unsigned long)link->out == 0)
-		{
-			if (link->next == NULL)
-				break ;
-			link = link->next;
-			continue ;
-		}
 		if (((link->open == 0 && find->index_start != (unsigned long)link->out))
-				|| (link->open == 1 && lien_double(room, room[index].salle_prev[1], link->begin)))
+				|| (link->open == 1 && room[index].ascend == 0))
 			return (1);
 		if (link->next  == NULL)
 			break ;

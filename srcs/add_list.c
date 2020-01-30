@@ -6,33 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:37:43 by damboule          #+#    #+#             */
-/*   Updated: 2019/10/09 05:20:31 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/30 15:34:45 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
-
-void	pos_add_tolist(t_pos **list, t_out *data, int truth)
-{
-	t_pos	*n_elist;
-
-	if ((*list)->ways == NULL && truth == 0)
-	{
-		if (data != NULL)
-			outfill_out(&(*list)->ways, data);
-		return ;
-	}
-	pos_init(&n_elist, 1);
-	(*n_elist).begin = (*list)->begin;
-	if (data != NULL)
-		outfill_out(&n_elist->ways, data);
-	if ((*list)->next != NULL)
-		n_elist->next = (*list)->next;
-	n_elist->prev = (*list);
-	(*list)->next = n_elist;
-	if (truth == 1 || n_elist->ways != NULL)
-		(*list) = n_elist;
-}
 
 void	out_add_tolist(t_out **list, char *data, int truth)
 {

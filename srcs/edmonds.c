@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/30 11:30:11 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/30 15:36:05 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,31 +32,60 @@ void	findpath(t_salle *room, t_stack *find, unsigned long end)
 	room[end].liens = room[end].liens->begin;
 }
 
+void	ft_clean_end(t_salle *room, t_stack *find)
+{
+	room[find->index_end].salle_prev[0] = 0;
+	while (room[find->index_end].liens->salle_prev != 0)
+	{
+		room[find->index_end].liens->salle_prev = 0;
+		if (room[find->index_end].liens->next == NULL)
+			break ;
+		room[find->index_end].liens = room[find->index_end].liens->next;
+	}
+	room[find->index_end].liens->salle_prev = 0;
+	room[find->index_end].liens = room[find->index_end].liens->begin;
+}
+
+
+void	repart_eval(t_salle *room, t_stack *find)
+{
+	int		diff;
+	t_out	*link;
+
+	while (1)
+	{
+		link = room[find->index_end].liens;
+		if (link->next == NULL)
+			break ;
+		diff = link->next->nb_salle - link->nb_salle;
+		link->ant_numb = diff;
+		while (link)
+		{	
+			if (link->next == NULL)
+				break ;
+			diff = link->next->nb_salle - link->nb_salle;
+			link->ant_numb = diff;
+			link = link->next;
+		}
+	}
+}
+
 int		bhandari(t_salle *room, t_stack *find, t_out *index)
 {
+
 	while (find->bhandari[0] < 1)
 	{
 		find->finish = 0;
 		find->bhandari[0] = 0;
 		algo(room, find, index);
 		//printpath(room, find);
+		//repart_eval(room, find);
 		if (find->finish == 0)
 			break ;
-		ft_reset(room, index);		
 		if (find->bhandari[0] == -1)
 		{
-			//ft_printf("---------- RESET -----------\n");
+			ft_clean_end(room, find);
 			ft_clean(room, index);
-			room[find->index_end].salle_prev[0] = 0;
-			while (room[find->index_end].liens->salle_prev != 0)
-			{
-				room[find->index_end].liens->salle_prev = 0;
-				if (room[find->index_end].liens->next == NULL)
-					break ;
-				room[find->index_end].liens = room[find->index_end].liens->next;
-			}
-			room[find->index_end].liens->salle_prev = 0;
-			room[find->index_end].liens = room[find->index_end].liens->begin;
 		}
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/23 10:04:06 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/30 15:35:08 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,6 @@ void	out_init(t_out **list, int i)
 	(*list)->prev = NULL;
 }
 
-void	pos_init(t_pos **list, int i)
-{
-	if (!((*list) = (t_pos *)malloc(sizeof(t_pos))))
-		return ;
-	if (i == 0)
-		(*list)->begin = (*list);
-	out_init(&(*list)->ways, 0);
-	(*list)->next = NULL;
-	(*list)->prev = NULL;
-	(*list)->finish = 0;
-	(*list)->colle = 0;
-	(*list)->fourmies = 0;
-	(*list)->instruction = 0;
-	(*list)->salle = 0;
-	(*list)->id = 0;
-}
-
 void	stack_room_init(t_stack **info, t_salle **rooms)
 {
 	if (!((*info) = (t_stack *)malloc(sizeof(t_stack))))
@@ -68,14 +51,6 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	(*info)->n_end = NULL;
 	(*info)->n_start = NULL;
 	(*info)->fourmies = -1;
-}
-
-void	init_leak(t_out **reads, t_out **index, t_pos **path, t_pos **pos)
-{
-	leaks_out(*reads);
-	leaks_out(*index);
-	leaks_pos(*pos);
-	leaks_pos(*path);
 }
 
 int		free_reset(void *ptr)

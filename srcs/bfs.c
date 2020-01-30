@@ -115,7 +115,6 @@ int		bfs(t_salle *room, t_stack *find, unsigned long position, t_out **stack)
 		}
 		if (liens->open == 1)
 		{
-			//ft_printf("---------- RESET -----------\n");
 			delete_link(&liens, room, position);
 			room[(unsigned long)liens->out].ascend = 1;
 			blockchain(room, position, find, (unsigned long)liens->out);		
@@ -130,21 +129,17 @@ int		bfs(t_salle *room, t_stack *find, unsigned long position, t_out **stack)
 	return (0);
 }
 
-int		algo(t_salle *room, t_stack *find, t_out *index)
+void		algo(t_salle *room, t_stack *find, t_out *index)
 {
 	t_out	*position;
 	t_out	*stack;
-	int		bhandari_state;
 	int 	len;
 
 	out_init(&position, 0);
 	out_init(&stack, 0);
 	position->index = find->index_start;
-	bhandari_state = 0;
-	// a definir dans initialisation
 	room[find->index_start].free = 1;
 	room[find->index_start].salle_prev[0] = find->index_start;
-	//
 	while (room[find->index_end].free == EMPTY)
 	{
 		//ft_printf("\nCommence \n");
@@ -160,26 +155,13 @@ int		algo(t_salle *room, t_stack *find, t_out *index)
 			if (position->next == NULL)
 				break ;
 			if (len == 0)
-			{
-				find->finish = 0;
 				room[find->index_end].free = 1;
-			}
 			position = position->next;
 		}
-		//print(stack->begin, room);
 		//ft_printf("\n___________\n");
 		cpy_length(&position, stack);
 		position = position->begin;
 		stack = stack->begin;
-		//ft_printf("\n_____Finish : %d\n", room[find->index_end].free);
 	}
-	
-	if (find->finish != 0 && find->bhandari[0] != -1)
-		findpath(room, find, find->index_end);
-	//ft_printf("\n_____Finish__2____\n");
-	//exit(1);
-	clear(room, find, index);
-	if (find->bhandari[0] != -1)
-		find->bhandari[0] += finish(room, find, index);
-	return (bhandari_state);
+	main_reset(room, find, index);
 }

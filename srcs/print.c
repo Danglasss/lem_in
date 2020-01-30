@@ -64,29 +64,6 @@ void	ft_printread(t_out *read)
 	ft_printf("\n");
 }
 
-void	print_allpos(t_pos *pos, t_salle *room)
-{
-	int		count;
-
-	count = 0;
-	ft_printf("0\n");
-	ft_putendl("\n");
-	while (pos)
-	{
-		ft_printf("Way number %d\n", count);
-		ft_printf("nombre de salle %d\n", pos->salle);
-		ft_printf("nombre instruction %d\n", pos->instruction);
-		ft_printf("fourmies %d\n", pos->fourmies);
-		ft_printf("id %d\n", pos->id);
-		ft_printf("colle %d\n", pos->colle);
-		ft_print_out(pos->ways->begin, room);
-		pos = pos->next;
-		count++;
-		ft_printf("\n\n");
-	}
-	ft_putendl("\n");
-}
-
 void	ft_print_till(t_out *out, unsigned long lenght, t_salle *room)
 {
 	int		n;

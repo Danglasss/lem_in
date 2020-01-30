@@ -28,19 +28,6 @@ void	leaks_info(t_stack *info)
 	info = NULL;
 }
 
-void	leaks_struct(t_struct *way, int max)
-{
-	int index;
-
-	index = 0;
-	while (index < max)
-	{
-		free(way);
-		way = NULL;
-		index++;
-	}
-}
-
 void	leaks_out(t_out *leaks)
 {
 	t_out	*tmp;
@@ -53,23 +40,6 @@ void	leaks_out(t_out *leaks)
 		leaks->begin = NULL;
 		leaks->prev = NULL;
 		leaks->out = NULL;
-		tmp = leaks->next;
-		free(leaks);
-		leaks = tmp;
-		tmp = NULL;
-	}
-}
-
-void	leaks_pos(t_pos *leaks)
-{
-	t_pos	*tmp;
-
-	leaks = leaks->begin;
-	while (leaks != NULL)
-	{
-		leaks_out(leaks->ways);
-		leaks->begin = NULL;
-		leaks->prev = NULL;
 		tmp = leaks->next;
 		free(leaks);
 		leaks = tmp;

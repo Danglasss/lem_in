@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:34:14 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/23 09:11:45 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/30 15:33:45 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,6 @@ void	out_end(t_out **list)
 	while ((*list)->next != NULL)
 		(*list) = (*list)->next;
 	(*list) = (*list)->prev;
-}
-
-void	pos_end(t_pos **list)
-{
-	if ((*list) == NULL || (*list)->next == NULL)
-		return ;
-	while ((*list)->next != NULL)
-		(*list) = (*list)->next;
-	(*list) = (*list)->prev;
-}
-
-void	npos_next(t_pos **list, unsigned int count)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (i < count)
-		(*list) = (*list)->next;
 }
 
 void	nout_next(t_out **list, unsigned int count)

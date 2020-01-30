@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 10:16:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/29 12:13:34 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/30 13:39:00 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,4 +89,14 @@ void	ft_reset(t_salle *room, t_out *index)
 		len_room--;
 	}
 	index = index->begin;
+}
+
+void		main_reset(t_salle *room, t_stack *find, t_out *index)
+{
+	if (find->finish != 0 && find->bhandari[0] != -1)
+		findpath(room, find, find->index_end);
+	clear(room, find, index);
+	if (find->bhandari[0] != -1)
+		find->bhandari[0] += finish(room, find, index);
+	ft_reset(room, index);
 }

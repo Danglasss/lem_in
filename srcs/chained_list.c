@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chained_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/30 15:04:51 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/01/30 15:33:28 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,6 @@
 #include <fcntl.h>
 #include "../include/lem_in.h"
 
-void	posn_prev(t_pos **pos, unsigned int n)
-{
-	unsigned int	count;
-
-	count = 0;
-	while (count++ < n)
-		(*pos) = (*pos)->prev;
-}
-
 void	outn_prev(t_out **out, unsigned int n)
 {
 	unsigned int	count;
@@ -32,18 +23,6 @@ void	outn_prev(t_out **out, unsigned int n)
 	count = 0;
 	while (count++ < n)
 		(*out) = (*out)->prev;
-}
-
-int		len_pos(t_pos *list, int origin)
-{
-	int	i;
-
-	i = 0;
-	if (origin == 1)
-		list = list->begin;
-	while (list != NULL && i++ > -1)
-		list = list->next;
-	return (i);
 }
 
 int		len_out(t_out *list, int origin)

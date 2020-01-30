@@ -35,7 +35,7 @@ int		ft_error(t_salle *rooms, t_stack *info)
 	return (0);
 }
 
-int		ft_main_algo(t_out *reads, t_out *index, t_pos *path, t_pos *pos)
+int		ft_main_algo(t_out *reads, t_out *index)
 {
 	t_salle		*rooms;
 	t_stack		*info;
@@ -49,11 +49,9 @@ int		ft_main_algo(t_out *reads, t_out *index, t_pos *path, t_pos *pos)
 	clean_map(rooms, info, index);
 	bhandari(rooms, info, index);
 	affichage(rooms, info);
-	path = path->begin;
 	//t_end(info, rooms, path->begin);
 	//leaks_salle(rooms, t_size, index);
 	//leaks_info(info);
-	init_leak(&reads, &index, &path, &pos);
 	//while (1);
 	// pos deja free dans ft_edmonds;
 	return (1);
@@ -63,13 +61,9 @@ int		main(void)
 {
 	t_out		*reads;
 	t_out		*index;
-	t_pos		*pos;
-	t_pos		*path;
 
 	out_init(&reads, 0);
 	out_init(&index, 0);
-	pos_init(&path, 0);
-	pos_init(&pos, 0);
-	ft_main_algo(reads, index, path, pos);
+	ft_main_algo(reads, index);
 	return (0);
 }

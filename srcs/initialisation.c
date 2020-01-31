@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 18:18:20 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/01/31 20:09:19 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	banned_init(t_banned **list, int i)
 {
 	if (!((*list) = (t_banned *)malloc(sizeof(t_banned))))
 		return ;
-	if (i == 0)
+	if (i == 0) 
 		(*list)->begin = (*list);
 	(*list)->room1 = 0;
 	(*list)->room2 = 0;

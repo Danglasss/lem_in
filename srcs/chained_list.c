@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/31 18:18:02 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/01/31 19:14:16 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,10 @@ int		len_out(t_out *list, int origin)
 	int		i;
 
 	i = 0;
-	//ft_printf("44\n");
 	if (origin == 1)
 		list = list->begin;
 	while (list != NULL && i++ > -1)
-	{
-		//ft_printf("55\n");
 		list = list->next;
-		//ft_printf("66\n");
-	}
 	return (i);
 }
 
@@ -60,15 +55,11 @@ void	cpy_length(t_out **dst, t_out *src, t_out **begin)
 	(*begin) = (*begin)->begin;
 }
 
-void	banned_cpy(t_banned **dst, t_banned *src, t_banned **begin)
+void	banned_cpy(t_banned **dst, t_banned *src)
 {
-	if (!(*dst) || !src)
-		return ;
-	(*dst) = (*dst)->begin;
-	src = src->begin;
-		printf("a\n");
-	while (src && (*dst))
+	while (src)
 	{
+		//ft_printf("141\n");
 		(*dst)->room1 = src->room1;
 		(*dst)->room2 = src->room2;
 		if ((*dst)->next == NULL)
@@ -78,5 +69,4 @@ void	banned_cpy(t_banned **dst, t_banned *src, t_banned **begin)
 		src = src->next;
 	}
 	(*dst) = (*dst)->begin;
-	(*begin) = (*begin)->begin;
 }

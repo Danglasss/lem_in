@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:37:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 18:29:55 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/01/31 20:14:13 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,18 @@ void	banned_add_tolist(t_banned **list, unsigned long room1,
 {
 	t_banned	*n_elist;
 
+	if ((*list)->room1 == 0)
+	{
+		(*list)->room1 = room1;
+		(*list)->room2 = room2;
+		return ;
+	}
 	banned_init(&n_elist, 1);
-	printf("%lu\n", (*list)->room1);
-	(*list) = (*list)->begin;
-	while ((*list)->next != NULL)
-		(*list) = (*list)->next;
 	n_elist->room1 = room1;
 	n_elist->room2 = room2;
+	n_elist->begin = (*list)->begin;
 	(*list)->next = n_elist;
+	(*list) = n_elist;
 }
 
 void	t_data(t_out **list, char **data)

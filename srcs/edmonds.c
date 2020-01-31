@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 18:34:41 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/01/31 20:14:48 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,12 +116,6 @@ int		bhandari(t_salle *room, t_stack *find, t_out *index)
 
 	shot_init(&best_shot);
 	shot_init(&current);
-	ft_printf("%d\n", current->banned->room1);
-	banned_add_tolist(&current->banned, 1, 2);
-	//banned_add_tolist(&current->banned, 3, 4);
-	//banned_add_tolist(&current->banned, 4, 4);
-	//banned_cpy(&best_shot->banned, current->banned, &current->banned);
-	//current->banned = current->banned->begin;
 	while (find->bhandari[0] < 1 && find->finish != 0)
 	{
 		algo(room, find, index);
@@ -133,6 +127,5 @@ int		bhandari(t_salle *room, t_stack *find, t_out *index)
 			ft_clean(room, index);
 		}
 	}
-	printf("%lu\n", current->banned->room1);
 	return (1);
 }

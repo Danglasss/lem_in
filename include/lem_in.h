@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/31 18:18:07 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/01/31 20:08:19 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ typedef struct		s_stack
 	char			*n_end;
 }					t_stack;
 
-void    			banned_cpy(t_banned **dst, t_banned *src, t_banned **begin);
+void    			banned_cpy(t_banned **dst, t_banned *src);
 void				banned_add_tolist(t_banned **list, unsigned long room1, unsigned long room2);
 void				init_algo(t_salle **room, t_stack **find, t_out **position, t_out **stack);
 void				shot_init(t_snapshot **list);
@@ -172,6 +172,6 @@ void	            clear(t_salle *room, t_stack *find, t_out *index);
 void	            print_lien(t_out *stack, t_salle *room);
 void	            print_salle(t_out *stack, t_salle *room);
 void				main_reset(t_salle *room, t_stack *find, t_out *index);
-void			banned_init(t_banned **list, int i);
+void				banned_init(t_banned **list, int i);
 
 #endif

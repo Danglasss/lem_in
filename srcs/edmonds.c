@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 11:12:37 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:48:55 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int		get_diff(unsigned long v_goals, t_salle *room, unsigned long end)
 	return (v_goals + 1);
 }
 
-void		repart_eval(t_salle *room, t_stack *find, t_out *link, unsigned long ants)
+int		repart_eval(t_salle *room, t_stack *find, t_out *link, unsigned long ants)
 {
 	int		diff;
 	
@@ -96,8 +96,8 @@ void		repart_eval(t_salle *room, t_stack *find, t_out *link, unsigned long ants)
 		ants--;
 		while (link->salle_prev != 0)
 		{	
-			if (diff > (link->ant_numb + link->nb_salle) &&
-					ants && ants-- > 0)
+			if (diff > (link->ant_numb + link->nb_salle)
+					&& ants && ants-- > 0)
 				link->ant_numb += 1;
 			link = link->next;
 		}
@@ -105,21 +105,21 @@ void		repart_eval(t_salle *room, t_stack *find, t_out *link, unsigned long ants)
 	}
 	diff = room[find->index_end].ant_numb + room[find->index_end].nb_salle;
 	clean_rep(room, find);
+	return (diff);
 }
 
 int		bhandari(t_salle *room, t_stack *find, t_out *index)
 {
 	t_snapshot	*best_shot;
 	t_snapshot	*current;
+	t_banned	*banlink;
 
 	shot_init(&best_shot);
 	shot_init(&current);
 	while (find->bhandari[0] < 1 && find->finish != 0)
 	{
-		find->finish = 0;
-		find->bhandari[0] = 0;
 		algo(room, find, index);
-		repart_eval(room, find,
+		current->lines = repart_eval(room, find,
 					room[find->index_end].liens->begin, find->fourmies);
 		if (find->bhandari[0] == -1 && find->finish != 0)
 		{

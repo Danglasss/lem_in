@@ -127,15 +127,11 @@ int		bfs(t_salle *room, t_stack *find, unsigned long position, t_out **stack)
 
 void		algo(t_salle *room, t_stack *find, t_out *index)
 {
-	t_out	*position;
-	t_out	*stack;
-	int 	len;
+	t_out		*position;
+	t_out		*stack;
+	int 		len;
 
-	out_init(&position, 0);
-	out_init(&stack, 0);
-	position->index = find->index_start;
-	room[find->index_start].free = 1;
-	room[find->index_start].salle_prev[0] = find->index_start;
+	init_algo(&room, &find, &position, &stack);
 	while (room[find->index_end].free == EMPTY)
 	{
 		len = len_out(position, 1) - 1;

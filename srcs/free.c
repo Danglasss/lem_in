@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 17:26:45 by damboule          #+#    #+#             */
-/*   Updated: 2019/09/18 17:27:01 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:19:15 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,13 @@ int		free_all(char **str, int truth)
 		ft_putstr_fd("ERROR", 2);
 		exit(0);
 	}
+	return (1);
+}
+
+int		free_reset(void *ptr)
+{
+	if (ptr)
+		free(ptr);
+	ptr = NULL;
 	return (1);
 }

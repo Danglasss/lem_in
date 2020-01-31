@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 11:11:32 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:25:24 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,13 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	(*info)->fourmies = -1;
 }
 
-int		free_reset(void *ptr)
+void	init_algo(t_salle **room, t_stack **find, t_out **position, t_out **stack)
 {
-	if (ptr)
-		free(ptr);
-	ptr = NULL;
-	return (1);
+	(*find)->finish = 0;
+	(*find)->bhandari[0] = 0;
+	out_init(position, 0);
+	out_init(stack, 0);
+	(*position)->index = (*find)->index_start;
+	(*room)[(*find)->index_start].free = 1;
+	(*room)[(*find)->index_start].salle_prev[0] = (*find)->index_start;
 }

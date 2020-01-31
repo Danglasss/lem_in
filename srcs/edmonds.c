@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 20:57:03 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 21:36:11 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ int		bhandari(t_salle *room, t_stack *find, t_out *index)
 		if (find->bhandari[0] == -1 && find->finish != 0)
 		{
 			//if (current->lines < best_shot->lines || best_shot->lines == 0)
-				//banned_cpy(&best_shot, current);
+				//snapshot_cpy(&best_shot, current);
 			ft_clean_end(room, find);
 			ft_clean(room, index);
 		}

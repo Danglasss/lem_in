@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/31 21:17:45 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 21:35:51 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ typedef struct		s_stack
 	t_banned		*banned;
 }					t_stack;
 
+void				snapshot_cpy(t_snapshot **best, t_snapshot *curr);
 void				permanant_delink(t_salle *room, t_stack *find, unsigned long index);
 void				banned_cpy(t_banned **dst, unsigned long room1, unsigned long room2);
 void				banned_add_tolist(t_banned **list, unsigned long room1, unsigned long room2);

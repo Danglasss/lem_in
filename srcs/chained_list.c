@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/31 21:12:24 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 21:34:43 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,20 @@ void	banned_cpy(t_banned **dst, unsigned long room1, unsigned long room2)
 		banned_add_tolist(dst, 0, 0);
 	else
 		(*dst) = (*dst)->next;
+}
+
+void	snapshot_cpy(t_snapshot **best, t_snapshot *curr)
+{
+	(*best)->lines = curr->lines;
+	while (curr->banned)
+	{
+		(*best)->banned->room1 = curr->banned->room1;
+		(*best)->banned->room2 = curr->banned->room2;
+		if ((*best)->banned->next == NULL)
+			banned_add_tolist(&(*best)->banned, 0, 0);
+		else
+			(*best)->banned = (*best)->banned->next;
+		curr->banned = curr->banned->next;
+	}
+	(*best)->banned = (*best)->banned->begin;
 }

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/30 15:35:08 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 08:12:01 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	if (!((*rooms) = (t_salle *)malloc(sizeof(t_salle) * t_size)))
 		return ;
 	ft_memset(*rooms, 0, (sizeof(t_salle) * t_size));	
-	(*info)->finish = 0;
+	(*info)->finish = 1;
 	(*info)->index_end = 0;
 	(*info)->index_start = 0;
 	(*info)->bhandari[0] = 0;

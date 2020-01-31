@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/30 15:33:28 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 08:20:25 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int		len_out(t_out *list, int origin)
 	return (i);
 }
 
-void	cpy_length(t_out **dst, t_out *src)
+void	cpy_length(t_out **dst, t_out *src, t_out **begin)
 {
 	(*dst) = (*dst)->begin;
 	src = src->begin;
@@ -56,4 +56,6 @@ void	cpy_length(t_out **dst, t_out *src)
 			(*dst) = (*dst)->next;
 		src = src->next;
 	}
+	(*dst) = (*dst)->begin;
+	(*begin) = (*begin)->begin;
 }

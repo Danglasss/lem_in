@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/30 15:38:41 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 08:21:33 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,7 @@ void                check_insert(t_out **reads, t_out **index, t_salle **rooms,
 		t_stack *info);
 void                leaks_out(t_out *leaks);
 void                leaks_salle(t_salle *s, int a, t_out *i);
-void		        cpy_length(t_out **dst, t_out *src);
+void		        cpy_length(t_out **dst, t_out *src, t_out **begin);
 void                leaks_info(t_stack *info);
 int		            bhandari(t_salle *room, t_stack *find, t_out *index);
 void		      	algo(t_salle *room, t_stack *find, t_out *index);

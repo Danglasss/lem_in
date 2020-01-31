@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/30 15:36:05 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 09:45:44 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,43 +46,77 @@ void	ft_clean_end(t_salle *room, t_stack *find)
 	room[find->index_end].liens = room[find->index_end].liens->begin;
 }
 
-
-void	repart_eval(t_salle *room, t_stack *find)
+void	clean_rep(t_salle *room, t_stack *find)
 {
-	int		diff;
-	t_out	*link;
+	t_out *link;
 
-	while (1)
+	link = room[find->index_end].liens->begin;
+	room[find->index_end].ant_numb = 0;
+	room[find->index_end].nb_salle = 0;
+	while (link)
 	{
-		link = room[find->index_end].liens;
+		link->ant_numb = 0;
+		link->nb_salle = 0;
 		if (link->next == NULL)
 			break ;
-		diff = link->next->nb_salle - link->nb_salle;
-		link->ant_numb = diff;
-		while (link)
+		link = link->next;
+	}
+	link = link->begin;
+}
+
+int		get_diff(unsigned long v_goals, t_salle *room, unsigned long end)
+{
+	room[end].liens = room[end].liens->begin;
+	if (v_goals > (room[end].ant_numb + room[end].nb_salle))
+		return (v_goals);
+	while (room[end].liens->salle_prev != 0)
+	{
+		if ((room[end].liens->ant_numb + room[end].liens->nb_salle) >
+								(room[end].ant_numb + room[end].nb_salle))
+		{
+			room[end].liens = room[end].liens->begin;
+			return (room[end].liens->ant_numb + room[end].liens->nb_salle);
+		}
+		room[end].liens = room[end].liens->next;
+	}
+	room[end].liens = room[end].liens->begin;
+	return (v_goals + 1);
+}
+
+void		repart_eval(t_salle *room, t_stack *find, t_out *link, unsigned long ants)
+{
+	int		diff;
+	
+	printpath(room, find);
+	diff = link->nb_salle;
+	while (ants)
+	{
+		diff = get_diff(diff, room, find->index_end);
+		room[find->index_end].ant_numb += 1;
+		ants--;
+		while (link->salle_prev != 0)
 		{	
-			if (link->next == NULL)
-				break ;
-			diff = link->next->nb_salle - link->nb_salle;
-			link->ant_numb = diff;
+			if (diff > (link->ant_numb + link->nb_salle) &&
+					ants && ants-- > 0)
+				link->ant_numb += 1;
 			link = link->next;
 		}
+		link = link->begin;
 	}
+	diff = room[find->index_end].ant_numb + room[find->index_end].nb_salle;
+	clean_rep(room, find);
 }
 
 int		bhandari(t_salle *room, t_stack *find, t_out *index)
 {
-
-	while (find->bhandari[0] < 1)
+	while (find->bhandari[0] < 1 && find->finish != 0)
 	{
 		find->finish = 0;
 		find->bhandari[0] = 0;
 		algo(room, find, index);
-		//printpath(room, find);
-		//repart_eval(room, find);
-		if (find->finish == 0)
-			break ;
-		if (find->bhandari[0] == -1)
+		repart_eval(room, find,
+					room[find->index_end].liens->begin, find->fourmies);
+		if (find->bhandari[0] == -1 && find->finish != 0)
 		{
 			ft_clean_end(room, find);
 			ft_clean(room, index);

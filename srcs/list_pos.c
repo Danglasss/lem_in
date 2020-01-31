@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:34:14 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/30 15:33:45 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 10:06:27 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	nout_next(t_out **list, unsigned int count)
 
 void	next(t_out **liens, t_out **stack)
 {
+	(*stack)->index = (unsigned long)(*liens)->out;
 	(*liens) = (*liens)->next;
 	if ((*stack)->next == NULL)
 		out_add_tolist(stack, NULL, 1);

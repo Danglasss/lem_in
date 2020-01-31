@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/28 16:36:25 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 10:08:00 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int		ft_graph(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 			liens = liens->next;
 			continue ;
 		}
-		(*stack)->index = (unsigned long)liens->out;
 		room[(unsigned long)liens->out].free = 1;
 		room[(unsigned long)liens->out].salle_prev[1] = position->index;
 		if (liens->next == NULL)
@@ -94,7 +93,7 @@ void	clean_map(t_salle *room, t_stack *find, t_out *index)
 				clean = 0;
 			position = position->next;
 		}
-		cpy_length(&position, stack);
+		cpy_length(&position, stack, &stack);
 		position = position->begin;
 		stack = stack->begin;
 	}

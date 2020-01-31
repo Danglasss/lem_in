@@ -17,6 +17,7 @@ void	delete_link(t_out **liens, t_salle *room, unsigned long salle)
 	int len;
 
 	(*liens)->del[1] = 1;
+	room[(unsigned long)(*liens)->out].ascend = 1;
 	room[(unsigned long)(*liens)->out].liens = room[(unsigned long)(*liens)->out].liens->begin;
 	len = len_out(room[(unsigned long)(*liens)->out].liens, 1) - 1;
 	while ((unsigned long)room[(unsigned long)(*liens)->out].liens->out != salle)
@@ -102,27 +103,22 @@ int		ft_open(t_salle *room, t_out *liens, t_stack *find, unsigned long index)
 int		bfs(t_salle *room, t_stack *find, unsigned long position, t_out **stack)
 {
 	t_out	*liens;
+	int		ret;
 
 	liens = room[position].liens->begin;
-	//ft_printf("ascend == %d\n", room[position].ascend);
-	//print_lien(liens, room);
 	while (liens)
 	{
-		if (ft_open(room, liens, find, position))
+		if ((ret = ft_open(room, liens, find, position)) || liens->open == 1)
 		{
+			if (liens->open == 1 && ret != 1)
+			{	
+				delete_link(&liens, room, position);
+				blockchain(room, position, find, (unsigned long)liens->out);		
+				bfs(room, find, (unsigned long)liens->out, stack);
+			}
 			liens = liens->next;
 			continue ;
 		}
-		if (liens->open == 1)
-		{
-			delete_link(&liens, room, position);
-			room[(unsigned long)liens->out].ascend = 1;
-			blockchain(room, position, find, (unsigned long)liens->out);		
-			bfs(room, find, (unsigned long)liens->out, stack);
-			liens = liens->next;
-			continue ;
-		}
-		(*stack)->index = (unsigned long)liens->out;
 		blockchain(room, position, find, (unsigned long)liens->out);
 		next(&liens, stack);
 	}
@@ -142,26 +138,20 @@ void		algo(t_salle *room, t_stack *find, t_out *index)
 	room[find->index_start].salle_prev[0] = find->index_start;
 	while (room[find->index_end].free == EMPTY)
 	{
-		//ft_printf("\nCommence \n");
 		len = len_out(position, 1) - 1;
 		while (position)
 		{
-			//ft_printf("\n\nSALLE : %s || %d\n", room[position->index].salle, position->index);
 			if (position->index == EMPTY)
 				len--;
 			if (position->index != EMPTY)
 				bfs(room, find, position->index, &stack);
-			//print(stack->begin, room);			
 			if (position->next == NULL)
 				break ;
 			if (len == 0)
 				room[find->index_end].free = 1;
 			position = position->next;
 		}
-		//ft_printf("\n___________\n");
-		cpy_length(&position, stack);
-		position = position->begin;
-		stack = stack->begin;
+		cpy_length(&position, stack, &stack);
 	}
 	main_reset(room, find, index);
 }

@@ -52,8 +52,6 @@ int		ft_main_algo(t_out *reads, t_out *index)
 	//t_end(info, rooms, path->begin);
 	//leaks_salle(rooms, t_size, index);
 	//leaks_info(info);
-	//while (1);
-	// pos deja free dans ft_edmonds;
 	return (1);
 }
 

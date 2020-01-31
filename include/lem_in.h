@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/31 20:08:19 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 21:17:45 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,11 @@ typedef struct		s_stack
 	unsigned long	index_start;
 	char			*n_start;
 	char			*n_end;
+	t_banned		*banned;
 }					t_stack;
 
-void    			banned_cpy(t_banned **dst, t_banned *src);
+void				permanant_delink(t_salle *room, t_stack *find, unsigned long index);
+void				banned_cpy(t_banned **dst, unsigned long room1, unsigned long room2);
 void				banned_add_tolist(t_banned **list, unsigned long room1, unsigned long room2);
 void				init_algo(t_salle **room, t_stack **find, t_out **position, t_out **stack);
 void				shot_init(t_snapshot **list);
@@ -157,7 +159,7 @@ void                leaks_salle(t_salle *s, int a, t_out *i);
 void		        cpy_length(t_out **dst, t_out *src, t_out **begin);
 void                leaks_info(t_stack *info);
 int		            bhandari(t_salle *room, t_stack *find, t_out *index);
-void		      	algo(t_salle *room, t_stack *find, t_out *index);
+void		      	algo(t_salle *room, t_stack *find, t_out *index, t_snapshot *current);
 int		            bfs(t_salle *room, t_stack *find, unsigned long position,
 		t_out **stack);
 int		            ft_open(t_salle *room, t_out *liens, t_stack *find,

@@ -125,7 +125,7 @@ int		bfs(t_salle *room, t_stack *find, unsigned long position, t_out **stack)
 	return (0);
 }
 
-void		algo(t_salle *room, t_stack *find, t_out *index)
+void		algo(t_salle *room, t_stack *find, t_out *index, t_snapshot *current)
 {
 	t_out		*position;
 	t_out		*stack;
@@ -141,7 +141,7 @@ void		algo(t_salle *room, t_stack *find, t_out *index)
 				len--;
 			if (position->index != EMPTY)
 				bfs(room, find, position->index, &stack);
-			if (position->next == NULL)
+			if (position->next == NULL || find->bhandari[0] == -1)
 				break ;
 			if (len == 0)
 				room[find->index_end].free = 1;

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/31 19:14:16 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 21:12:24 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,12 @@ void	cpy_length(t_out **dst, t_out *src, t_out **begin)
 	(*begin) = (*begin)->begin;
 }
 
-void	banned_cpy(t_banned **dst, t_banned *src)
+void	banned_cpy(t_banned **dst, unsigned long room1, unsigned long room2)
 {
-	while (src)
-	{
-		//ft_printf("141\n");
-		(*dst)->room1 = src->room1;
-		(*dst)->room2 = src->room2;
-		if ((*dst)->next == NULL)
-			banned_add_tolist(dst, 0, 0);
-		else
-			(*dst) = (*dst)->next;
-		src = src->next;
-	}
-	(*dst) = (*dst)->begin;
+	(*dst)->room1 = room1;
+	(*dst)->room2 = room2;
+	if ((*dst)->next == NULL)
+		banned_add_tolist(dst, 0, 0);
+	else
+		(*dst) = (*dst)->next;
 }

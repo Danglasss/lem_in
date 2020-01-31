@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 20:09:19 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 21:08:29 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	(*info)->n_end = NULL;
 	(*info)->n_start = NULL;
 	(*info)->fourmies = -1;
+	banned_init(&(*info)->banned, 0);
 }
 
 void	init_algo(t_salle **room, t_stack **find, t_out **position, t_out **stack)

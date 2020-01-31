@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 09:17:41 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/29 13:30:53 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 21:01:53 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,17 +86,11 @@ void	path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_p
 	index = end;
 	while (index != find->index_start)
 	{
-		//ft_printf("salle == %s\n", room[index].salle);
-		//print_lien(room[index].liens->begin, room);
 		if (index != find->index_end)
 		{
-			//ft_printf("0\n");
 			negatif_link(room, index, tmp, find);
-			//ft_printf("1\n");
 			positif_link(room, index, find);
-			//ft_printf("2\n");
 			neutral_link(room, index, tmp, find);
-			//ft_printf("3\n");
 		}
 		tmp = index;
 		if (index == find->index_end)

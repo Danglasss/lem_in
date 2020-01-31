@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:41:22 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 10:00:32 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 21:33:31 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int		ft_check(unsigned long path, unsigned long salle, t_stack *find, t_salle *r
 
 void	permanant_delink(t_salle *room, t_stack *find, unsigned long index)
 {
+	unsigned long		stack[2];
+
+	stack[0] = 0;
+	stack[1] = 0;
 	find->bhandari[1] = 0;
 	find->bhandari[0] = -1;
 	while (index != find->index_start)

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/30 15:38:41 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/30 20:34:19 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,29 @@ typedef struct       s_salle
 	char            *salle;
 	t_out           *liens;
 }                   t_salle;
+
+/*
+** Liste chainée des chemins eliminés par Bhandari
+*/
+
+typedef struct			s_banned
+{
+	unsigned long		room1;
+	unsigned long		room2;
+	struct s_banned		*begin;
+	struct s_banned		*next;
+}				t_banned;
+
+/*
+** Fait une snapshot, qui sauvegarde les lignes (de solution) et 
+** les liens eliminés avant le reset des chemins.
+*/
+
+typedef struct			s_snapshot
+{
+	int			lines;
+	t_banned		*banned;
+}				t_snapshot;
 
 /*
  ** Stocker les informations importantes (nombre de fourmies,
@@ -146,5 +169,6 @@ void	            clear(t_salle *room, t_stack *find, t_out *index);
 void	            print_lien(t_out *stack, t_salle *room);
 void	            print_salle(t_out *stack, t_salle *room);
 void				main_reset(t_salle *room, t_stack *find, t_out *index);
+void			banned_init(t_banned **list, int i);
 
 #endif

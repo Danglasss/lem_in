@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 09:45:44 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:12:37 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,11 @@ void		repart_eval(t_salle *room, t_stack *find, t_out *link, unsigned long ants)
 
 int		bhandari(t_salle *room, t_stack *find, t_out *index)
 {
+	t_snapshot	*best_shot;
+	t_snapshot	*current;
+
+	shot_init(&best_shot);
+	shot_init(&current);
 	while (find->bhandari[0] < 1 && find->finish != 0)
 	{
 		find->finish = 0;

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/31 11:04:41 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:12:07 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ typedef struct		s_stack
 }					t_stack;
 
 
+void				shot_init(t_snapshot **list);
 void				repartition(t_salle *room, t_stack *find, unsigned long v_goals, int ants);
 void				clean_map(t_salle *room, t_stack *find, t_out *index);
 void				printpath(t_salle *room, t_stack *find);

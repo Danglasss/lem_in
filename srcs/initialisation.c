@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 11:05:02 by damboule         ###   ########.fr       */
+/*   Updated: 2020/01/31 11:11:32 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@ void	banned_init(t_banned **list, int i)
 	(*list)->room2 = 0;
 	(*list)->next = NULL;
 	
+}
+
+void	shot_init(t_snapshot **list)
+{
+	if (!((*list) = (t_snapshot *)malloc(sizeof(t_snapshot))))
+		return ;
+	(*list)->lines = 0;
+	banned_init(&(*list)->banned, 0);	
 }
 
 void	stack_room_init(t_stack **info, t_salle **rooms)

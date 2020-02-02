@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   affichage.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/01/30 14:12:51 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/02 21:51:42 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,13 +155,31 @@ void	print_graph(t_salle *room, t_stack *find, unsigned long salle, unsigned lon
 
 }
 
-void	affichage(t_salle *room, t_stack *find)
+void	printrep(t_salle *room, t_stack *find)
 {
+	ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
+	room[find->index_start].nb_salle, room[find->index_start].ant_numb, room[find->index_start].nb_salle + room[find->index_start].ant_numb);
+	room[find->index_start].liens = room[find->index_start].liens->begin;
+	while (1)
+	{
+		ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
+		room[find->index_start].liens->nb_salle, room[find->index_start].liens->ant_numb, room[find->index_start].liens->nb_salle + room[find->index_start].liens->ant_numb);		
+		if (room[find->index_start].liens->next == NULL)
+			break ;
+		room[find->index_start].liens = room[find->index_start].liens->next;
+	}
+	room[find->index_start].liens = room[find->index_start].liens->begin;
+}
+
+void	affichage(t_salle *room, t_stack *find)
+{	
+	int					count =0;
 	unsigned long		num;
 	unsigned long		total_ants;
 
 	mainturn(room, find);
 	repartition(room, find, room[find->index_start].liens->nb_salle, find->fourmies);
+	printrep(room, find);
 	total_ants = find->fourmies;
 	find->fourmies = 1;
 	while (total_ants != room[find->index_end].n_lem)
@@ -180,5 +198,7 @@ void	affichage(t_salle *room, t_stack *find)
 		}
 		room[find->index_start].liens = room[find->index_start].liens->begin;
 		ft_printf("\n");
+		count++;
 	}
+	ft_printf("Nombre de ligne == %d", count);
 }

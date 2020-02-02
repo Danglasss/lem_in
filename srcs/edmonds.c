@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 21:36:11 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/02 19:51:19 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,26 +108,29 @@ int		repart_eval(t_salle *room, t_stack *find, t_out *link, unsigned long ants)
 	return (diff);
 }
 
-int		bhandari(t_salle *room, t_stack *find, t_out *index)
+void		bhandari(t_salle *room, t_stack *find, t_out *index, t_snapshot	*best_shot)
 {
-	t_snapshot	*best_shot;
 	t_snapshot	*current;
-	t_banned	*banlink;
 
-	shot_init(&best_shot);
 	shot_init(&current);
 	while (find->bhandari[0] < 1 && find->finish != 0)
 	{
 		algo(room, find, index, current);
 		current->lines = repart_eval(room, find,
 					room[find->index_end].liens->begin, find->fourmies);
+		//ft_printf("lines == %d !! best == %d\n", current->lines, best_shot->lines);
 		if (find->bhandari[0] == -1 && find->finish != 0)
 		{
-			//if (current->lines < best_shot->lines || best_shot->lines == 0)
-				//snapshot_cpy(&best_shot, current);
+			find->counter_del++;
+			banned_cpy(&current->banned, find->banned);	
+			if (current->lines < best_shot->lines || best_shot->lines == 0)
+				snapshot_cpy(&best_shot, current, find->counter_del);
+			clean_current(&current);
 			ft_clean_end(room, find);
 			ft_clean(room, index);
 		}
 	}
-	return (1);
+	if (current->lines < best_shot->lines || best_shot->lines == 0)
+		find->counter_del = -1;
+	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 21:08:29 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/01 21:23:40 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	banned_init(t_banned **list, int i)
 	(*list)->room1 = 0;
 	(*list)->room2 = 0;
 	(*list)->next = NULL;
-	
 }
 
 void	shot_init(t_snapshot **list)
@@ -48,6 +47,7 @@ void	shot_init(t_snapshot **list)
 	if (!((*list) = (t_snapshot *)malloc(sizeof(t_snapshot))))
 		return ;
 	(*list)->lines = 0;
+	(*list)->counter_del = 0;
 	banned_init(&(*list)->banned, 0);	
 }
 
@@ -58,6 +58,7 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	if (!((*rooms) = (t_salle *)malloc(sizeof(t_salle) * t_size)))
 		return ;
 	ft_memset(*rooms, 0, (sizeof(t_salle) * t_size));	
+	(*info)->counter_del = 0;
 	(*info)->finish = 1;
 	(*info)->index_end = 0;
 	(*info)->index_start = 0;
@@ -67,7 +68,6 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	(*info)->operation = 0;
 	(*info)->result = 0;
 	(*info)->salle = 0;
-	(*info)->ways = 0;
 	(*info)->n_end = NULL;
 	(*info)->n_start = NULL;
 	(*info)->fourmies = -1;

@@ -37,9 +37,11 @@ int		ft_error(t_salle *rooms, t_stack *info)
 
 int		ft_main_algo(t_out *reads, t_out *index)
 {
+	t_snapshot	*best_shot;
 	t_salle		*rooms;
 	t_stack		*info;
 
+	shot_init(&best_shot);
 	stack_room_init(&info, &rooms);
 	check_insert(&reads, &index, &rooms, info);
 	//ft_printread(reads->begin);
@@ -47,11 +49,9 @@ int		ft_main_algo(t_out *reads, t_out *index)
 		return (write(2, "ERROR\n", 6));
 	way_back(index, rooms);
 	clean_map(rooms, info, index);
-	bhandari(rooms, info, index);
+	bhandari(rooms, info, index, best_shot);
+	//bfs_remaker(rooms, info, index, best_shot);
 	affichage(rooms, info);
-	//t_end(info, rooms, path->begin);
-	//leaks_salle(rooms, t_size, index);
-	//leaks_info(info);
 	return (1);
 }
 

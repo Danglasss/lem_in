@@ -6,7 +6,7 @@
 #    By: damboule <damboule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:29:33 by dygouin           #+#    #+#              #
-#    Updated: 2020/01/31 18:18:43 by dygouin          ###   ########.fr        #
+#    Updated: 2020/02/02 19:16:41 by damboule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS		=		srcs/main.c					\
 					srcs/edmonds.c				\
 					srcs/linksvalue.c			\
 					srcs/printpath.c			\
+					srcs/bfs_remaker.c			\
 
 OBJ			=		$(SRCS:.c=.o)
 

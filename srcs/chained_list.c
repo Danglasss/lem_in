@@ -1,3 +1,4 @@
+
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -55,22 +56,57 @@ void	cpy_length(t_out **dst, t_out *src, t_out **begin)
 	(*begin) = (*begin)->begin;
 }
 
-void	banned_cpy(t_banned **dst, t_banned *src)
+void	cases_cpy(t_cases **dst, t_cases *src)
 {
 	(*dst) = (*dst)->begin;
 	src = src->begin;
 	while (src)
 	{
-		banned_add_tolist(dst, src->room1, src->room2);
+		cases_add_tolist(dst, src->index);
 		if (src->next == NULL)
 			break ;
 		src = src->next;
 	}
 }
 
-void	snapshot_cpy(t_snapshot **best, t_snapshot *curr, int counter_del)
+void	path_cpy(t_path **best, t_path *curr, int len)
 {
-	(*best)->lines = curr->lines;
-	(*best)->counter_del = counter_del;
-	banned_cpy(&(*best)->banned, curr->banned);
+	int index;
+
+	index = 0;
+	while (index < len)
+	{
+		(*best)[index].lines = curr[index].lines;
+		(*best)[index].ants = curr[index].ants;
+		(*best)[index].length = curr[index].length;
+		cases_cpy(&(*best)[index].cases, curr[index].cases);
+		index++;
+	}
+}
+
+void 	clean_cases(t_cases **room)
+{
+	(*room) = (*room)->begin;
+	while ((*room))
+	{
+		(*room)->index = 0;
+		if ((*room)->next == NULL)
+			break ;
+		(*room) = (*room)->next;
+	}
+}
+
+void	clean_current(t_path **current, int len)
+{
+	int index;
+
+	index = 0;
+	while (index < len)
+	{
+		clean_cases(&(*current)[index].cases);
+		(*current)[index].lines = 0;		
+		(*current)[index].ants = 0;
+		(*current)[index].length = 0;
+		index++;
+	}
 }

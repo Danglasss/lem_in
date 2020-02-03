@@ -91,10 +91,12 @@ void	ft_reset(t_salle *room, t_out *index)
 	index = index->begin;
 }
 
-void		main_reset(t_salle *room, t_stack *find, t_out *index)
+void		main_reset(t_salle *room, t_stack *find, t_out *index, t_path *current)
 {
+	int len = 0;
+
 	if (find->finish != 0 && find->bhandari[0] != -1)
-		findpath(room, find, find->index_end);
+		findpath(room, find, find->index_end, current);
 	clear(room, find, index);
 	if (find->bhandari[0] != -1)
 		find->bhandari[0] += finish(room, find, index);

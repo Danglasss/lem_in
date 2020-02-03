@@ -31,24 +31,33 @@ void	out_init(t_out **list, int i)
 	(*list)->prev = NULL;
 }
 
-void	banned_init(t_banned **list, int i)
+void	cases_init(t_cases **list, int i)
 {
-	if (!((*list) = (t_banned *)malloc(sizeof(t_banned))))
+	if (!((*list) = (t_cases *)malloc(sizeof(t_cases) * 1)))
 		return ;
-	if (i == 0) 
+	if (i == 0)
 		(*list)->begin = (*list);
-	(*list)->room1 = 0;
-	(*list)->room2 = 0;
+	(*list)->index = 0;
 	(*list)->next = NULL;
 }
 
-void	shot_init(t_snapshot **list)
+void	path_init(t_path **path, t_salle *room, t_stack *find)
 {
-	if (!((*list) = (t_snapshot *)malloc(sizeof(t_snapshot))))
+	int		i;
+	int		len;
+
+	i = 0;
+	len = len_out(room[find->index_end].liens, 1) + 1;
+	if (!((*path) = (t_path *)malloc(sizeof(t_path) * (len + 1))))
 		return ;
-	(*list)->lines = 0;
-	(*list)->counter_del = 0;
-	banned_init(&(*list)->banned, 0);	
+	ft_memset(*path, 0, (sizeof(t_path) * len));
+	while (i < len)
+	{
+		cases_init(&(*path)[i].cases, 0);
+		(*path)[i].ants = 0;
+		(*path)[i].length = 0;
+		i++;
+	}
 }
 
 void	stack_room_init(t_stack **info, t_salle **rooms)
@@ -57,7 +66,7 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 		return ;
 	if (!((*rooms) = (t_salle *)malloc(sizeof(t_salle) * t_size)))
 		return ;
-	ft_memset(*rooms, 0, (sizeof(t_salle) * t_size));	
+	ft_memset(*rooms, 0, (sizeof(t_salle) * t_size));
 	(*info)->counter_del = 0;
 	(*info)->finish = 1;
 	(*info)->index_end = 0;
@@ -71,7 +80,6 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	(*info)->n_end = NULL;
 	(*info)->n_start = NULL;
 	(*info)->fourmies = -1;
-	banned_init(&(*info)->banned, 0);
 }
 
 void	init_algo(t_salle **room, t_stack **find, t_out **position, t_out **stack)

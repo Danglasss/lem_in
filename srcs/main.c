@@ -37,13 +37,13 @@ int		ft_error(t_salle *rooms, t_stack *info)
 
 int		ft_main_algo(t_out *reads, t_out *index)
 {
-	t_snapshot	*best_shot;
 	t_salle		*rooms;
 	t_stack		*info;
+	t_path		*best_shot;
 
-	shot_init(&best_shot);
 	stack_room_init(&info, &rooms);
 	check_insert(&reads, &index, &rooms, info);
+	path_init(&best_shot, rooms, info);
 	//ft_printread(reads->begin);
 	if (ft_error(rooms, info))
 		return (write(2, "ERROR\n", 6));

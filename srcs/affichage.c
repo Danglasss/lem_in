@@ -179,7 +179,7 @@ void	affichage(t_salle *room, t_stack *find)
 
 	mainturn(room, find);
 	repartition(room, find, room[find->index_start].liens->nb_salle, find->fourmies);
-	printrep(room, find);
+	//printrep(room, find);
 	total_ants = find->fourmies;
 	find->fourmies = 1;
 	while (total_ants != room[find->index_end].n_lem)
@@ -200,5 +200,5 @@ void	affichage(t_salle *room, t_stack *find)
 		ft_printf("\n");
 		count++;
 	}
-	ft_printf("Nombre de ligne == %d", count);
+	//ft_printf("Nombre de ligne == %d", count);
 }

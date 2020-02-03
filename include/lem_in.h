@@ -63,29 +63,20 @@ typedef struct       s_salle
 	t_out           *liens;
 }                   t_salle;
 
-/*
-** Liste chainée des chemins eliminés par Bhandari
-*/
-
-typedef struct			s_banned
+typedef struct		s_cases
 {
-	unsigned long		room1;
-	unsigned long		room2;
-	struct s_banned		*begin;
-	struct s_banned		*next;
-}				t_banned;
+	unsigned long	index;
+	struct s_cases	*begin;
+	struct s_cases	*next;
+}					t_cases;
 
-/*
-** Fait une snapshot, qui sauvegarde les lignes (de solution) et 
-** les liens eliminés avant le reset des chemins.
-*/
-
-typedef struct			s_snapshot
+typedef	struct		s_path
 {
-	int				counter_del;
+	t_cases			*cases;
 	int				lines;
-	t_banned		*banned;
-}				t_snapshot;
+	int				ants;
+	int				length;
+}					t_path;
 
 /*
  ** Stocker les informations importantes (nombre de fourmies,
@@ -108,22 +99,21 @@ typedef struct		s_stack
 	unsigned long	index_start;
 	char			*n_start;
 	char			*n_end;
-	t_banned		*banned;
 }					t_stack;
 
+void				path_cpy(t_path **best, t_path *curr, int len);
+void				clean_current(t_path **current, int len);
+void 				clean_cases(t_cases **room);
+void				cases_add_tolist(t_cases **list, unsigned long index);
+void				cases_init(t_cases **list, int i);
+void				path_init(t_path **path, t_salle *room, t_stack *find);
 void				ft_clean_end(t_salle *room, t_stack *find);
-void				bfs_remaker(t_salle *room, t_stack *find, t_out *index, t_snapshot	*best_shot);
-void				clean_current(t_snapshot **list);
-void				snapshot_cpy(t_snapshot **best, t_snapshot *curr, int counter_del);
 void				permanant_delink(t_salle *room, t_stack *find, unsigned long index);
-void				banned_cpy(t_banned **dst, t_banned *src);
-void				banned_add_tolist(t_banned **list, unsigned long room1, unsigned long room2);
 void				init_algo(t_salle **room, t_stack **find, t_out **position, t_out **stack);
-void				shot_init(t_snapshot **list);
 void				repartition(t_salle *room, t_stack *find, unsigned long v_goals, int ants);
 void				clean_map(t_salle *room, t_stack *find, t_out *index);
 void				printpath(t_salle *room, t_stack *find);
-void				path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_prev);
+void				path(t_salle *room, t_stack *find, unsigned long salle_prev, t_cases *current);
 int					toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index);
 int					finish(t_salle *room, t_stack *find, t_out *index);
 void				next(t_out **liens, t_out **stack);
@@ -164,8 +154,8 @@ void                leaks_out(t_out *leaks);
 void                leaks_salle(t_salle *s, int a, t_out *i);
 void		        cpy_length(t_out **dst, t_out *src, t_out **begin);
 void                leaks_info(t_stack *info);
-void		        bhandari(t_salle *room, t_stack *find, t_out *index, t_snapshot *best_shot);
-void		      	algo(t_salle *room, t_stack *find, t_out *index, t_snapshot *current);
+void		        bhandari(t_salle *room, t_stack *find, t_out *index, t_path *best_shot);
+void		      	algo(t_salle *room, t_stack *find, t_out *index, t_path *current);
 int		            bfs(t_salle *room, t_stack *find, unsigned long position,
 		t_out **stack);
 int		            ft_open(t_salle *room, t_out *liens, t_stack *find,
@@ -175,11 +165,10 @@ void	            blockchain(t_salle *room, unsigned long salle_prev,
 		t_stack *find, unsigned long stack);
 void	            next(t_out **liens, t_out **stack);
 void	            print(t_out *stack, t_salle *room);
-void	            findpath(t_salle *room, t_stack *find, unsigned long end);
+void	            findpath(t_salle *room, t_stack *find, unsigned long end, t_path *current);
 void	            clear(t_salle *room, t_stack *find, t_out *index);
 void	            print_lien(t_out *stack, t_salle *room);
 void	            print_salle(t_out *stack, t_salle *room);
-void				main_reset(t_salle *room, t_stack *find, t_out *index);
-void				banned_init(t_banned **list, int i);
+void				main_reset(t_salle *room, t_stack *find, t_out *index, t_path *current);
 
 #endif

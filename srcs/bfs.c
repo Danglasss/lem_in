@@ -125,7 +125,7 @@ int		bfs(t_salle *room, t_stack *find, unsigned long position, t_out **stack)
 	return (0);
 }
 
-void		algo(t_salle *room, t_stack *find, t_out *index, t_snapshot *current)
+void		algo(t_salle *room, t_stack *find, t_out *index, t_path *current)
 {
 	t_out		*position;
 	t_out		*stack;
@@ -149,5 +149,5 @@ void		algo(t_salle *room, t_stack *find, t_out *index, t_snapshot *current)
 		}
 		cpy_length(&position, stack, &stack);
 	}
-	main_reset(room, find, index);
+	main_reset(room, find, index, current);
 }

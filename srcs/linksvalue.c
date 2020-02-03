@@ -77,15 +77,17 @@ void	neutral_link(t_salle *room, unsigned long index,  unsigned long tmp, t_stac
 	room[index].liens = room[index].liens->begin;
 }
 
-void	path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_prev)
+void	path(t_salle *room, t_stack *find, unsigned long salle_prev, t_cases *current)
 {
 	unsigned long index;
 	unsigned long tmp;
 	unsigned long sale;
 
-	index = end;
+	index = find->index_end;
 	while (index != find->index_start)
 	{
+		cases_add_tolist(&current, index);
+		//printf("%s\n", room[current->index].salle);
 		if (index != find->index_end)
 		{
 			negatif_link(room, index, tmp, find);
@@ -100,6 +102,7 @@ void	path(t_salle *room, t_stack *find, unsigned long end, unsigned long salle_p
 		}
 		index = room[index].salle_prev[0];
 	}
+	cases_add_tolist(&current, index);
 	negatif_link(room, index, tmp, find);
 	positif_link(room, index, find);
 }

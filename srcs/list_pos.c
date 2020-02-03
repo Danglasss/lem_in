@@ -41,16 +41,3 @@ void	next(t_out **liens, t_out **stack)
 	else
 		(*stack) = (*stack)->next;
 }
-
-void	clean_current(t_snapshot **list)
-{
-	(*list)->banned = (*list)->banned->begin;
-	while ((*list))
-	{
-		(*list)->banned->room1 = 0;
-		(*list)->banned->room2 = 0;
-		if ((*list)->banned->next == NULL)
-			break ;
-		(*list)->banned = (*list)->banned->next;
-	}
-}

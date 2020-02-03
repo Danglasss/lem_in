@@ -41,34 +41,6 @@ int		ft_check(unsigned long path, unsigned long salle, t_stack *find, t_salle *r
 	return (0);
 }
 
-void	get_bannedlink(t_salle *room, t_stack *find, unsigned long index)
-{
-	unsigned long	room_1;
-	unsigned long	room_2;
-	int				false;
-
-	false = 0;
-	room_1 = index;
-	index = room[index].salle_prev[1];
-	room[index].liens = room[index].liens->begin;
-	while (room[index].liens)
-	{
-		if ((unsigned long)room[index].liens->out == room_1 &&
-					room[index].liens->del[1] == 1)
-			break ;
-		if (room[index].liens->next == NULL)
-		{
-			false = 1;
-			break ;
-		}
-		room[index].liens = room[index].liens->next;
-	}
-	room[index].liens = room[index].liens->begin;
-	room_2 = index;
-	if (false == 0)
-		banned_add_tolist(&find->banned, room_1, room_2);
-}
-
 void	permanant_delink(t_salle *room, t_stack *find, unsigned long index)
 {
 	find->bhandari[1] = 0;
@@ -80,7 +52,6 @@ void	permanant_delink(t_salle *room, t_stack *find, unsigned long index)
 		{
 			if (room[index].liens->del[1] == 1)
 			{
-				get_bannedlink(room, find, index);
 				room[index].liens->del[0] = room[index].liens->del[1];
 				room[index].liens->del[1] = 0;
 			}

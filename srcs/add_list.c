@@ -34,20 +34,17 @@ void	out_add_tolist(t_out **list, char *data, int truth)
 		(*list) = n_elist;
 }
 
-void	banned_add_tolist(t_banned **list, unsigned long room1,
-				unsigned long room2)
+void	cases_add_tolist(t_cases **list, unsigned long index)
 {
-	t_banned	*n_elist;
+	t_cases	*n_elist;
 
-	if ((*list)->room1 == 0)
+	/*if ((*list)->index == 0)
 	{
-		(*list)->room1 = room1;
-		(*list)->room2 = room2;
+		(*list)->index = index;
 		return ;
-	}
-	banned_init(&n_elist, 1);
-	n_elist->room1 = room1;
-	n_elist->room2 = room2;
+	}*/
+	cases_init(&n_elist, 1);
+	n_elist->index = index;
 	n_elist->begin = (*list)->begin;
 	(*list)->next = n_elist;
 	(*list) = n_elist;

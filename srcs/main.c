@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/18 15:10:28 by dygouin          #+#    #+#             */
-/*   Updated: 2020/01/30 15:06:39 by dygouin          ###   ########.fr       */
+/*   Created: 2019/07/18 15:10:28 by dygouin           #+#    #+#             */
+/*   Updated: 2020/02/06 13:38:48 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int		ft_main_algo(t_out *reads, t_out *index)
 	way_back(index, rooms);
 	clean_map(rooms, info, index);
 	bhandari(rooms, info, index, best_shot);
-	//bfs_remaker(rooms, info, index, best_shot);
 	affichage(rooms, info);
 	return (1);
 }

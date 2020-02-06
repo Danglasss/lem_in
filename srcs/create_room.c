@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 16:50:14 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/29 12:10:32 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/04 19:56:09 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			ft_initi(t_salle *room)
 	int		a;
 
 	a = 0;
-	while (a < t_size)
+	while (a < T_SIZE)
 	{
 		room[a].liens = NULL;
 		room[a].salle = NULL;
@@ -49,11 +49,8 @@ int				create_room(t_salle *room, char *hash, t_out **n_index)
 	if (room[index].salle != NULL)
 	{
 		if (ft_strcmp(room[index].salle, hash))
-		{
-			ft_putstr("Collision ! Probleme dans la table de hash !\n");
-			ft_putendl(room[index].salle);
-			ft_putendl(hash);
-		}
+			ft_printf("Collision ! Probleme dans la table de hash !\n%s\n%s\n",
+			room[index].salle, hash);
 		free_reset(hash);
 		return (-1);
 	}

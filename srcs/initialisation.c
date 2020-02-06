@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/01 21:23:40 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/06 12:20:02 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,9 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 {
 	if (!((*info) = (t_stack *)malloc(sizeof(t_stack))))
 		return ;
-	if (!((*rooms) = (t_salle *)malloc(sizeof(t_salle) * t_size)))
+	if (!((*rooms) = (t_salle *)malloc(sizeof(t_salle) * T_SIZE)))
 		return ;
-	ft_memset(*rooms, 0, (sizeof(t_salle) * t_size));
+	ft_memset(*rooms, 0, (sizeof(t_salle) * T_SIZE));
 	(*info)->counter_del = 0;
 	(*info)->finish = 1;
 	(*info)->index_end = 0;
@@ -82,7 +82,8 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	(*info)->fourmies = -1;
 }
 
-void	init_algo(t_salle **room, t_stack **find, t_out **position, t_out **stack)
+void	init_algo(t_salle **room, t_stack **find,
+t_out **position, t_out **stack)
 {
 	(*find)->finish = 0;
 	(*find)->bhandari[0] = 0;

@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/01 21:24:48 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/04 16:52:49 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +15,6 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include "../include/lem_in.h"
-
-void	outn_prev(t_out **out, unsigned int n)
-{
-	unsigned int	count;
-
-	count = 0;
-	while (count++ < n)
-		(*out) = (*out)->prev;
-}
-
-int		len_out(t_out *list, int origin)
-{
-	int		i;
-
-	i = 0;
-	if (origin == 1)
-		list = list->begin;
-	while (list != NULL && i++ > -1)
-		list = list->next;
-	return (i);
-}
 
 void	cpy_length(t_out **dst, t_out *src, t_out **begin)
 {
@@ -84,7 +62,7 @@ void	path_cpy(t_path **best, t_path *curr, int len)
 	}
 }
 
-void 	clean_cases(t_cases **room)
+void	clean_cases(t_cases **room)
 {
 	(*room) = (*room)->begin;
 	while ((*room))
@@ -104,7 +82,7 @@ void	clean_current(t_path **current, int len)
 	while (index < len)
 	{
 		clean_cases(&(*current)[index].cases);
-		(*current)[index].lines = 0;		
+		(*current)[index].lines = 0;
 		(*current)[index].ants = 0;
 		(*current)[index].length = 0;
 		index++;

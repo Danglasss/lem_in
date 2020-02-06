@@ -6,7 +6,7 @@
 #    By: damboule <damboule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:29:33 by dygouin           #+#    #+#              #
-#    Updated: 2020/02/02 19:16:41 by damboule         ###   ########.fr        #
+#    Updated: 2020/02/06 14:02:41 by dygouin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ INCLUDES	=		-Iinclude
 
 SRCS		=		srcs/main.c					\
 					srcs/chained_list.c			\
+					srcs/chained_list2.c		\
 					srcs/clean_map.c			\
 					srcs/bfs.c					\
 					srcs/create_room.c			\
@@ -28,6 +29,7 @@ SRCS		=		srcs/main.c					\
 					srcs/is_int.c				\
 					srcs/initialisation.c		\
 					srcs/t_hash.c				\
+					srcs/t_hash_primes.c		\
 					srcs/reset_transfert.c		\
 					srcs/free.c					\
 					srcs/print.c				\
@@ -36,7 +38,6 @@ SRCS		=		srcs/main.c					\
 					srcs/edmonds.c				\
 					srcs/linksvalue.c			\
 					srcs/printpath.c			\
-					srcs/bfs_remaker.c			\
 
 OBJ			=		$(SRCS:.c=.o)
 

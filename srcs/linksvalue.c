@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 09:17:41 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/05 10:19:05 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/07 17:46:21 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	path(t_salle *room, t_stack *find, unsigned long salle_prev, t_cases *curre
 	index = find->index_end;
 	while (index != find->index_start)
 	{
-		cases_add_tolist(&current, index);
+		//cases_add_tolist(&current, index);
 		if (index != find->index_end)
 		{
 			negatif_link(room, index, tmp, find);
@@ -100,7 +100,7 @@ void	path(t_salle *room, t_stack *find, unsigned long salle_prev, t_cases *curre
 		}
 		index = room[index].salle_prev[0];
 	}
-	cases_add_tolist(&current, index);
+	//cases_add_tolist(&current, index);
 	negatif_link(room, index, tmp, find);
 	positif_link(room, index, find);
 }

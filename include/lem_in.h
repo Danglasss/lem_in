@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/06 18:33:51 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/07 17:45:30 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,11 @@ typedef struct		s_stack
 	char			*n_end;
 }					t_stack;
 
+void	p(t_salle *room, t_stack *find, t_path *current);
 int					same_path(t_salle *room, t_stack *find, unsigned long index, unsigned long value);
 int					stop_up(t_out *link, t_stack *find, t_salle *room, unsigned long index);
 void				delete_link(t_out **liens, t_salle *room, unsigned long salle);
-int					repart_eval(t_salle *room, t_stack *find, t_out *link, unsigned long ants);
+int					repart_eval(t_salle *room, t_stack *find, t_out *link, t_path *current);
 void				path_cpy(t_path **best, t_path *curr, int len);
 void				clean_current(t_path **current, int len);
 void 				clean_cases(t_cases **room);
@@ -116,7 +117,7 @@ void				permanant_delink(t_salle *room, t_stack *find, unsigned long index);
 void				init_algo(t_salle **room, t_stack **find, t_out **position, t_out **stack);
 void				repartition(t_salle *room, t_stack *find, unsigned long v_goals, int ants);
 void				clean_map(t_salle *room, t_stack *find, t_out *index);
-void				printpath(t_salle *room, t_stack *find);
+void				printpath(t_salle *room, t_stack *find, t_path *current);
 void				path(t_salle *room, t_stack *find, unsigned long salle_prev, t_cases *current);
 int					toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index);
 int					finish(t_salle *room, t_stack *find, t_out *index);

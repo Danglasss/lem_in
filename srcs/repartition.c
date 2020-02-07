@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 11:13:15 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/05 11:13:49 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/07 17:50:43 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	printrp(t_salle *room, t_stack *find)
 	room[find->index_end].liens = room[find->index_end].liens->begin;
 	while (1)
 	{
-	//	if (room[find->index_end].liens->nb_salle != 0)
-	//		ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
-	//	room[find->index_end].liens->nb_salle, room[find->index_end].liens->ant_numb, room[find->index_end].liens->nb_salle + room[find->index_end].liens->ant_numb);		
+		//if (room[find->index_end].liens->nb_salle != 0)
+		//	ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
+		//room[find->index_end].liens->nb_salle, room[find->index_end].liens->ant_numb, room[find->index_end].liens->nb_salle + room[find->index_end].liens->ant_numb);		
 		if (room[find->index_end].liens->next == NULL)
 			break ;
 		room[find->index_end].liens = room[find->index_end].liens->next;
@@ -71,12 +71,14 @@ void	crement_ants(unsigned long *nb_ants, int *pose_ants)
 	*nb_ants -= 1;
 }
 
-int		repart_eval(t_salle *room, t_stack *find, t_out *link, unsigned long ants)
+int		repart_eval(t_salle *room, t_stack *find, t_out *link, t_path *current)
 {
-	int		diff;
+	int				diff;
+	unsigned long	ants;
 	
 	diff = link->nb_salle;
-	printpath(room, find);
+	ants = find->fourmies;
+	printpath(room, find, current);
 	while (ants)
 	{
 		diff = get_diff(diff, room, find->index_end);

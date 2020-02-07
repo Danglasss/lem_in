@@ -27,6 +27,7 @@ void	blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, unsigned
 			room[find->index_end].salle_prev[0] = room[find->index_end].salle_prev[1];
 			find->finish = 1;
 		}
+		room[stack].free = 1;
 	}
 	else if (find->index_end == stack)
 	{
@@ -36,8 +37,8 @@ void	blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, unsigned
 		room[stack].liens = room[stack].liens->begin;
 		transfert_true(room, find, salle_prev);
 		find->finish = 1;
+		room[stack].free = 1;
 	}
-	room[stack].free = 1;
 }	
 
 int		ft_open(t_salle *room, t_out *liens, t_stack *find, unsigned long index)

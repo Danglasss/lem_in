@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/06 18:49:11 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/07 17:49:09 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,33 @@ void		best_shot_implement(t_salle *room, t_stack *find, t_path *best_shot, int l
 	room[find->index_end].liens = room[find->index_end].liens->begin;
 }
 
+void	p(t_salle *room, t_stack *find, t_path *current)
+{
+	int nb_salle;
+	int len;
+	int index;
+
+	len = len_out(room[find->index_end].liens, 1);
+	index = 0;
+	nb_salle = 0;
+	while (index < len)
+	{
+		current[index].cases = current[index].cases->begin;
+		while (1)
+		{
+			if (current[index].cases->index != 0)
+				nb_salle++;
+			if (current[index].cases->next == NULL)
+				break ;
+			current[index].cases = current[index].cases->next;
+		}
+		current[index].cases = current[index].cases->begin;
+	//	ft_printf("line == %d !! path %d !! nb_salle %d\n", current[index].lines, index, nb_salle);
+		nb_salle = 0;
+		index++;
+	}
+}
+
 void		bhandari(t_salle *room, t_stack *find, t_out *index, t_path	*best_shot)
 {
 	t_path	*current;
@@ -89,8 +116,9 @@ void		bhandari(t_salle *room, t_stack *find, t_out *index, t_path	*best_shot)
 	while (find->bhandari[0] < 1 && find->finish != 0)
 	{
 		algo(room, find, index, current);
-		current->lines = repart_eval(room, find,
-					room[find->index_end].liens->begin, find->fourmies);
+		if (find->bhandari[0] != -1)
+			current->lines = repart_eval(room, find,
+					room[find->index_end].liens->begin, current);
 		//ft_printf("lines == %d !! best == %d\n", current->lines, best_shot->lines);
 		if (find->bhandari[0] == -1 && find->finish != 0)
 		{

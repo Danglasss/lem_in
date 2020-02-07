@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 16:50:14 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/29 12:10:32 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/05 10:51:31 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,6 @@ int				create_room(t_salle *room, char *hash, t_out **n_index)
 	index = t_hash(hash, room);
 	if (room[index].salle != NULL)
 	{
-		if (ft_strcmp(room[index].salle, hash))
-		{
-			ft_putstr("Collision ! Probleme dans la table de hash !\n");
-			ft_putendl(room[index].salle);
-			ft_putendl(hash);
-		}
 		free_reset(hash);
 		return (-1);
 	}

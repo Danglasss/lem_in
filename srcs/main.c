@@ -50,8 +50,13 @@ int		ft_main_algo(t_out *reads, t_out *index)
 	way_back(index, rooms);
 	clean_map(rooms, info, index);
 	bhandari(rooms, info, index, best_shot);
-	//bfs_remaker(rooms, info, index, best_shot);
 	affichage(rooms, info);
+	leaks_salle(rooms, t_size, index);
+	leaks_path(best_shot, len_out(rooms[info->index_end].liens, 1));
+	leaks_out(reads, 1);
+	leaks_out(index, 0);
+	leaks_info(info);
+
 	return (1);
 }
 

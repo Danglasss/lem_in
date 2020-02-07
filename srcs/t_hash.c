@@ -12,46 +12,10 @@
 
 #include "../include/lem_in.h"
 
-int				is_prime(unsigned long number)
-{
-	unsigned int	i;
-
-	i = 2;
-	if (number == 2)
-		return (1);
-	while (i < number)
-	{
-		if (number % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-unsigned long	n_prime(unsigned long l_number)
-{
-	l_number *= 1223;
-	while (!is_prime(l_number))
-		l_number++;
-	return (l_number);
-}
-
-unsigned long	n_collision(char *to_hash, t_salle *room,
+unsigned long	s_collision(char *to_hash, t_salle *room,
 		unsigned long hashed_s)
 {
-	if (room[hashed_s - 5].salle == NULL
-			|| !ft_strcmp(room[hashed_s - 5].salle, to_hash))
-		return (hashed_s - 5);
-	else if (room[hashed_s + 5].salle == NULL
-			|| !ft_strcmp(room[hashed_s + 5].salle, to_hash))
-		return (hashed_s + 5);
-	else if (room[hashed_s + 6].salle == NULL
-			|| !ft_strcmp(room[hashed_s + 6].salle, to_hash))
-		return (hashed_s + 6);
-	else if (room[hashed_s - 6].salle == NULL
-			|| !ft_strcmp(room[hashed_s - 6].salle, to_hash))
-		return (hashed_s - 6);
-	else if (room[hashed_s + 7].salle == NULL
+	if (room[hashed_s + 7].salle == NULL
 			|| !ft_strcmp(room[hashed_s + 7].salle, to_hash))
 		return (hashed_s + 7);
 	else if (room[hashed_s - 7].salle == NULL
@@ -70,6 +34,24 @@ unsigned long	n_collision(char *to_hash, t_salle *room,
 			|| !ft_strcmp(room[hashed_s - 9].salle, to_hash))
 		return (hashed_s - 9);
 	return (hashed_s);
+}
+
+unsigned long	n_collision(char *to_hash, t_salle *room,
+		unsigned long hashed_s)
+{
+	if (room[hashed_s - 5].salle == NULL
+			|| !ft_strcmp(room[hashed_s - 5].salle, to_hash))
+		return (hashed_s - 5);
+	else if (room[hashed_s + 5].salle == NULL
+			|| !ft_strcmp(room[hashed_s + 5].salle, to_hash))
+		return (hashed_s + 5);
+	else if (room[hashed_s + 6].salle == NULL
+			|| !ft_strcmp(room[hashed_s + 6].salle, to_hash))
+		return (hashed_s + 6);
+	else if (room[hashed_s - 6].salle == NULL
+			|| !ft_strcmp(room[hashed_s - 6].salle, to_hash))
+		return (hashed_s - 6);
+	return (s_collision(to_hash, room, hashed_s));
 }
 
 unsigned long	collision(char *to_hash, t_salle *room,

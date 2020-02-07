@@ -6,12 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/30 15:05:12 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/07 15:00:18 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
-
 static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 		t_out **reads)
 {
@@ -34,7 +33,7 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 	if (info->ways == 1)
 	{
 		info->n_end = ft_strdup(splited[0], 0);
-		info->index_end = t_hash(splited[0], *rooms);	
+		info->index_end = t_hash(splited[0], *rooms);
 	}
 	free_reset(l_line);
 	free_all(splited, 0);
@@ -108,8 +107,7 @@ void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 		else if (is_number(line, 0))
 		{
 			if (((info->fourmies != -1 || !is_number(line, 1))
-						|| ((info->fourmies = ft_atoi_check(line)) <= 0))
-					&& free_reset(line))
+		|| ((info->fourmies = ft_atoi_check(line)) <= 0)) && free_reset(line))
 				break ;
 			truth = 1;
 		}

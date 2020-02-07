@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/02 19:23:42 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/06 18:33:51 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,10 @@ typedef struct		s_stack
 	char			*n_end;
 }					t_stack;
 
+int					same_path(t_salle *room, t_stack *find, unsigned long index, unsigned long value);
+int					stop_up(t_out *link, t_stack *find, t_salle *room, unsigned long index);
+void				delete_link(t_out **liens, t_salle *room, unsigned long salle);
+int					repart_eval(t_salle *room, t_stack *find, t_out *link, unsigned long ants);
 void				path_cpy(t_path **best, t_path *curr, int len);
 void				clean_current(t_path **current, int len);
 void 				clean_cases(t_cases **room);
@@ -150,7 +154,7 @@ void				out_add_tolist(t_out **list, char *data, int truth);
 void				outfill_out(t_out **dst, t_out *src);
 void                check_insert(t_out **reads, t_out **index, t_salle **rooms,
 		t_stack *info);
-void                leaks_out(t_out *leaks);
+void                leaks_out(t_out *leaks, int i);
 void                leaks_salle(t_salle *s, int a, t_out *i);
 void		        cpy_length(t_out **dst, t_out *src, t_out **begin);
 void                leaks_info(t_stack *info);
@@ -170,5 +174,7 @@ void	            clear(t_salle *room, t_stack *find, t_out *index);
 void	            print_lien(t_out *stack, t_salle *room);
 void	            print_salle(t_out *stack, t_salle *room);
 void				main_reset(t_salle *room, t_stack *find, t_out *index, t_path *current);
+void   				leaks_path(t_path *path, int len);
+void				free_all_l(t_out **list);
 
 #endif

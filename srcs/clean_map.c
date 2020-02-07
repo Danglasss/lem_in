@@ -6,21 +6,24 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/01/31 10:08:00 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/07 15:41:29 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-int		ft_cleaner(t_salle *room, t_stack *find, unsigned long salle, unsigned long del)
+#include "../include/lem_in.h"
+
+int		ft_cleaner(t_salle *room, t_stack *find, unsigned long salle,
+		unsigned long del)
 {
 	unsigned long	tmp;
 	int				len;
-	
+
 	while (1)
 	{
 		tmp = salle;
-		salle = room[salle].salle_prev[1];	
+		salle = room[salle].salle_prev[1];
 		len = len_out(room[salle].liens, 1) - 1;
 		if (len == 2)
 		{
@@ -48,12 +51,13 @@ int		ft_graph(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 
 	liens = room[position->index].liens;
 	len = len_out(liens, 1) - 1;
-    if (len == 1)
-		return (ft_cleaner(room, find, position->index, (unsigned long)liens->out));
+	if (len == 1)
+		return (ft_cleaner(room, find, position->index,
+					(unsigned long)liens->out));
 	while (liens)
 	{
 		if (room[(unsigned long)liens->out].free == 1 &&
-							(unsigned long)liens->out != find->index_end)
+			(unsigned long)liens->out != find->index_end)
 		{
 			liens = liens->next;
 			continue ;
@@ -67,17 +71,29 @@ int		ft_graph(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 	return (0);
 }
 
+void	clean_map3(t_out *stack, t_out *position, t_salle *room, t_out *index)
+{
+	ft_reset(room, index);
+	leaks_out(stack, 0);
+	leaks_out(position, 0);
+}
+
+int		clean_map2(t_out **stack, t_out **position, t_stack *find)
+{
+	out_init(&(*position), 0);
+	out_init(&(*stack), 0);
+	(*position)->index = find->index_start;
+	return (1);
+}
+
 void	clean_map(t_salle *room, t_stack *find, t_out *index)
 {
 	t_out	*stack;
 	t_out	*position;
 	int		clean;
 	int		len;
-	
-	clean = 1;
-	out_init(&position, 0);
-	out_init(&stack, 0);
-	position->index = find->index_start;
+
+	clean = clean_map2(&stack, &position, find);
 	while (clean)
 	{
 		len = len_out(position, 1) - 1;
@@ -94,9 +110,7 @@ void	clean_map(t_salle *room, t_stack *find, t_out *index)
 			position = position->next;
 		}
 		cpy_length(&position, stack, &stack);
-		position = position->begin;
-		stack = stack->begin;
 	}
 	clear(room, find, index);
-	ft_reset(room, index);
+	clean_map3(stack, position, room, index);
 }

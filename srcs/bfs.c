@@ -12,24 +12,6 @@
 
 #include "../include/lem_in.h"
 
-void	delete_link(t_out **liens, t_salle *room, unsigned long salle)
-{
-	int len;
-
-	(*liens)->del[1] = 1;
-	room[(unsigned long)(*liens)->out].ascend = 1;
-	room[(unsigned long)(*liens)->out].liens = room[(unsigned long)(*liens)->out].liens->begin;
-	len = len_out(room[(unsigned long)(*liens)->out].liens, 1) - 1;
-	while ((unsigned long)room[(unsigned long)(*liens)->out].liens->out != salle)
-	{
-		room[(unsigned long)(*liens)->out].liens
-		= room[(unsigned long)(*liens)->out].liens->next;
-		len--;
-	}
-	room[(unsigned long)(*liens)->out].liens->del[1] = 1;
-	room[(unsigned long)(*liens)->out].liens = room[(unsigned long)(*liens)->out].liens->begin;
-}
-
 void	blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, unsigned long stack)
 {
 	if (find->index_end != stack || room[stack].salle_prev[0] == 0)
@@ -45,7 +27,6 @@ void	blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, unsigned
 			room[find->index_end].salle_prev[0] = room[find->index_end].salle_prev[1];
 			find->finish = 1;
 		}
-		room[stack].free = 1;
 	}
 	else if (find->index_end == stack)
 	{
@@ -55,27 +36,9 @@ void	blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, unsigned
 		room[stack].liens = room[stack].liens->begin;
 		transfert_true(room, find, salle_prev);
 		find->finish = 1;
-		room[stack].free = 1;
 	}
+	room[stack].free = 1;
 }	
-
-int		stop_up(t_out *link, t_stack *find, t_salle *room, unsigned long index)
-{
-	link = link->begin;
-	while (link)
-	{
-		if (link->open == 0 && find->index_start != (unsigned long)link->out)
-			return (1);
-		if (link->open == 3 
-				&& room[index].lenght < room[(unsigned long)link->out].lenght)
-			return (1);
-		if (link->next  == NULL)
-			break ;
-		link = link->next;
-	}
-	link = link->begin;
-	return (0);
-}
 
 int		ft_open(t_salle *room, t_out *liens, t_stack *find, unsigned long index)
 {
@@ -83,8 +46,9 @@ int		ft_open(t_salle *room, t_out *liens, t_stack *find, unsigned long index)
 		return (1);
 	if (liens->open == 3 && toplink(liens, find, room, index))
 		return (1);
-	if (liens->open == 1 && room[index].ascend == 1
-			&& stop_up(liens, find, room, index))
+	if ((liens->open == 1 && room[index].ascend == 1 && stop_up(liens, find, room, index))
+		|| (liens->open == 1 && room[(unsigned long)liens->out].free == VISITED
+			&& same_path(room, find, index, (unsigned long)liens->out)))
 		return (1);
 	if (liens->open == 1)
 		return (0);
@@ -150,4 +114,6 @@ void		algo(t_salle *room, t_stack *find, t_out *index, t_path *current)
 		cpy_length(&position, stack, &stack);
 	}
 	main_reset(room, find, index, current);
+	leaks_out(stack, 0);
+	leaks_out(position, 0);
 }

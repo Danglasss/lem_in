@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/07 15:00:18 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/10 16:09:26 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 
 	truth = 0;
 	line = NULL;
-	while (free_reset(line) && get_next_line(0, &line))
+	while (free_reset(line) && get_next_line(0, &line) > 0)
 	{
 		out_add_tolist(reads, line, 0);
 		if (line[0] == '#')
@@ -107,7 +107,7 @@ void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 		else if (is_number(line, 0))
 		{
 			if (((info->fourmies != -1 || !is_number(line, 1))
-		|| ((info->fourmies = ft_atoi_check(line)) <= 0)) && free_reset(line))
+				|| ((info->fourmies = ft_atoi_check(line)) <= 0)) && free_reset(line))
 				break ;
 			truth = 1;
 		}

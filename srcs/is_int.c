@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 16:30:37 by dygouin           #+#    #+#             */
-/*   Updated: 2020/01/30 15:06:03 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/10 15:58:35 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,12 @@ long	ft_atoi_check(char *str)
 	sign = 1;
 	if (!check_l(str))
 		return (2147483648);
-	if ((str[i] == '+' || str[i] == '-') && (i = 1))
+	if ((str[i] == '+' || str[i] == '-'))
 	{
 		if (str[i] == '-')
-			sign = -1;
+		{
+			return (-10);
+		}
 	}
 	while (str[i])
 	{

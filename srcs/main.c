@@ -43,10 +43,10 @@ int		ft_main_algo(t_out *reads, t_out *index)
 
 	stack_room_init(&info, &rooms);
 	check_insert(&reads, &index, &rooms, info);
-	path_init(&best_shot, rooms, info);
 	//ft_printread(reads->begin);
 	if (ft_error(rooms, info))
 		return (write(2, "ERROR\n", 6));
+	path_init(&best_shot, rooms, info);
 	way_back(index, rooms);
 	clean_map(rooms, info, index);
 	bhandari(rooms, info, index, best_shot);

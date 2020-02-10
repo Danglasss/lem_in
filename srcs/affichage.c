@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/02/10 17:36:13 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/10 18:08:35 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	turnpath(t_salle *room, t_stack *find, unsigned long stack, int begin)
 	index = 0;
 	while (salle != find->index_start)
 	{
-		ft_printf("salle : %s\n", room[room[stack].salle_prev[0]].salle);
+	//	ft_printf("salle : %s\n", room[room[stack].salle_prev[0]].salle);
 		tmp = room[stack].salle_prev[0];
 		if (room[stack].salle_prev[0] != 0 && stack == find->index_start
 		&& room[stack].salle_prev[0] != find->index_start)
@@ -33,7 +33,7 @@ void	turnpath(t_salle *room, t_stack *find, unsigned long stack, int begin)
 		salle = stack;
 		stack = tmp;
 	}
-	ft_printf("salle : %s\n", room[room[stack].salle_prev[0]].salle);
+//	ft_printf("salle : %s\n", room[room[stack].salle_prev[0]].salle);
 	if (begin == 0)
 		room[find->index_start].nb_salle = index;
 	else if (begin == 1)
@@ -100,7 +100,7 @@ void	repartition(t_salle *room, t_stack *find, unsigned long v_goals, int ants)
 unsigned long	put_ant(t_salle *room, t_stack *find, unsigned long salle, int *ants)
 {
 	unsigned long num;
-	
+
 	num = 0;
 	if (*ants > 0 && room[salle].n_lem == 0)
 	{
@@ -145,7 +145,7 @@ void	print_graph(t_salle *room, t_stack *find, unsigned long salle, unsigned lon
 		room[salle].n_lem = num;
 		if (room[salle].n_lem != 0)
 			ft_printf("L%d-%s", room[salle].n_lem, room[salle].salle);
-		num = stack;	
+		num = stack;
 		salle = room[salle].salle_prev[0];
 	}
 	if (num != 0)
@@ -158,13 +158,13 @@ void	print_graph(t_salle *room, t_stack *find, unsigned long salle, unsigned lon
 
 void	printrep(t_salle *room, t_stack *find)
 {
-	ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
-	room[find->index_start].nb_salle, room[find->index_start].ant_numb, room[find->index_start].nb_salle + room[find->index_start].ant_numb);
+	//ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
+	//room[find->index_start].nb_salle, room[find->index_start].ant_numb, room[find->index_start].nb_salle + room[find->index_start].ant_numb);
 	room[find->index_start].liens = room[find->index_start].liens->begin;
 	while (1)
 	{
 		//ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
-		//room[find->index_start].liens->nb_salle, room[find->index_start].liens->ant_numb, room[find->index_start].liens->nb_salle + room[find->index_start].liens->ant_numb);		
+		//room[find->index_start].liens->nb_salle, room[find->index_start].liens->ant_numb, room[find->index_start].liens->nb_salle + room[find->index_start].liens->ant_numb);
 		if (room[find->index_start].liens->next == NULL)
 			break ;
 		room[find->index_start].liens = room[find->index_start].liens->next;
@@ -172,8 +172,22 @@ void	printrep(t_salle *room, t_stack *find)
 	room[find->index_start].liens = room[find->index_start].liens->begin;
 }
 
+void	special_print(t_stack *find, t_salle *room)
+{
+	int		i;
+
+	i = 1;
+	while (i <= find->fourmies)
+	{
+		ft_printf("L%d-%s ", i, room[find->index_end].salle);
+		i++;
+	}
+	ft_printf("\n");
+	return ;
+}
+
 void	affichage(t_salle *room, t_stack *find)
-{	
+{
 	int					count =0;
 	unsigned long		num;
 	unsigned long		total_ants;
@@ -182,12 +196,14 @@ void	affichage(t_salle *room, t_stack *find)
 	repartition(room, find, room[find->index_start].liens->nb_salle, find->fourmies);
 	printrep(room, find);
 	total_ants = find->fourmies;
+	if (room[find->index_start].salle_prev[0] == find->index_end)
+			return (special_print(find, room));
 	find->fourmies = 1;
 	while (total_ants != room[find->index_end].n_lem)
 	{
 		num = put_ant(room, find, room[find->index_start].salle_prev[0], &room[find->index_start].ant_numb);
-		print_graph(room, find, room[room[find->index_start].salle_prev[0]].salle_prev[0], num);
-		room[find->index_start].liens = room[find->index_start].liens->begin;		
+			print_graph(room, find, room[room[find->index_start].salle_prev[0]].salle_prev[0], num);
+		room[find->index_start].liens = room[find->index_start].liens->begin;
 		while (room[find->index_start].liens)
 		{
 			num = put_ant(room, find, room[find->index_start].liens->salle_prev, &room[find->index_start].liens->ant_numb);

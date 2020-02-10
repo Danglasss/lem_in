@@ -6,7 +6,7 @@
 #    By: damboule <damboule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:29:33 by dygouin           #+#    #+#              #
-#    Updated: 2020/02/05 11:48:21 by damboule         ###   ########.fr        #
+#    Updated: 2020/02/10 17:16:01 by damboule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ OBJ			=		$(SRCS:.c=.o)
 
 CC			=		gcc
 
-CFLAGS		=
+CFLAGS		=		#-fsanitize=address -g3
 
 DECHET		=		*.dSYM
 

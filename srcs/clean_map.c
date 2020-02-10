@@ -6,11 +6,9 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/07 15:41:29 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/10 17:26:27 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../include/lem_in.h"
 
 #include "../include/lem_in.h"
 
@@ -20,7 +18,7 @@ int		ft_cleaner(t_salle *room, t_stack *find, unsigned long salle,
 	unsigned long	tmp;
 	int				len;
 
-	while (1)
+	while (salle != find->index_start)
 	{
 		tmp = salle;
 		salle = room[salle].salle_prev[1];
@@ -51,7 +49,7 @@ int		ft_graph(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 
 	liens = room[position->index].liens;
 	len = len_out(liens, 1) - 1;
-	if (len == 1)
+	if (len == 1 && (unsigned long)room[position->index].liens->out != find->index_end)
 		return (ft_cleaner(room, find, position->index,
 					(unsigned long)liens->out));
 	while (liens)

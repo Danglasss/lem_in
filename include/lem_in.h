@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/11 10:53:57 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 18:31:31 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,7 @@ typedef struct		s_stack
 	int				counter_del;
 	int				finish;
 	int				lenght;
-	int				operation;
-	int             result;
+	int				truth;
 	int             fourmies;
 	int             salle;
 	int             ways;

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/11 10:27:34 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 17:27:30 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,16 @@ int		clean_map2(t_out **stack, t_out **position, t_stack *find)
 	(*position)->index = find->index_start;
 	return (1);
 }
+int		ft_break(int *len, int *clean, t_out **position)
+{
+	if ((*position)->next == NULL)
+		return (1);
+	if ((*position)->index == 0)
+		(*len)--;
+	if (*len == 0)
+		*clean = 0;
+	return (0);
+}
 
 void	clean_map(t_salle *room, t_stack *find, t_out *index)
 {
@@ -97,14 +107,10 @@ void	clean_map(t_salle *room, t_stack *find, t_out *index)
 		len = len_out(position, 1) - 1;
 		while (position)
 		{
-			if (position->index == 0)
-				len--;
 			if (position->index != 0 && position->index != find->index_end)
 				ft_graph(room, find, position, &stack);
-			if (position->next == NULL)
+			if (ft_break(&len, &clean, &position))
 				break ;
-			if (len == 0)
-				clean = 0;
 			position = position->next;
 		}
 		cpy_length(&position, stack, &stack);

@@ -6,11 +6,12 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/11 13:52:50 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 18:34:51 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
+
 static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 		t_out **reads)
 {
@@ -34,6 +35,7 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 		info->index_end = t_hash(splited[0], *rooms);
 	}
 	free_all(splited, 0);
+	info->ways = 3;
 	return (1);
 }
 
@@ -85,39 +87,41 @@ static int		what_line(t_salle **rooms, t_out **index, char *line,
 	return (0);
 }
 
+int				check_ants(t_stack *info, char *line, int *truth)
+{
+	if (((info->fourmies != -1 || !is_number(line, 1))
+		|| ((info->fourmies = ft_atoi_check(line)) <= 0)) && free_reset(line))
+		return (1);
+	*truth = 1;
+	return (0);
+}
+
 
 void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 		t_stack *info)
 {
 	char	*line;
-	int		truth;
 
-	truth = 0;
 	line = NULL;
 	while (free_reset(line) && get_next_line(0, &line) > 0)
 	{
-		//ft_printf("%s\n", line);
 		out_add_tolist(reads, line, 0);
 		if (line[0] == '#')
 		{
 			if ((!check_hash(info, index, rooms, reads)
-						|| (!(info->fourmies) && line[1] == '#'))
+				|| (!(info->fourmies) && line[1] == '#'))
 					&& free_reset(line))
 				break ;
 		}
 		else if (info->ways == 0 || info->ways == 1)
-		{
 			special_insert(rooms, info, index, reads);
-			info->ways = 3;
-		}
 		else if (is_number(line, 0))
 		{
-			if (((info->fourmies != -1 || !is_number(line, 1))
-				|| ((info->fourmies = ft_atoi_check(line)) <= 0)) && free_reset(line))
+			if (check_ants(info, line, &info->truth))
 				break ;
-			truth = 1;
 		}
-		else if (what_line(rooms, index, line, &truth) == 0 && free_reset(line))
+		else if (what_line(rooms, index, line, &info->truth) == 0
+				&& free_reset(line))
 			break ;
 	}
 }

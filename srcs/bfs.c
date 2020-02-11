@@ -12,7 +12,7 @@
 
 #include "../include/lem_in.h"
 
-void	block2(t_salle *room, t_stack *find, unsigned long stack, unsigned long salle_prev)
+void	block_end(t_salle *room, t_stack *find, unsigned long stack, unsigned long salle_prev)
 {
 	while (room[stack].liens->salle_prev != 0)
 		room[stack].liens = room[stack].liens->next;
@@ -42,7 +42,7 @@ void	blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, unsigned
 		room[stack].free = 1;
 	}
 	else if (find->index_end == stack)
-		block2(room, find, stack, salle_prev);
+		block_end(room, find, stack, salle_prev);
 }
 
 int		ft_open(t_salle *room, t_out *liens, t_stack *find, unsigned long index)

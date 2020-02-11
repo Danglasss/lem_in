@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/07 17:49:09 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 17:45:58 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,38 +45,42 @@ void	ft_clean_end(t_salle *room, t_stack *find)
 	room[find->index_end].liens = room[find->index_end].liens->begin;
 }
 
+void		ft_drawpath(t_salle *room, t_cases *path, t_stack *find, int begin)
+{
+	path = path->begin;
+	while (path != NULL)
+	{
+		if (path->index != 0 && path->next != NULL)
+		{
+			if (find->index_end == path->index && begin >= 1)
+				room[find->index_end].liens->salle_prev = path->next->index;
+			else
+				room[path->index].salle_prev[0] = path->next->index;
+		}
+		if (path->next == NULL)
+			break ;
+		path = path->next;
+	}
+}
+
 void		best_shot_implement(t_salle *room, t_stack *find, t_path *best_shot, int len)
 {
-	int ind;
-	int i;
+	int index;
+	int begin;
 
-	i = 0;
-	ind = 0;
+	begin = 0;
+	index = 0;
 	ft_clean_end(room, find);
 	//ft_clean(room, index);
 	room[find->index_end].liens = room[find->index_end].liens->begin;
-	while (ind < len)
+	while (index < len)
 	{
-		best_shot[ind].cases = best_shot[ind].cases->begin;
-		while (1)
-		{
-			if (best_shot[ind].cases->index != 0 && best_shot[ind].cases->next != NULL)
-			{
-				if (i >= 1 && find->index_end == best_shot[ind].cases->index)
-				{
-					room[find->index_end].liens->salle_prev = best_shot[ind].cases->next->index;
-					room[find->index_end].liens = room[find->index_end].liens->next;
-				}
-				else
-					room[best_shot[ind].cases->index].salle_prev[0] = best_shot[ind].cases->next->index;
-			}
-			if (best_shot[ind].cases->next == NULL)
-				break ;
-			best_shot[ind].cases = best_shot[ind].cases->next;
-		}
-		i++;
-		best_shot[ind].cases = best_shot[ind].cases->begin;
-		ind++;
+		ft_drawpath(room, best_shot[index].cases->begin, find, begin);
+		if (begin >= 1)
+			room[find->index_end].liens = room[find->index_end].liens->next;
+		best_shot[index].cases = best_shot[index].cases->begin;
+		begin++;
+		index++;
 	}
 	room[find->index_end].liens = room[find->index_end].liens->begin;
 }

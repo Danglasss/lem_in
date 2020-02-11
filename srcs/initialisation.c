@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/11 13:47:34 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 18:31:39 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,7 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	(*info)->bhandari[0] = 0;
 	(*info)->bhandari[1] = 0;
 	(*info)->lenght = 0;
-	(*info)->operation = 0;
-	(*info)->result = 0;
+	(*info)->truth = 0;
 	(*info)->salle = 0;
 	(*info)->n_end = NULL;
 	(*info)->n_start = NULL;

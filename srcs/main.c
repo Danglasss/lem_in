@@ -30,7 +30,8 @@ int		ft_error(t_salle *rooms, t_stack *info)
 {
 	if (info->n_end == NULL || info->n_start == NULL || info->fourmies <= 0
 		|| rooms[t_hash(info->n_start, rooms)].liens->begin->out == NULL
-		|| rooms[t_hash(info->n_end, rooms)].liens->begin->out == NULL)
+		|| rooms[t_hash(info->n_end, rooms)].liens->begin->out == NULL
+		|| info->error == -1)
 		return (1);
 	return (0);
 }

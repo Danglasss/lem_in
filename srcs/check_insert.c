@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/11 10:47:23 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:58:23 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,7 @@ static int		check_hash(t_stack *info, t_out **index, t_salle **rooms,
 			&& info->n_end == NULL && (info->ways = 1))
 		return (special_insert(rooms, info, index, reads));
 	else if (ft_strncmp(((char *)(*reads)->out), "##", 2) == 0)
-	{
-		// info == ecrire error
-		info->fourmies = -1;
-		return (0);
-	}
+		return (info->error = -1);
 	if (info->n_end != NULL && ft_strcmp(((char *)(*reads)->out), "##end") == 0)
 		return (0);
 	if (info->n_start != NULL &&
@@ -91,6 +87,7 @@ static int		what_line(t_salle **rooms, t_out **index, char *line,
 	}
 	return (0);
 }
+
 
 void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 		t_stack *info)

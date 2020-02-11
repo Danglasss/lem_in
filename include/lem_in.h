@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/07 17:45:30 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:53:57 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ typedef struct		s_stack
 	int             fourmies;
 	int             salle;
 	int             ways;
-	int             espoir;
+	int             error;
 	int             bhandari[2];
 	unsigned long   index_end;
 	unsigned long	index_start;

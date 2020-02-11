@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/11 10:58:23 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 11:21:29 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 	line = NULL;
 	while (free_reset(line) && get_next_line(0, &line) > 0)
 	{
+		//ft_printf("%s\n", line);
 		out_add_tolist(reads, line, 0);
 		if (line[0] == '#')
 		{

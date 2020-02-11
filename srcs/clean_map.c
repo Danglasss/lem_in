@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/10 17:26:27 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:27:34 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ void	clean_map(t_salle *room, t_stack *find, t_out *index)
 		}
 		cpy_length(&position, stack, &stack);
 	}
+	if (room[find->index_end].free == 0)
+		exit(1);
 	clear(room, find, index);
 	clean_map3(stack, position, room, index);
 }

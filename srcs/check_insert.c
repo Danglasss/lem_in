@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/10 19:28:41 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 10:47:23 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 static int		check_hash(t_stack *info, t_out **index, t_salle **rooms,
 		t_out **reads)
 {
-	if (((char *)(*reads)->out)[1] != '#')
+	if (((char *)(*reads)->out)[1] != '#' || ft_strncmp(((char *)(*reads)->out), "###", 3) == 0)
 		return (1);
 	else if (info->fourmies == -1)
 		return (0);
@@ -53,6 +53,12 @@ static int		check_hash(t_stack *info, t_out **index, t_salle **rooms,
 	else if (ft_strcmp(((char *)(*reads)->out), "##end") == 0
 			&& info->n_end == NULL && (info->ways = 1))
 		return (special_insert(rooms, info, index, reads));
+	else if (ft_strncmp(((char *)(*reads)->out), "##", 2) == 0)
+	{
+		// info == ecrire error
+		info->fourmies = -1;
+		return (0);
+	}
 	if (info->n_end != NULL && ft_strcmp(((char *)(*reads)->out), "##end") == 0)
 		return (0);
 	if (info->n_start != NULL &&

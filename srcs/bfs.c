@@ -6,11 +6,22 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:36:38 by dygouin          #+#    #+#             */
-/*   Updated: 2020/01/30 15:04:38 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/11 13:49:44 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
+
+void	block2(t_salle *room, t_stack *find, unsigned long stack, unsigned long salle_prev)
+{
+	while (room[stack].liens->salle_prev != 0)
+		room[stack].liens = room[stack].liens->next;
+	room[stack].liens->salle_prev = salle_prev;
+	room[stack].liens = room[stack].liens->begin;
+	transfert_true(room, find, salle_prev);
+	find->finish = 1;
+	room[stack].free = 1;
+}
 
 void	blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, unsigned long stack)
 {
@@ -24,22 +35,15 @@ void	blockchain(t_salle *room, unsigned long salle_prev, t_stack *find, unsigned
 		if (find->index_end == stack)
 		{
 			transfert_true(room, find, salle_prev);
-			room[find->index_end].salle_prev[0] = room[find->index_end].salle_prev[1];
+			room[find->index_end].salle_prev[0] =
+			room[find->index_end].salle_prev[1];
 			find->finish = 1;
 		}
 		room[stack].free = 1;
 	}
 	else if (find->index_end == stack)
-	{
-		while (room[stack].liens->salle_prev != 0)
-			room[stack].liens = room[stack].liens->next;
-		room[stack].liens->salle_prev = salle_prev;
-		room[stack].liens = room[stack].liens->begin;
-		transfert_true(room, find, salle_prev);
-		find->finish = 1;
-		room[stack].free = 1;
-	}
-}	
+		block2(room, find, stack, salle_prev);
+}
 
 int		ft_open(t_salle *room, t_out *liens, t_stack *find, unsigned long index)
 {

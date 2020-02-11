@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/11 11:21:29 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/11 13:52:50 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 	char	*l_line;
 	char	**splited;
 
-	l_line = NULL;
-	get_next_line(0, &l_line);
-	out_add_tolist(reads, l_line, 1);
+	l_line = (char *)(*reads)->out;
 	if (check_rformat(l_line) == -1 && free_reset(l_line))
 		return (0);
 	splited = ft_strsplit(l_line, ' ');
@@ -35,7 +33,6 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 		info->n_end = ft_strdup(splited[0], 0);
 		info->index_end = t_hash(splited[0], *rooms);
 	}
-	free_reset(l_line);
 	free_all(splited, 0);
 	return (1);
 }
@@ -49,10 +46,10 @@ static int		check_hash(t_stack *info, t_out **index, t_salle **rooms,
 		return (0);
 	else if (ft_strcmp(((char *)(*reads)->out), "##start") == 0
 			&& info->n_start == NULL && !(info->ways = 0))
-		return (special_insert(rooms, info, index, reads));
+		return (1);
 	else if (ft_strcmp(((char *)(*reads)->out), "##end") == 0
 			&& info->n_end == NULL && (info->ways = 1))
-		return (special_insert(rooms, info, index, reads));
+		return (1);
 	else if (ft_strncmp(((char *)(*reads)->out), "##", 2) == 0)
 		return (info->error = -1);
 	if (info->n_end != NULL && ft_strcmp(((char *)(*reads)->out), "##end") == 0)
@@ -107,6 +104,11 @@ void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 						|| (!(info->fourmies) && line[1] == '#'))
 					&& free_reset(line))
 				break ;
+		}
+		else if (info->ways == 0 || info->ways == 1)
+		{
+			special_insert(rooms, info, index, reads);
+			info->ways = 3;
 		}
 		else if (is_number(line, 0))
 		{

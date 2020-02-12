@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/18 15:10:28 by dygouin          #+#    #+#             */
-/*   Updated: 2020/01/30 15:06:39 by dygouin          ###   ########.fr       */
+/*   Created: 2019/07/18 15:10:28 by dygouin           #+#    #+#             */
+/*   Updated: 2020/02/12 16:51:47 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		ft_main_algo(t_out *reads, t_out *index)
 	clean_map(rooms, info, index);
 	bhandari(rooms, info, index, best_shot);
 	affichage(rooms, info);
-	leaks_salle(rooms, t_size, index);
+	leaks_salle(rooms, T_SIZE, index);
 	leaks_path(best_shot, len_out(rooms[info->index_end].liens, 1));
 	leaks_out(reads, 1);
 	leaks_out(index, 0);

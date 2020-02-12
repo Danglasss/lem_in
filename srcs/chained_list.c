@@ -1,4 +1,3 @@
-
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/01 21:24:48 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/12 16:04:08 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +83,7 @@ void	path_cpy(t_path **best, t_path *curr, int len)
 	}
 }
 
-void 	clean_cases(t_cases **room)
+void	clean_cases(t_cases **room)
 {
 	(*room) = (*room)->begin;
 	while ((*room))
@@ -104,7 +103,7 @@ void	clean_current(t_path **current, int len)
 	while (index < len)
 	{
 		clean_cases(&(*current)[index].cases);
-		(*current)[index].lines = 0;		
+		(*current)[index].lines = 0;
 		(*current)[index].ants = 0;
 		(*current)[index].length = 0;
 		index++;

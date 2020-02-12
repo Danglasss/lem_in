@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/11 17:27:30 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/12 16:41:29 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,12 @@ int		ft_graph(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 
 	liens = room[position->index].liens;
 	len = len_out(liens, 1) - 1;
-	if (len == 1 && (unsigned long)room[position->index].liens->out != find->index_end)
+	if (len == 1 && (unsigned long)room[position->index].liens->out !=
+		find->index_end)
+	{
 		return (ft_cleaner(room, find, position->index,
-					(unsigned long)liens->out));
+		(unsigned long)liens->out));
+	}
 	while (liens)
 	{
 		if (room[(unsigned long)liens->out].free == 1 &&
@@ -83,6 +86,7 @@ int		clean_map2(t_out **stack, t_out **position, t_stack *find)
 	(*position)->index = find->index_start;
 	return (1);
 }
+
 int		ft_break(int *len, int *clean, t_out **position)
 {
 	if ((*position)->next == NULL)

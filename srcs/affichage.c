@@ -6,13 +6,14 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/02/11 18:42:07 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/12 16:17:30 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-void	turnpath(t_salle *room, t_stack *find, unsigned long stack, int begin)
+void			turnpath(t_salle *room, t_stack *find,
+unsigned long stack, int begin)
 {
 	unsigned long	salle;
 	unsigned long	tmp;
@@ -40,7 +41,7 @@ void	turnpath(t_salle *room, t_stack *find, unsigned long stack, int begin)
 		room[find->index_start].liens->nb_salle = index;
 }
 
-void	mainturn(t_salle *room, t_stack *find)
+void			mainturn(t_salle *room, t_stack *find)
 {
 	turnpath(room, find, room[find->index_end].salle_prev[0], 0);
 	while (room[find->index_end].liens->salle_prev != 0)
@@ -55,7 +56,8 @@ void	mainturn(t_salle *room, t_stack *find)
 	room[find->index_start].liens = room[find->index_start].liens->begin;
 }
 
-int		check_goals(unsigned long v_goals, t_salle *room, unsigned long start)
+int				check_goals(unsigned long v_goals, t_salle *room,
+unsigned long start)
 {
 	if (v_goals > (room[start].ant_numb + room[start].nb_salle))
 		return (v_goals);
@@ -72,7 +74,8 @@ int		check_goals(unsigned long v_goals, t_salle *room, unsigned long start)
 	return (v_goals + 1);
 }
 
-void	repartition(t_salle *room, t_stack *find, unsigned long v_goals, int ants)
+void			repartition(t_salle *room, t_stack *find,
+unsigned long v_goals, int ants)
 {
 	while (ants != 0)
 	{
@@ -82,8 +85,8 @@ void	repartition(t_salle *room, t_stack *find, unsigned long v_goals, int ants)
 		room[find->index_start].liens = room[find->index_start].liens->begin;
 		while (room[find->index_start].liens)
 		{
-			if (v_goals > 
-			(room[find->index_start].liens->ant_numb + room[find->index_start].liens->nb_salle)
+			if (v_goals > (room[find->index_start].liens->ant_numb +
+				room[find->index_start].liens->nb_salle)
 			&& ants > 0 && room[find->index_start].liens->salle_prev != 0)
 			{
 				room[find->index_start].liens->ant_numb += 1;
@@ -97,7 +100,8 @@ void	repartition(t_salle *room, t_stack *find, unsigned long v_goals, int ants)
 	}
 }
 
-unsigned long	put_ant(t_salle *room, t_stack *find, unsigned long salle, int *ants)
+unsigned long	put_ant(t_salle *room, t_stack *find,
+unsigned long salle, int *ants)
 {
 	unsigned long num;
 
@@ -122,7 +126,8 @@ unsigned long	put_ant(t_salle *room, t_stack *find, unsigned long salle, int *an
 	return (num);
 }
 
-void	print_graph(t_salle *room, t_stack *find, unsigned long salle, unsigned long num)
+void			print_graph(t_salle *room, t_stack *find,
+unsigned long salle, unsigned long num)
 {
 	unsigned long stack;
 
@@ -140,10 +145,9 @@ void	print_graph(t_salle *room, t_stack *find, unsigned long salle, unsigned lon
 		ft_printf("L%d-%s", num, room[salle].salle);
 		room[find->index_end].n_lem += 1;
 	}
-
 }
 
-void	printrep(t_salle *room, t_stack *find)
+void			printrep(t_salle *room, t_stack *find)
 {
 	//ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
 	//room[find->index_start].nb_salle, room[find->index_start].ant_numb, room[find->index_start].nb_salle + room[find->index_start].ant_numb);
@@ -159,7 +163,7 @@ void	printrep(t_salle *room, t_stack *find)
 	room[find->index_start].liens = room[find->index_start].liens->begin;
 }
 
-void	special_print(t_stack *find, t_salle *room)
+void			special_print(t_stack *find, t_salle *room)
 {
 	int		i;
 
@@ -173,7 +177,7 @@ void	special_print(t_stack *find, t_salle *room)
 	return ;
 }
 
-void	browse_graph(t_salle *room, t_stack *find, unsigned long s)
+void			browse_graph(t_salle *room, t_stack *find, unsigned long s)
 {
 	unsigned long		num;
 	unsigned long		total_ants;
@@ -201,12 +205,13 @@ void	browse_graph(t_salle *room, t_stack *find, unsigned long s)
 	}
 }
 
-void	affichage(t_salle *room, t_stack *find)
+void			affichage(t_salle *room, t_stack *find)
 {
 	mainturn(room, find);
-	repartition(room, find, room[find->index_start].liens->nb_salle, find->fourmies);
+	repartition(room, find, room[find->index_start].liens->nb_salle,
+	find->fourmies);
 	printrep(room, find);
 	if (room[find->index_start].salle_prev[0] == find->index_end)
-			return (special_print(find, room));
+		return (special_print(find, room));
 	browse_graph(room, find, find->index_start);
 }

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:41:22 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/06 16:25:48 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/12 16:19:47 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@ int		ft_delcheck(unsigned long path, t_salle *room, t_stack *find, unsigned long
 	while (room[path].liens)
 	{
 		if (room[path].liens->del[1] == 1 &&
-			((unsigned long)room[path].liens->out == s_room || (unsigned long)room[path].liens->out == tmp))
+			((unsigned long)room[path].liens->out == s_room ||
+			(unsigned long)room[path].liens->out == tmp))
 		{
 			find->bhandari[1] = -1;
 			room[path].liens = room[path].liens->begin;
@@ -76,7 +77,7 @@ int		verify_colision(t_salle *room, unsigned long salle, t_stack *find)
 	unsigned long index;
 	unsigned long end;
 	unsigned long tmp;
-	
+
 	index = salle;
 	end = find->index_end;
 	while (index != find->index_start)
@@ -104,14 +105,17 @@ void	delete_link(t_out **liens, t_salle *room, unsigned long salle)
 
 	(*liens)->del[1] = 1;
 	room[(unsigned long)(*liens)->out].ascend = 1;
-	room[(unsigned long)(*liens)->out].liens = room[(unsigned long)(*liens)->out].liens->begin;
+	room[(unsigned long)(*liens)->out].liens =
+	room[(unsigned long)(*liens)->out].liens->begin;
 	len = len_out(room[(unsigned long)(*liens)->out].liens, 1) - 1;
-	while ((unsigned long)room[(unsigned long)(*liens)->out].liens->out != salle)
+	while ((unsigned long)room[(unsigned long)(*liens)->out].liens->out !=
+		salle)
 	{
-		room[(unsigned long)(*liens)->out].liens
-		= room[(unsigned long)(*liens)->out].liens->next;
+		room[(unsigned long)(*liens)->out].liens =
+		room[(unsigned long)(*liens)->out].liens->next;
 		len--;
 	}
 	room[(unsigned long)(*liens)->out].liens->del[1] = 1;
-	room[(unsigned long)(*liens)->out].liens = room[(unsigned long)(*liens)->out].liens->begin;
+	room[(unsigned long)(*liens)->out].liens =
+	room[(unsigned long)(*liens)->out].liens->begin;
 }

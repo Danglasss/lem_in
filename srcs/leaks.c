@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/08/10 11:41:27 by dygouin          #+#    #+#             */
-/*   Updated: 2020/01/30 15:06:15 by dygouin          ###   ########.fr       */
+/*   Created: 2019/08/10 11:41:27 by dygouin           #+#    #+#             */
+/*   Updated: 2020/02/12 15:59:35 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,31 +64,31 @@ void	leaks_salle(t_salle *room, int len, t_out *index)
 	room = NULL;
 }
 
-void   leaks_cases(t_cases *list)
+void	leaks_cases(t_cases *list)
 {
-    t_cases *tmp;
-    
+	t_cases *tmp;
+
 	list = list->begin;
-    while (list != NULL)
+	while (list != NULL)
 	{
-        list->begin = NULL;
-        tmp = list->next;
-        free(list);
-        list = tmp;
-        tmp = NULL;
-    }
+		list->begin = NULL;
+		tmp = list->next;
+		free(list);
+		list = tmp;
+		tmp = NULL;
+	}
 }
 
-void   leaks_path(t_path *path, int len)
+void	leaks_path(t_path *path, int len)
 {
-	int     index;
-    
+	int		index;
+
 	index = 0;
-    while (index < len)
-    {
-   		leaks_cases(path[index].cases);
-        index++;
-    }
+	while (index < len)
+	{
+		leaks_cases(path[index].cases);
+		index++;
+	}
 	free(path);
-    path = NULL;
+	path = NULL;
 }

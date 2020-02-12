@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/20 13:52:35 by dygouin          #+#    #+#             */
-/*   Updated: 2020/01/30 15:07:50 by dygouin          ###   ########.fr       */
+/*   Created: 2019/07/20 13:52:35 by dygouin           #+#    #+#             */
+/*   Updated: 2020/02/12 16:53:42 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ unsigned long	n_collision(char *to_hash, t_salle *room,
 }
 
 unsigned long	collision(char *to_hash, t_salle *room,
-		unsigned long hashed_s)
+unsigned long hashed_s)
 {
 	if ((room[hashed_s - 1].salle == NULL
 				|| !ft_strcmp(room[hashed_s - 1].salle, to_hash)))
@@ -83,7 +83,6 @@ unsigned long	collision(char *to_hash, t_salle *room,
 		return (hashed_s - 4);
 	return (n_collision(to_hash, room, hashed_s));
 }
-
 
 unsigned long	col(char *to_hash, t_salle *room,
 		unsigned long hashed_s)
@@ -122,7 +121,7 @@ unsigned long	t_hash(char *to_hash, t_salle *room)
 	hashed_s += hashed_s << 3;
 	hashed_s ^= hashed_s >> 11;
 	hashed_s += hashed_s << 15;
-	hashed_s %= t_size;
+	hashed_s %= T_SIZE;
 	if (hashed_s == 0)
 		return (col(to_hash, room, hashed_s));
 	if ((room[hashed_s].salle != NULL &&

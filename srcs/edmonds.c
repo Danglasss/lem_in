@@ -6,13 +6,14 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/11 17:45:58 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/12 15:57:09 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-void	findpath(t_salle *room, t_stack *find, unsigned long end, t_path *current)
+void	findpath(t_salle *room, t_stack *find,
+unsigned long end, t_path *current)
 {
 	int index;
 
@@ -23,7 +24,8 @@ void	findpath(t_salle *room, t_stack *find, unsigned long end, t_path *current)
 	{
 		index++;
 		//ft_printf("\n\n");
-		path(room, find, room[end].liens->salle_prev, current[index].cases->begin);
+		path(room, find, room[end].liens->salle_prev,
+		current[index].cases->begin);
 		if (room[end].liens->next == NULL)
 			break ;
 		room[end].liens = room[end].liens->next;
@@ -45,7 +47,7 @@ void	ft_clean_end(t_salle *room, t_stack *find)
 	room[find->index_end].liens = room[find->index_end].liens->begin;
 }
 
-void		ft_drawpath(t_salle *room, t_cases *path, t_stack *find, int begin)
+void	ft_drawpath(t_salle *room, t_cases *path, t_stack *find, int begin)
 {
 	path = path->begin;
 	while (path != NULL)
@@ -63,7 +65,8 @@ void		ft_drawpath(t_salle *room, t_cases *path, t_stack *find, int begin)
 	}
 }
 
-void		best_shot_implement(t_salle *room, t_stack *find, t_path *best_shot, int len)
+void	best_shot_implement(t_salle *room, t_stack *find,
+t_path *best_shot, int len)
 {
 	int index;
 	int begin;
@@ -112,7 +115,8 @@ void	p(t_salle *room, t_stack *find, t_path *current)
 	}
 }
 
-void		bhandari(t_salle *room, t_stack *find, t_out *index, t_path	*best_shot)
+void	bhandari(t_salle *room, t_stack *find,
+t_out *index, t_path *best_shot)
 {
 	t_path	*current;
 
@@ -128,8 +132,9 @@ void		bhandari(t_salle *room, t_stack *find, t_out *index, t_path	*best_shot)
 		{
 			//ft_printf("\n_____________________________\n");
 			if (current->lines < best_shot->lines || best_shot->lines == 0)
-				path_cpy(&best_shot, current, len_out(room[find->index_end].liens, 1));
-			//ft_printf("lines == %d !! best == %d\n", current->lines, best_shot->lines);			
+				path_cpy(&best_shot, current,
+				len_out(room[find->index_end].liens, 1));
+			//ft_printf("lines == %d !! best == %d\n", current->lines, best_shot->lines);
 			clean_current(&current, len_out(room[find->index_end].liens, 1));
 			ft_clean_end(room, find);
 			ft_clean(room, index);
@@ -137,6 +142,7 @@ void		bhandari(t_salle *room, t_stack *find, t_out *index, t_path	*best_shot)
 	}
 	if (current->lines < best_shot->lines || best_shot->lines == 0)
 		return ;
-	best_shot_implement(room, find, best_shot, len_out(room[find->index_end].liens, 1));
+	best_shot_implement(room, find, best_shot,
+	len_out(room[find->index_end].liens, 1));
 	leaks_path(current, len_out(room[find->index_end].liens, 1));
 }

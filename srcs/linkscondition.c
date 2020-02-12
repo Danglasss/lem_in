@@ -6,19 +6,20 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 19:19:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/05 14:40:33 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/12 15:52:18 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-int		same_path(t_salle *room, t_stack *find, unsigned long index, unsigned long value)
+int		same_path(t_salle *room, t_stack *find,
+unsigned long index, unsigned long value)
 {
 	while (find->index_start != index)
 	{
 		if (index == value)
 			return (1);
-		index = room[index].salle_prev[1];	
+		index = room[index].salle_prev[1];
 	}
 	return (0);
 }
@@ -30,10 +31,10 @@ int		stop_up(t_out *link, t_stack *find, t_salle *room, unsigned long index)
 	{
 		if (link->open == 0 && find->index_start != (unsigned long)link->out)
 			return (1);
-		if (link->open == 3 
+		if (link->open == 3
 				&& room[index].lenght < room[(unsigned long)link->out].lenght)
 			return (1);
-		if (link->next  == NULL)
+		if (link->next == NULL)
 			break ;
 		link = link->next;
 	}
@@ -46,7 +47,8 @@ int		toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index)
 	link = link->begin;
 	while (link)
 	{
-		if ((unsigned long)link->out == room[index].salle_prev[1] || (unsigned long)link->out == 0)
+		if ((unsigned long)link->out ==
+			room[index].salle_prev[1] || (unsigned long)link->out == 0)
 		{
 			if (link->next == NULL)
 				break ;
@@ -56,7 +58,7 @@ int		toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index)
 		if (((link->open == 0 && find->index_start != (unsigned long)link->out))
 				|| (link->open == 1 && room[index].ascend == 0))
 			return (1);
-		if (link->next  == NULL)
+		if (link->next == NULL)
 			break ;
 		link = link->next;
 	}

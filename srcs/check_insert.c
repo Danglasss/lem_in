@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/11 18:34:51 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/12 16:09:57 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 static int		check_hash(t_stack *info, t_out **index, t_salle **rooms,
 		t_out **reads)
 {
-	if (((char *)(*reads)->out)[1] != '#' || ft_strncmp(((char *)(*reads)->out), "###", 3) == 0)
+	if (((char *)(*reads)->out)[1] != '#' ||
+		ft_strncmp(((char *)(*reads)->out), "###", 3) == 0)
 		return (1);
 	else if (info->fourmies == -1)
 		return (0);
@@ -95,7 +96,6 @@ int				check_ants(t_stack *info, char *line, int *truth)
 	*truth = 1;
 	return (0);
 }
-
 
 void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 		t_stack *info)

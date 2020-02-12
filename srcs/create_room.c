@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 16:50:14 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/11 10:18:55 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/12 16:52:13 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void			ft_initi(t_salle *room)
 	int		a;
 
 	a = 0;
-	while (a < t_size)
+	while (a < T_SIZE)
 	{
 		room[a].liens = NULL;
 		room[a].salle = NULL;

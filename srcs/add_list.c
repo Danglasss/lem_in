@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:37:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/01 18:02:07 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/12 17:07:02 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ void	cases_add_tolist(t_cases **list, unsigned long index)
 {
 	t_cases	*n_elist;
 
-	/*if ((*list)->index == 0)
-	{
-		(*list)->index = index;
-		return ;
-	}*/
 	cases_init(&n_elist, 1);
 	n_elist->index = index;
 	n_elist->begin = (*list)->begin;

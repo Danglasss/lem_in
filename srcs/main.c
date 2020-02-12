@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:10:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/12 16:51:47 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/12 17:07:34 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int		ft_main_algo(t_out *reads, t_out *index)
 
 	stack_room_init(&info, &rooms);
 	check_insert(&reads, &index, &rooms, info);
-	//ft_printread(reads->begin);
 	if (ft_error(rooms, info))
 		return (write(2, "ERROR\n", 6));
 	path_init(&best_shot, rooms, info);
@@ -57,7 +56,6 @@ int		ft_main_algo(t_out *reads, t_out *index)
 	leaks_out(reads, 1);
 	leaks_out(index, 0);
 	leaks_info(info);
-
 	return (1);
 }
 

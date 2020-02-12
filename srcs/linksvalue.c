@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 09:17:41 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/12 16:02:09 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/12 17:04:55 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,9 @@ void	positif_link(t_salle *room, unsigned long index, t_stack *find)
 {
 	if (index == find->index_start)
 		return ;
-	//ft_printf("A\n");
 	room[index].liens = room[index].liens->begin;
-	//ft_printf("B\n");
 	while ((unsigned long)room[index].liens->out != room[index].salle_prev[0])
-	{
-		//ft_printf("salle prev == %s || liens == %s || index == %d\n", room[room[index].salle_prev[0]].salle, room[(unsigned long)room[index].liens->out].salle, index);
 		room[index].liens = room[index].liens->next;
-		//ft_printf("salle prev == %s || liens == %s\n", room[room[index].salle_prev[0]].salle, room[(unsigned long)room[index].liens->out].salle);
-		//if (room[index].liens->next == NULL)
-		//	break ;
-	}
-	//ft_printf("salle prev == %s || liens == %s\n", room[room[index].salle_prev[0]].salle, room[(unsigned long)room[index].liens->out].salle);
-	//ft_printf("C\n");
 	if ((unsigned long)room[index].liens->out !=
 		find->index_end && (unsigned long)room[index].liens->out !=
 		find->index_start)
@@ -54,8 +44,6 @@ unsigned long tmp, t_stack *find)
 			break ;
 		room[index].liens = room[index].liens->next;
 	}
-	//ft_printf("%s\n", room[index].salle);
-	//ft_printf("%s\n", room[(unsigned long)room[index].liens->out].salle);
 	room[index].liens->open = 3;
 	room[index].liens = room[index].liens->begin;
 }
@@ -93,7 +81,6 @@ unsigned long salle_prev, t_cases *current)
 	index = find->index_end;
 	while (index != find->index_start)
 	{
-		//cases_add_tolist(&current, index);
 		if (index != find->index_end)
 		{
 			negatif_link(room, index, tmp, find);
@@ -108,7 +95,6 @@ unsigned long salle_prev, t_cases *current)
 		}
 		index = room[index].salle_prev[0];
 	}
-	//cases_add_tolist(&current, index);
 	negatif_link(room, index, tmp, find);
 	positif_link(room, index, find);
 }

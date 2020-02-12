@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/12 15:57:09 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/12 17:06:21 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@ unsigned long end, t_path *current)
 	int index;
 
 	index = 0;
-	//ft_printf("\n____________________________________\n");
 	path(room, find, room[end].salle_prev[0], current[index].cases->begin);
 	while (room[end].liens->salle_prev != 0)
 	{
 		index++;
-		//ft_printf("\n\n");
 		path(room, find, room[end].liens->salle_prev,
 		current[index].cases->begin);
 		if (room[end].liens->next == NULL)
@@ -74,7 +72,6 @@ t_path *best_shot, int len)
 	begin = 0;
 	index = 0;
 	ft_clean_end(room, find);
-	//ft_clean(room, index);
 	room[find->index_end].liens = room[find->index_end].liens->begin;
 	while (index < len)
 	{
@@ -109,7 +106,6 @@ void	p(t_salle *room, t_stack *find, t_path *current)
 			current[index].cases = current[index].cases->next;
 		}
 		current[index].cases = current[index].cases->begin;
-	//	ft_printf("line == %d !! path %d !! nb_salle %d\n", current[index].lines, index, nb_salle);
 		nb_salle = 0;
 		index++;
 	}
@@ -127,14 +123,11 @@ t_out *index, t_path *best_shot)
 		if (find->bhandari[0] != -1)
 			current->lines = repart_eval(room, find,
 					room[find->index_end].liens->begin, current);
-		//ft_printf("lines == %d !! best == %d\n", current->lines, best_shot->lines);
 		if (find->bhandari[0] == -1 && find->finish != 0)
 		{
-			//ft_printf("\n_____________________________\n");
 			if (current->lines < best_shot->lines || best_shot->lines == 0)
 				path_cpy(&best_shot, current,
 				len_out(room[find->index_end].liens, 1));
-			//ft_printf("lines == %d !! best == %d\n", current->lines, best_shot->lines);
 			clean_current(&current, len_out(room[find->index_end].liens, 1));
 			ft_clean_end(room, find);
 			ft_clean(room, index);

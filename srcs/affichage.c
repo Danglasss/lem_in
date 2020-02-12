@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/02/12 16:17:30 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/12 17:05:48 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ unsigned long stack, int begin)
 	index = 0;
 	while (salle != find->index_start)
 	{
-	//	ft_printf("salle : %s\n", room[room[stack].salle_prev[0]].salle);
 		tmp = room[stack].salle_prev[0];
 		if (room[stack].salle_prev[0] != 0 && stack == find->index_start
 		&& room[stack].salle_prev[0] != find->index_start)
@@ -34,7 +33,6 @@ unsigned long stack, int begin)
 		salle = stack;
 		stack = tmp;
 	}
-//	ft_printf("salle : %s\n", room[room[stack].salle_prev[0]].salle);
 	if (begin == 0)
 		room[find->index_start].nb_salle = index;
 	else if (begin == 1)
@@ -46,9 +44,7 @@ void			mainturn(t_salle *room, t_stack *find)
 	turnpath(room, find, room[find->index_end].salle_prev[0], 0);
 	while (room[find->index_end].liens->salle_prev != 0)
 	{
-		//ft_printf("\n_begin_\n");
 		turnpath(room, find, room[find->index_end].liens->salle_prev, 1);
-		//ft_printf("\n_last_\n");
 		room[find->index_end].liens = room[find->index_end].liens->next;
 		room[find->index_start].liens = room[find->index_start].liens->next;
 	}
@@ -149,13 +145,9 @@ unsigned long salle, unsigned long num)
 
 void			printrep(t_salle *room, t_stack *find)
 {
-	//ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
-	//room[find->index_start].nb_salle, room[find->index_start].ant_numb, room[find->index_start].nb_salle + room[find->index_start].ant_numb);
 	room[find->index_start].liens = room[find->index_start].liens->begin;
 	while (1)
 	{
-		//ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
-		//room[find->index_start].liens->nb_salle, room[find->index_start].liens->ant_numb, room[find->index_start].liens->nb_salle + room[find->index_start].liens->ant_numb);
 		if (room[find->index_start].liens->next == NULL)
 			break ;
 		room[find->index_start].liens = room[find->index_start].liens->next;

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 11:13:15 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/12 16:07:57 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/12 17:05:16 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,9 @@ int		get_diff(unsigned long v_goals, t_salle *room, unsigned long end)
 
 void	printrp(t_salle *room, t_stack *find)
 {
-	//ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
-	//room[find->index_end].nb_salle, room[find->index_end].ant_numb, room[find->index_end].nb_salle + room[find->index_end].ant_numb);
 	room[find->index_end].liens = room[find->index_end].liens->begin;
 	while (1)
 	{
-		//if (room[find->index_end].liens->nb_salle != 0)
-		//	ft_printf("nombre de salle == %d !! nombre de fourmie == %d !! ligne == %d\n",
-		//room[find->index_end].liens->nb_salle, room[find->index_end].liens->ant_numb, room[find->index_end].liens->nb_salle + room[find->index_end].liens->ant_numb);
 		if (room[find->index_end].liens->next == NULL)
 			break ;
 		room[find->index_end].liens = room[find->index_end].liens->next;

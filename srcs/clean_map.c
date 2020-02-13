@@ -6,13 +6,13 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/12 16:41:29 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/13 14:01:48 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-int		ft_cleaner(t_salle *room, t_stack *find, unsigned long salle,
+void	ft_cleaner(t_salle *room, t_stack *find, unsigned long salle,
 		unsigned long del)
 {
 	unsigned long	tmp;
@@ -39,10 +39,9 @@ int		ft_cleaner(t_salle *room, t_stack *find, unsigned long salle,
 			break ;
 		}
 	}
-	return (0);
 }
 
-int		ft_graph(t_salle *room, t_stack *find, t_out *position, t_out **stack)
+void	ft_graph(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 {
 	t_out	*liens;
 	int		len;
@@ -69,7 +68,6 @@ int		ft_graph(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 			break ;
 		next(&liens, stack);
 	}
-	return (0);
 }
 
 void	clean_map3(t_out *stack, t_out *position, t_salle *room, t_out *index)
@@ -85,17 +83,6 @@ int		clean_map2(t_out **stack, t_out **position, t_stack *find)
 	out_init(&(*stack), 0);
 	(*position)->index = find->index_start;
 	return (1);
-}
-
-int		ft_break(int *len, int *clean, t_out **position)
-{
-	if ((*position)->next == NULL)
-		return (1);
-	if ((*position)->index == 0)
-		(*len)--;
-	if (*len == 0)
-		*clean = 0;
-	return (0);
 }
 
 void	clean_map(t_salle *room, t_stack *find, t_out *index)

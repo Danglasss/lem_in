@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:41:22 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/12 16:19:47 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/13 13:50:33 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,14 @@ void	permanant_delink(t_salle *room, t_stack *find, unsigned long index)
 	}
 }
 
-int		ft_delcheck(unsigned long path, t_salle *room, t_stack *find, unsigned long s_room, unsigned long tmp)
+int		ft_delcheck(unsigned long path, t_salle *room, t_stack *find,
+			unsigned long s_room[2])
 {
 	while (room[path].liens)
 	{
 		if (room[path].liens->del[1] == 1 &&
-			((unsigned long)room[path].liens->out == s_room ||
-			(unsigned long)room[path].liens->out == tmp))
+			((unsigned long)room[path].liens->out == s_room[0] ||
+			(unsigned long)room[path].liens->out == s_room[1]))
 		{
 			find->bhandari[1] = -1;
 			room[path].liens = room[path].liens->begin;
@@ -55,14 +56,16 @@ int		ft_delcheck(unsigned long path, t_salle *room, t_stack *find, unsigned long
 	return (1);
 }
 
-int		ft_check(unsigned long path, unsigned long salle, t_stack *find, t_salle *room, unsigned long tmp)
+int		ft_check(unsigned long path, unsigned long salle[2],
+				t_stack *find, t_salle *room)
 {
-	unsigned long s_room;
+	unsigned long s_room[2];
 
-	s_room = room[salle].salle_prev[1];
+	s_room[0] = room[salle[0]].salle_prev[1];
+	s_room[1] = salle[1];
 	while (path != find->index_start)
 	{
-		if (path == salle && ft_delcheck(path, room, find, s_room, tmp))
+		if (path == salle[0] && ft_delcheck(path, room, find, s_room))
 		{
 			find->bhandari[1] = 0;
 			return (1);
@@ -74,25 +77,25 @@ int		ft_check(unsigned long path, unsigned long salle, t_stack *find, t_salle *r
 
 int		verify_colision(t_salle *room, unsigned long salle, t_stack *find)
 {
-	unsigned long index;
+	unsigned long index[2];
 	unsigned long end;
 	unsigned long tmp;
 
-	index = salle;
+	index[0] = salle;
 	end = find->index_end;
-	while (index != find->index_start)
+	while (index[0] != find->index_start)
 	{
-		if (ft_check(room[end].salle_prev[0], index, find, room, tmp))
+		if (ft_check(room[end].salle_prev[0], index, find, room))
 			return (0);
 		while (room[end].liens->salle_prev != 0)
 		{
-			if (ft_check(room[end].liens->salle_prev, index, find, room, tmp))
+			if (ft_check(room[end].liens->salle_prev, index, find, room))
 				return (0);
 			room[end].liens = room[end].liens->next;
 		}
 		room[end].liens = room[end].liens->begin;
-		tmp = index;
-		index = room[index].salle_prev[1];
+		index[1] = index[0];
+		index[0] = room[index[0]].salle_prev[1];
 	}
 	if (find->bhandari[1] == -1)
 		permanant_delink(room, find, salle);

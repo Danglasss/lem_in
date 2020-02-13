@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/12 16:51:01 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/13 14:02:06 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,9 @@ typedef struct		s_stack
 	char			*n_end;
 }					t_stack;
 
+int				check_goals(unsigned long v_goals, t_salle *room,
+unsigned long start);
+void				mainturn(t_salle *room, t_stack *find);
 void				p(t_salle *room, t_stack *find, t_path *current);
 int					same_path(t_salle *room, t_stack *find,
 unsigned long index, unsigned long value);
@@ -191,5 +194,6 @@ void				main_reset(t_salle *room, t_stack *find,
 t_out *index, t_path *current);
 void				leaks_path(t_path *path, int len);
 void				free_all_l(t_out **list);
+int					ft_break(int *len, int *clean, t_out **position);
 
 #endif

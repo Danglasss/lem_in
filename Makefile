@@ -6,7 +6,7 @@
 #    By: damboule <damboule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:29:33 by dygouin           #+#    #+#              #
-#    Updated: 2020/02/10 17:16:01 by damboule         ###   ########.fr        #
+#    Updated: 2020/02/13 13:55:02 by damboule         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRCS		=		srcs/main.c					\
 					srcs/printpath.c			\
 					srcs/repartition.c			\
 					srcs/linkscondition.c		\
+					srcs/correctionpath.c		\
 
 OBJ			=		$(SRCS:.c=.o)
 

@@ -6,36 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/12 16:04:08 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/13 14:03:35 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <fcntl.h>
-#include <stdlib.h>
-#include <fcntl.h>
 #include "../include/lem_in.h"
-
-void	outn_prev(t_out **out, unsigned int n)
-{
-	unsigned int	count;
-
-	count = 0;
-	while (count++ < n)
-		(*out) = (*out)->prev;
-}
-
-int		len_out(t_out *list, int origin)
-{
-	int		i;
-
-	i = 0;
-	if (origin == 1)
-		list = list->begin;
-	while (list != NULL && i++ > -1)
-		list = list->next;
-	return (i);
-}
 
 void	cpy_length(t_out **dst, t_out *src, t_out **begin)
 {

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 10:16:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/12 15:44:24 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/13 13:31:14 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_reset(t_salle *room, t_out *index)
 
 	index = index->begin;
 	len_room = len_out(index, 1) - 1;
-	while (len_room)
+	while (len_room-- > 0)
 	{
 		len_lien = len_out(room[(unsigned long)index->out].liens, 1) - 1;
 		room[(unsigned long)index->out].liens =
@@ -92,7 +92,6 @@ void	ft_reset(t_salle *room, t_out *index)
 		room[(unsigned long)index->out].liens =
 		room[(unsigned long)index->out].liens->begin;
 		index = index->next;
-		len_room--;
 	}
 	index = index->begin;
 }

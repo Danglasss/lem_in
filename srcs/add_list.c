@@ -38,6 +38,11 @@ void	cases_add_tolist(t_cases **list, unsigned long index)
 {
 	t_cases	*n_elist;
 
+	if ((*list)->index == 0)
+	{
+		(*list)->index = index;
+		return ;
+	}
 	cases_init(&n_elist, 1);
 	n_elist->index = index;
 	n_elist->begin = (*list)->begin;

@@ -44,18 +44,23 @@ int		ft_main_algo(t_out *reads, t_out *index)
 
 	stack_room_init(&info, &rooms);
 	check_insert(&reads, &index, &rooms, info);
+	leaks_out(reads, 1);
 	if (ft_error(rooms, info))
 		return (write(2, "ERROR\n", 6));
-	path_init(&best_shot, rooms, info);
+
 	way_back(index, rooms);
 	clean_map(rooms, info, index);
+	path_init(&best_shot, rooms, info);
 	bhandari(rooms, info, index, best_shot);
 	affichage(rooms, info);
-	leaks_salle(rooms, T_SIZE, index);
+
 	leaks_path(best_shot, len_out(rooms[info->index_end].liens, 1));
-	leaks_out(reads, 1);
+	leaks_salle(rooms, T_SIZE, index);
 	leaks_out(index, 0);
 	leaks_info(info);
+	
+	//while (1);
+
 	return (1);
 }
 

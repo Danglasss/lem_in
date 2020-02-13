@@ -1,0 +1,40 @@
+Process:         lem-in [1840]
+Path:            /Volumes/VOLUME/*/lem-in
+Load Address:    0x10cf4f000
+Identifier:      lem-in
+Version:         ???
+Code Type:       X86-64
+Parent Process:  zsh [87841]
+
+Date/Time:       2020-02-13 5:17:18.567 PM +0100
+Launch Time:     2020-02-13 5:16:52.385 PM +0100
+OS Version:      Mac OS X 10.14.5 (18F132)
+Report Version:  7
+Analysis Tool:   /Applications/Xcode.app/Contents/Developer/usr/bin/leaks
+Analysis Tool Version:  Xcode 10.3 (10G8)
+
+Physical footprint:         3144K
+Physical footprint (peak):  3144K
+----
+
+leaks Report Version: 4.0
+Process 1840: 174 nodes malloced for 14 KB
+Process 1840: 12 leaks for 384 total leaked bytes.
+
+    12 (384 bytes) << TOTAL >>
+
+      5 (160 bytes) ROOT LEAK: 0x7fac59406ad0 [32]
+         4 (128 bytes) 0x7fac594060a0 [32]
+            3 (96 bytes) 0x7fac594060c0 [32]
+               2 (64 bytes) 0x7fac594073a0 [32]
+                  1 (32 bytes) 0x7fac594073c0 [32]
+
+      5 (160 bytes) ROOT LEAK: 0x7fac59407180 [32]
+         4 (128 bytes) 0x7fac594071a0 [32]
+            3 (96 bytes) 0x7fac59407090 [32]
+               2 (64 bytes) 0x7fac594070b0 [32]
+                  1 (32 bytes) 0x7fac59406fa0 [32]
+
+      1 (32 bytes) ROOT LEAK: 0x7fac594064c0 [32]
+      1 (32 bytes) ROOT LEAK: 0x7fac59406ab0 [32]
+

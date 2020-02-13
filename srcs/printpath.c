@@ -23,7 +23,10 @@ unsigned long salle_prev, t_cases *current)
 	len = 0;
 	while (index != find->index_start)
 	{
-		cases_add_tolist(&current, index);
+		if (current->index == index)
+			current = current->next;
+		else 
+			cases_add_tolist(&current, index);
 		len++;
 		if (index == find->index_end)
 		{
@@ -32,7 +35,10 @@ unsigned long salle_prev, t_cases *current)
 		}
 		index = room[index].salle_prev[0];
 	}
-	cases_add_tolist(&current, index);
+	if (current->index == index)
+		current = current->next;
+	else 
+		cases_add_tolist(&current, index);
 	return (len);
 }
 

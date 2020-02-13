@@ -104,12 +104,9 @@ void	bhandari(t_salle *room, t_stack *find,
 				len_out(room[find->index_end].liens, 1));
 			leaks_path(current, len_out(room[find->index_end].liens, 1));
 			path_init(&current, room, find);
-			//clean_current(&current, len_out(room[find->index_end].liens, 1));
 			ft_clean_end(room, find);
 			ft_clean(room, index);
 		}
-		leaks_path(current, len_out(room[find->index_end].liens, 1));
-		path_init(&current, room, find);
 	}
 	if (current->lines < best_shot->lines || best_shot->lines == 0)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   leaks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 11:41:27 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/12 15:59:35 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/13 18:17:27 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,17 @@ void	leaks_salle(t_salle *room, int len, t_out *index)
 	room = NULL;
 }
 
-void	leaks_cases(t_cases *list)
+void	leaks_cases(t_cases **list)
 {
 	t_cases *tmp;
 
-	list = list->begin;
-	while (list != NULL)
+	(*list) = (*list)->begin;
+	while ((*list) != NULL)
 	{
-		list->begin = NULL;
-		tmp = list->next;
-		free(list);
-		list = tmp;
+		(*list)->begin = NULL;
+		tmp = (*list)->next;
+		free((*list));
+		(*list) = tmp;
 		tmp = NULL;
 	}
 }
@@ -84,9 +84,9 @@ void	leaks_path(t_path *path, int len)
 	int		index;
 
 	index = 0;
-	while (index < len)
+	while (index < len + 1)
 	{
-		leaks_cases(path[index].cases);
+		leaks_cases(&path[index].cases);
 		index++;
 	}
 	free(path);

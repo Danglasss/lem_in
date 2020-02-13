@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/12 16:53:08 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/13 18:06:40 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	out_init(t_out **list, int i)
 
 void	cases_init(t_cases **list, int i)
 {
-	if (!((*list) = (t_cases *)malloc(sizeof(t_cases) * 1)))
+	if (!((*list) = (t_cases *)malloc(sizeof(t_cases))))
 		return ;
 	if (i == 0)
 		(*list)->begin = (*list);

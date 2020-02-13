@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   edmonds.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/13 13:57:54 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/13 18:17:42 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,9 @@ void	bhandari(t_salle *room, t_stack *find,
 			if (current->lines < best_shot->lines || best_shot->lines == 0)
 				path_cpy(&best_shot, current,
 				len_out(room[find->index_end].liens, 1));
-			clean_current(&current, len_out(room[find->index_end].liens, 1));
+			leaks_path(current, len_out(room[find->index_end].liens, 1));
+			path_init(&current, room, find);
+			//clean_current(&current, len_out(room[find->index_end].liens, 1));
 			ft_clean_end(room, find);
 			ft_clean(room, index);
 		}

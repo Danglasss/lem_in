@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:10:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/14 14:16:07 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/14 17:09:49 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int		ft_main_algo(t_out *reads, t_out *index)
 	stack_room_init(&info, &rooms);
 	check_insert(&reads, &index, &rooms, info);
 	leaks_out(reads, 1);
+
 	if (ft_error(rooms, info, index))
 		return (write(2, "ERROR\n", 6));
 	way_back(index, rooms);

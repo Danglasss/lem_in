@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/14 17:09:29 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/14 17:25:06 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int		clean_map(t_salle *room, t_stack *find, t_out *index)
 		}
 		cpy_length(&position, stack, &stack);
 	}
-	if (room[find->index_end].free == 0)
+	if (room[find->index_end].free == 0 && write(2, "ERROR\n", 6))
 		return (0);		
 	clear(room, find, index);
 	clean_map3(stack, position, room, index);

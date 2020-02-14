@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/13 15:08:27 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/14 14:12:48 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void				init_algo(t_salle **room, t_stack **find,
 t_out **position, t_out **stack);
 void				repartition(t_salle *room, t_stack *find,
 unsigned long v_goals, int ants);
-void				clean_map(t_salle *room, t_stack *find, t_out *index);
+int					clean_map(t_salle *room, t_stack *find, t_out *index);
 void				printpath(t_salle *room, t_stack *find, t_path *current);
 void				path(t_salle *room, t_stack *find,
 unsigned long salle_prev, t_cases *current);

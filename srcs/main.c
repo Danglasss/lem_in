@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:10:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/14 14:09:57 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/14 14:16:07 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int		ft_main_algo(t_out *reads, t_out *index)
 		path_init(&best_shot, rooms, info);
 		bhandari(rooms, info, index, best_shot);
 		affichage(rooms, info);
-		leaks_path(best_shot, len_out(rooms[info->index_end].liens, 1));
+		leaks_path(best_shot,
+		len_out(rooms[info->index_end].liens, 1));
 	}
 	leaks_salle(rooms, T_SIZE, index);
 	leaks_out(index, 0);

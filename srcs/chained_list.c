@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   chained_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/13 14:03:35 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/14 13:56:33 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ void	cases_cpy(t_cases **dst, t_cases *src)
 	src = src->begin;
 	while (src)
 	{
-		cases_add_tolist(dst, src->index);
+		(*dst)->index = src->index;
+		if ((*dst)->next == NULL)
+			cases_add_tolist(dst, 0);
+		else
+			(*dst) = (*dst)->next;
 		if (src->next == NULL)
 			break ;
 		src = src->next;

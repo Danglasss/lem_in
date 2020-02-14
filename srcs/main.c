@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:10:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/13 18:34:43 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/14 13:57:21 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		ft_main_algo(t_out *reads, t_out *index)
 	leaks_out(index, 0);
 	leaks_info(info);
 	
-	//while (1);
+	while (1);
 
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/15 18:58:24 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/15 19:02:30 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,12 @@ void	ft_graph(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 	}
 }
 
-void	clean_map3(t_out *stack, t_out *position, t_salle *room, t_out *index)
+int		clean_map3(t_out *stack, t_out *position, t_salle *room, t_out *index)
 {
 	ft_reset(room, index);
 	leaks_out(stack, 0);
 	leaks_out(position, 0);
+	return (0);
 }
 
 int		clean_map2(t_out **stack, t_out **position, t_stack *find)
@@ -106,9 +107,9 @@ int		clean_map(t_salle *room, t_stack *find, t_out *index)
 		}
 		cpy_length(&position, stack, &stack);
 	}
+	if (room[find->index_end].free == 0 && write(2, "ERROR\n", 6))
+		return (clean_map3(stack, position, room, index));
 	clear(room, find, index);
 	clean_map3(stack, position, room, index);
-	if (room[find->index_end].free == 0 && write(2, "ERROR\n", 6))
-		return (0);
 	return (1);
 }

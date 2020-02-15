@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/02/13 13:59:43 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/15 19:23:30 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ unsigned long salle, int *ants)
 	{
 		num = room[salle].n_lem;
 		room[salle].n_lem = find->fourmies;
-		ft_printf("L%d-%s", room[salle].n_lem, room[salle].salle);
+		ft_printf("L%d-%s ", room[salle].n_lem, room[salle].salle);
 		*ants -= 1;
 		find->fourmies += 1;
 		return (num);
@@ -74,13 +74,13 @@ unsigned long salle, unsigned long num)
 		stack = room[salle].n_lem;
 		room[salle].n_lem = num;
 		if (room[salle].n_lem != 0)
-			ft_printf("L%d-%s", room[salle].n_lem, room[salle].salle);
+			ft_printf("L%d-%s ", room[salle].n_lem, room[salle].salle);
 		num = stack;
 		salle = room[salle].salle_prev[0];
 	}
 	if (num != 0)
 	{
-		ft_printf("L%d-%s", num, room[salle].salle);
+		ft_printf("L%d-%s ", num, room[salle].salle);
 		room[find->index_end].n_lem += 1;
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printpath.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 10:58:39 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/13 18:29:38 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/15 18:48:47 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ unsigned long salle_prev, t_cases *current)
 	{
 		if (current->index == index)
 			current = current->next;
-		else 
+		else
 			cases_add_tolist(&current, index);
 		len++;
 		if (index == find->index_end)
@@ -37,7 +37,7 @@ unsigned long salle_prev, t_cases *current)
 	}
 	if (current->index == index)
 		current = current->next;
-	else 
+	else
 		cases_add_tolist(&current, index);
 	return (len);
 }

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 16:50:14 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/12 16:52:13 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/18 17:37:13 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,13 @@ int				fill_link(t_salle *room, char **l_rooms)
 	return (1);
 }
 
-int				create_room(t_salle *room, char *hash, t_out **n_index)
+int				create_room(t_salle *room, char *hash, t_out **n_index,
+t_stack *info)
 {
 	unsigned long	index;
 
+	if (ft_chrlen(hash, '-') > 0)
+		info->tiret = -1;
 	index = t_hash(hash, room);
 	if (room[index].salle != NULL)
 		return (-1);
@@ -75,13 +78,16 @@ int				check_rformat(char *to_check)
 	return (-1);
 }
 
-int				check_lformat(char *to_check, t_salle **rooms, int truth)
+int				check_lformat(char *to_check, t_salle **rooms, int truth,
+t_stack *info)
 {
 	char	**split;
 
 	if (truth != 2 && truth != 1)
 		return (0);
 	split = ft_strsplit(to_check, '-');
+	if (ft_chrlen(to_check, '-') > 1)
+		info->tiret = -1;
 	if (ft_strtab(split) != 2 && free_all(split, 0))
 		return (0);
 	if (fill_link(*rooms, split) == -1 && free_all(split, 0))

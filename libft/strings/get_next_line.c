@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 14:56:00 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/01/06 15:11:42 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/18 16:21:32 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static char		*read_it(char **tab, char *buff, const int fd)
 	while (!(ft_strchr(*tab, '\n')) && i)
 	{
 		i = read(fd, buff, BUFF_SIZE);
+		if (buff[0] == '\0')
+			break ;
 		if (i)
 		{
 			buff[i] = '\0';

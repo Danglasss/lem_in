@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/15 17:16:26 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/18 17:37:45 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ typedef struct		s_stack
 	int				fourmies;
 	int				salle;
 	int				ways;
+	int				tiret;
 	int				error;
 	int				bhandari[2];
 	unsigned long	index_end;
@@ -141,8 +142,10 @@ unsigned long salle);
 int					verify_colision(t_salle *room,
 unsigned long salle, t_stack *find);
 void				affichage(t_salle *room, t_stack *find);
-int					create_room(t_salle *room, char *hash, t_out **n_index);
-int					check_lformat(char *to_check, t_salle **rooms, int truth);
+int					create_room(t_salle *room, char *hash, t_out **n_index,
+t_stack *find);
+int					check_lformat(char *to_check, t_salle **rooms, int truth,
+t_stack *info);
 int					check_rformat(char *to_check);
 void				print_list(t_out *p_list, t_salle *rooms);
 void				stack_room_init(t_stack **info, t_salle **rooms);

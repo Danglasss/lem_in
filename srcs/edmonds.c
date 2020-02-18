@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/15 18:48:57 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/18 17:30:25 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,13 @@ void	bhandari(t_salle *room, t_stack *find,
 	t_path	*current;
 
 	path_init(&current, room, find);
-	while (find->bhandari[0] < 1 && find->finish != 0)
+	while (find->finish != 0)
 	{
 		algo(room, find, index, current);
 		if (find->bhandari[0] != -1)
 			current->lines = repart_eval(room, find,
 					room[find->index_end].liens->begin, current);
-		if (find->bhandari[0] == -1 && find->finish != 0)
+		if (find->bhandari[0] == -1)
 		{
 			if (current->lines < best_shot->lines || best_shot->lines == 0)
 				path_cpy(&best_shot, current,

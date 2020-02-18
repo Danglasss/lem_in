@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:10:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/17 18:10:38 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/18 17:28:47 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_error(t_salle *rooms, t_stack *info, t_out *index)
 	if (info->n_end == NULL || info->n_start == NULL || info->fourmies <= 0
 		|| rooms[t_hash(info->n_start, rooms)].liens->begin->out == NULL
 		|| rooms[t_hash(info->n_end, rooms)].liens->begin->out == NULL
-		|| info->error == -1)
+		|| info->error == -1 || info->tiret == -1)
 	{
 		leaks_salle(rooms, T_SIZE, index);
 		leaks_out(index, 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   initialisation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:00:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/13 18:06:40 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/18 15:50:56 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	stack_room_init(t_stack **info, t_salle **rooms)
 	(*info)->fourmies = -1;
 	(*info)->error = 0;
 	(*info)->ways = 3;
+	(*info)->tiret = 0;
 }
 
 void	init_algo(t_salle **room, t_stack **find,

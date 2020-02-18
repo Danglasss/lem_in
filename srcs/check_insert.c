@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/15 18:47:41 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/18 17:36:49 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 	if (check_rformat(l_line) == -1)
 		return (0);
 	splited = ft_strsplit(l_line, ' ');
-	if (create_room(*rooms, splited[0], index) == -1)
+	if (create_room(*rooms, splited[0], index, info) == -1)
 		return (-1);
 	if (info->ways == 0)
 	{
@@ -43,7 +43,7 @@ static int		check_hash(t_stack *info, t_out **index, t_salle **rooms,
 		t_out **reads)
 {
 	if (((char *)(*reads)->out)[1] != '#' ||
-		ft_strncmp(((char *)(*reads)->out), "###", 3) == 0)
+		ft_strncmp(((char *)(*reads)->out), "##", 3) == 0)
 		return (1);
 	else if (info->fourmies == -1)
 		return (0);
@@ -53,8 +53,6 @@ static int		check_hash(t_stack *info, t_out **index, t_salle **rooms,
 	else if (ft_strcmp(((char *)(*reads)->out), "##end") == 0
 			&& info->n_end == NULL && (info->ways = 1))
 		return (1);
-	else if (ft_strncmp(((char *)(*reads)->out), "##", 2) == 0)
-		return (info->error = -1);
 	if (info->n_end != NULL && ft_strcmp(((char *)(*reads)->out), "##end") == 0)
 		return (0);
 	if (info->n_start != NULL &&
@@ -64,14 +62,16 @@ static int		check_hash(t_stack *info, t_out **index, t_salle **rooms,
 }
 
 static int		what_line(t_salle **rooms, t_out **index, char *line,
-		int *truth)
+		t_stack *info)
 {
 	char	**splited;
+	int		*truth;
 
+	truth = &info->truth;
 	if (check_rformat(line) == 1 && *truth == 1)
 	{
 		splited = ft_strsplit(line, ' ');
-		if (create_room(*rooms, splited[0], index) == -1)
+		if (create_room(*rooms, splited[0], index, info) == -1)
 		{
 			free_all(splited, 0);
 			return (0);
@@ -79,7 +79,7 @@ static int		what_line(t_salle **rooms, t_out **index, char *line,
 		free_all(splited, 0);
 		return (1);
 	}
-	else if (check_lformat(line, rooms, *truth) == 1)
+	else if (check_lformat(line, rooms, *truth, info) == 1)
 	{
 		if (*truth == 1)
 			*truth = 2;
@@ -103,7 +103,7 @@ void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 	char	*line;
 
 	line = NULL;
-	while (free_reset(line) && get_next_line(0, &line) > 0)
+	while (free_reset(line) && get_next_line(0, &line) > 0 && line != NULL)
 	{
 		out_add_tolist(reads, line, 0);
 		if (line[0] == '#')
@@ -120,7 +120,7 @@ void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 			if (check_ants(info, line, &info->truth))
 				break ;
 		}
-		else if (what_line(rooms, index, line, &info->truth) == 0
+		else if (what_line(rooms, index, line, info) == 0
 				&& free_reset(line))
 			break ;
 	}

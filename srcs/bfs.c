@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:36:38 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/18 17:21:33 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 13:59:12 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ int		bfs(t_salle *room, t_stack *find, unsigned long position, t_out **stack)
 	return (0);
 }
 
-void	algo(t_salle *room, t_stack *find, t_out *index, t_path *current)
+void	algo(t_salle *room, t_stack *find, t_out *index)
 {
 	t_out		*position;
 	t_out		*stack;
@@ -125,7 +125,7 @@ void	algo(t_salle *room, t_stack *find, t_out *index, t_path *current)
 		}
 		cpy_length(&position, stack, &stack);
 	}
-	main_reset(room, find, index, current);
+	main_reset(room, find, index);
 	leaks_out(stack, 0);
 	leaks_out(position, 0);
 }

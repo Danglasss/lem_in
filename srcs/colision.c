@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:41:22 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/13 13:50:33 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 11:27:39 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ int		verify_colision(t_salle *room, unsigned long salle, t_stack *find)
 {
 	unsigned long index[2];
 	unsigned long end;
-	unsigned long tmp;
 
 	index[0] = salle;
 	end = find->index_end;

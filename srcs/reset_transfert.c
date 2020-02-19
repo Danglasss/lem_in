@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 10:16:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/13 13:31:14 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 14:03:24 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	transfert_true(t_salle *room, t_stack *find, unsigned long salle)
 	}
 }
 
-void	clear(t_salle *room, t_stack *find, t_out *index)
+void	clear(t_salle *room, t_out *index)
 {
 	int len;
 
@@ -97,12 +97,12 @@ void	ft_reset(t_salle *room, t_out *index)
 }
 
 void	main_reset(t_salle *room, t_stack *find,
-t_out *index, t_path *current)
+t_out *index)
 {
 	if (find->finish == 1 && find->bhandari[0] != -1)
-		findpath(room, find, find->index_end, current);
-	clear(room, find, index);
+		findpath(room, find, find->index_end);
+	clear(room, index);
 	if (find->bhandari[0] != -1)
-		find->bhandari[0] += finish(room, find, index);
+		find->bhandari[0] += finish(room, find);
 	ft_reset(room, index);
 }

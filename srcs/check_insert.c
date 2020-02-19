@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/18 17:36:49 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 11:29:08 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,7 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 	return (1);
 }
 
-static int		check_hash(t_stack *info, t_out **index, t_salle **rooms,
-		t_out **reads)
+static int		check_hash(t_stack *info, t_out **reads)
 {
 	if (((char *)(*reads)->out)[1] != '#' ||
 		ft_strncmp(((char *)(*reads)->out), "##", 3) == 0)
@@ -108,7 +107,7 @@ void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 		out_add_tolist(reads, line, 0);
 		if (line[0] == '#')
 		{
-			if ((!check_hash(info, index, rooms, reads)
+			if ((!check_hash(info,  reads)
 				|| (!(info->fourmies) && line[1] == '#'))
 					&& free_reset(line))
 				break ;

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/18 17:37:45 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 14:02:36 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ typedef struct		s_salle
 	int				ascend;
 	int				nb_salle;
 	int				ant_numb;
-	int				n_lem;
+	unsigned int	n_lem;
 	int				free;
 	unsigned long	salle_prev[2];
 	char			*salle;
@@ -129,14 +129,14 @@ unsigned long v_goals, int ants);
 int					clean_map(t_salle *room, t_stack *find, t_out *index);
 void				printpath(t_salle *room, t_stack *find, t_path *current);
 void				path(t_salle *room, t_stack *find,
-unsigned long salle_prev, t_cases *current);
+unsigned long salle_prev);
 int					toplink(t_out *link, t_stack *find,
 t_salle *room, unsigned long index);
-int					finish(t_salle *room, t_stack *find, t_out *index);
+int					finish(t_salle *room, t_stack *find);
 void				next(t_out **liens, t_out **stack);
 void				ft_reset(t_salle *room, t_out *index);
 void				ft_clean(t_salle *room, t_out *index);
-void				clear(t_salle *room, t_stack *find, t_out *index);
+void				clear(t_salle *room, t_out *index);
 void				transfert_true(t_salle *room, t_stack *find,
 unsigned long salle);
 int					verify_colision(t_salle *room,
@@ -172,13 +172,12 @@ void				outfill_out(t_out **dst, t_out *src);
 void				check_insert(t_out **reads, t_out **index, t_salle **rooms,
 t_stack *info);
 void				leaks_out(t_out *leaks, int i);
-void				leaks_salle(t_salle *s, int a, t_out *i);
+void				leaks_salle(t_salle *s, t_out *i);
 void				cpy_length(t_out **dst, t_out *src, t_out **begin);
 void				leaks_info(t_stack *info);
 void				bhandari(t_salle *room, t_stack *find, t_out *index,
 t_path *best_shot);
-void				algo(t_salle *room, t_stack *find,
-t_out *index, t_path *current);
+void				algo(t_salle *room, t_stack *find, t_out *index);
 int					bfs(t_salle *room, t_stack *find, unsigned long position,
 		t_out **stack);
 int					ft_open(t_salle *room, t_out *liens, t_stack *find,
@@ -188,13 +187,10 @@ void				blockchain(t_salle *room, unsigned long salle_prev,
 		t_stack *find, unsigned long stack);
 void				next(t_out **liens, t_out **stack);
 void				print(t_out *stack, t_salle *room);
-void				findpath(t_salle *room, t_stack *find,
-unsigned long end, t_path *current);
-void				clear(t_salle *room, t_stack *find, t_out *index);
+void				findpath(t_salle *room, t_stack *find, unsigned long end);
 void				print_lien(t_out *stack, t_salle *room);
 void				print_salle(t_out *stack, t_salle *room);
-void				main_reset(t_salle *room, t_stack *find,
-t_out *index, t_path *current);
+void				main_reset(t_salle *room, t_stack *find, t_out *index);
 void				leaks_path(t_path *path, int len);
 void				free_all_l(t_out **list);
 int					ft_break(int *len, int *clean, t_out **position);

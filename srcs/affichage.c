@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/02/15 19:23:30 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 11:38:10 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ unsigned long v_goals, int ants)
 		room[find->index_start].liens = room[find->index_start].liens->begin;
 		while (room[find->index_start].liens)
 		{
-			if (v_goals > (room[find->index_start].liens->ant_numb +
+			if (v_goals > (unsigned long)(room[find->index_start].liens->ant_numb +
 				room[find->index_start].liens->nb_salle)
 			&& ants > 0 && room[find->index_start].liens->salle_prev != 0)
 			{

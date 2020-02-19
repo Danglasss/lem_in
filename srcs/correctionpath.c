@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 13:54:22 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/13 14:02:32 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 14:03:59 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void			mainturn(t_salle *room, t_stack *find)
 int				check_goals(unsigned long v_goals, t_salle *room,
 unsigned long start)
 {
-	if (v_goals > (room[start].ant_numb + room[start].nb_salle))
+	if (v_goals > (unsigned long)(room[start].ant_numb + room[start].nb_salle))
 		return (v_goals);
 	while (room[start].liens)
 	{

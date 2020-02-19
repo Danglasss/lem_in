@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 10:58:39 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/15 18:48:47 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 14:00:49 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int		p_salle(t_salle *room, t_stack *find,
 unsigned long salle_prev, t_cases *current)
 {
 	unsigned long	index;
-	unsigned long	tmp;
 	int				len;
 
 	index = find->index_end;

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 19:19:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/15 18:43:13 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 14:02:10 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int		toplink(t_out *link, t_stack *find, t_salle *room, unsigned long index)
 	return (0);
 }
 
-int		finish(t_salle *room, t_stack *find, t_out *index)
+int		finish(t_salle *room, t_stack *find)
 {
 	int				len;
 	int				lenght;

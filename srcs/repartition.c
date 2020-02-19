@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 11:13:15 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/12 17:05:16 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/19 14:01:32 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	clean_rep(t_salle *room, t_stack *find)
 int		get_diff(unsigned long v_goals, t_salle *room, unsigned long end)
 {
 	room[end].liens = room[end].liens->begin;
-	if (v_goals > (room[end].ant_numb + room[end].nb_salle))
+	if (v_goals > (unsigned long)(room[end].ant_numb + room[end].nb_salle))
 		return (v_goals);
 	while (room[end].liens->salle_prev != 0)
 	{

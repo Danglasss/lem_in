@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 09:17:41 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/12 17:04:55 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/19 13:54:44 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	positif_link(t_salle *room, unsigned long index, t_stack *find)
 		room[index].liens->open = 1;
 }
 
-void	negatif_link(t_salle *room, unsigned long index,
-unsigned long tmp, t_stack *find)
+void	negatif_link(t_salle *room, unsigned long index, unsigned long tmp)
 {
 	room[index].liens = room[index].liens->begin;
 	while ((unsigned long)room[index].liens->out != tmp)
@@ -34,8 +33,7 @@ unsigned long tmp, t_stack *find)
 	room[index].liens->open = -1;
 }
 
-void	lucky_link(t_salle *room, unsigned long index,
-unsigned long tmp, t_stack *find)
+void	lucky_link(t_salle *room, unsigned long index, unsigned long tmp)
 {
 	room[index].liens = room[index].liens->begin;
 	while ((unsigned long)room[index].liens->out != tmp)
@@ -48,8 +46,7 @@ unsigned long tmp, t_stack *find)
 	room[index].liens = room[index].liens->begin;
 }
 
-void	neutral_link(t_salle *room, unsigned long index,
-unsigned long tmp, t_stack *find)
+void	neutral_link(t_salle *room, unsigned long index, unsigned long tmp)
 {
 	if (len_out(room[index].liens, 1) < 3)
 		return ;
@@ -61,8 +58,7 @@ unsigned long tmp, t_stack *find)
 				room[index].salle_prev[0]
 				&& (unsigned long)room[index].liens->out != 0)
 		{
-			lucky_link(room, (unsigned long)room[index].liens->out,
-			index, find);
+			lucky_link(room, (unsigned long)room[index].liens->out, index);
 			room[index].liens->open = 3;
 		}
 		if (room[index].liens->next == NULL)
@@ -72,8 +68,7 @@ unsigned long tmp, t_stack *find)
 	room[index].liens = room[index].liens->begin;
 }
 
-void	path(t_salle *room, t_stack *find,
-unsigned long salle_prev, t_cases *current)
+void	path(t_salle *room, t_stack *find, unsigned long salle_prev)
 {
 	unsigned long index;
 	unsigned long tmp;
@@ -83,9 +78,9 @@ unsigned long salle_prev, t_cases *current)
 	{
 		if (index != find->index_end)
 		{
-			negatif_link(room, index, tmp, find);
+			negatif_link(room, index, tmp);
 			positif_link(room, index, find);
-			neutral_link(room, index, tmp, find);
+			neutral_link(room, index, tmp);
 		}
 		tmp = index;
 		if (index == find->index_end)
@@ -95,6 +90,6 @@ unsigned long salle_prev, t_cases *current)
 		}
 		index = room[index].salle_prev[0];
 	}
-	negatif_link(room, index, tmp, find);
+	negatif_link(room, index, tmp);
 	positif_link(room, index, find);
 }

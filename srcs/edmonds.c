@@ -6,24 +6,22 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/18 17:30:25 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 14:00:14 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-void	findpath(t_salle *room, t_stack *find,
-unsigned long end, t_path *current)
+void	findpath(t_salle *room, t_stack *find, unsigned long end)
 {
 	int index;
 
 	index = 0;
-	path(room, find, room[end].salle_prev[0], current[index].cases->begin);
+	path(room, find, room[end].salle_prev[0]);
 	while (room[end].liens->salle_prev != 0)
 	{
 		index++;
-		path(room, find, room[end].liens->salle_prev,
-		current[index].cases->begin);
+		path(room, find, room[end].liens->salle_prev);
 		if (room[end].liens->next == NULL)
 			break ;
 		room[end].liens = room[end].liens->next;
@@ -93,7 +91,7 @@ void	bhandari(t_salle *room, t_stack *find,
 	path_init(&current, room, find);
 	while (find->finish != 0)
 	{
-		algo(room, find, index, current);
+		algo(room, find, index);
 		if (find->bhandari[0] != -1)
 			current->lines = repart_eval(room, find,
 					room[find->index_end].liens->begin, current);

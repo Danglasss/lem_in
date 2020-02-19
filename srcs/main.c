@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:10:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/18 17:28:47 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 11:33:59 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		ft_error(t_salle *rooms, t_stack *info, t_out *index)
 		|| rooms[t_hash(info->n_end, rooms)].liens->begin->out == NULL
 		|| info->error == -1 || info->tiret == -1)
 	{
-		leaks_salle(rooms, T_SIZE, index);
+		leaks_salle(rooms, index);
 		leaks_out(index, 0);
 		leaks_info(info);
 		return (1);
@@ -61,7 +61,7 @@ int		ft_main_algo(t_out *reads, t_out *index)
 		leaks_path(best_shot,
 		len_out(rooms[info->index_end].liens, 1));
 	}
-	leaks_salle(rooms, T_SIZE, index);
+	leaks_salle(rooms, index);
 	leaks_out(index, 0);
 	leaks_info(info);
 	return (1);

@@ -6,14 +6,13 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/15 19:02:30 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/19 11:31:42 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
 
-void	ft_cleaner(t_salle *room, t_stack *find, unsigned long salle,
-		unsigned long del)
+void	ft_cleaner(t_salle *room, t_stack *find, unsigned long salle)
 {
 	unsigned long	tmp;
 	int				len;
@@ -51,8 +50,7 @@ void	ft_graph(t_salle *room, t_stack *find, t_out *position, t_out **stack)
 	if (len == 1 && (unsigned long)room[position->index].liens->out !=
 		find->index_end && position->index != find->index_start)
 	{
-		return (ft_cleaner(room, find, position->index,
-		(unsigned long)liens->out));
+		return (ft_cleaner(room, find, position->index));
 	}
 	while (liens)
 	{
@@ -109,7 +107,7 @@ int		clean_map(t_salle *room, t_stack *find, t_out *index)
 	}
 	if (room[find->index_end].free == 0 && write(2, "ERROR\n", 6))
 		return (clean_map3(stack, position, room, index));
-	clear(room, find, index);
+	clear(room, index);
 	clean_map3(stack, position, room, index);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 19:19:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/19 14:02:10 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/20 18:51:39 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ int		stop_up(t_out *link, t_stack *find, t_salle *room, unsigned long index)
 	link = link->begin;
 	while (link)
 	{
+		if ((unsigned long)link->out ==
+			room[index].salle_prev[1] || (unsigned long)link->out == 0)
+		{
+			if (link->next == NULL)
+				break ;
+			link = link->next;
+			continue ;
+		}
 		if (link->open == 0 && find->index_start != (unsigned long)link->out)
 			return (1);
 		if (link->open == 3

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 19:19:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/20 18:51:39 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/22 13:55:33 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,25 @@ int		finish(t_salle *room, t_stack *find)
 	}
 	room[find->index_end].liens = room[find->index_end].liens->begin;
 	return (0);
+}
+
+void	delete_link(t_out **liens, t_salle *room, unsigned long salle)
+{
+	int len;
+
+	(*liens)->del[1] = 1;
+	room[(unsigned long)(*liens)->out].ascend = 1;
+	room[(unsigned long)(*liens)->out].liens =
+	room[(unsigned long)(*liens)->out].liens->begin;
+	len = len_out(room[(unsigned long)(*liens)->out].liens, 1) - 1;
+	while ((unsigned long)room[(unsigned long)(*liens)->out].liens->out !=
+		salle)
+	{
+		room[(unsigned long)(*liens)->out].liens =
+		room[(unsigned long)(*liens)->out].liens->next;
+		len--;
+	}
+	room[(unsigned long)(*liens)->out].liens->del[1] = 1;
+	room[(unsigned long)(*liens)->out].liens =
+	room[(unsigned long)(*liens)->out].liens->begin;
 }

@@ -6,11 +6,21 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:10:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/19 11:33:59 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/22 18:23:09 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/lem_in.h"
+
+void	ft_printread(t_out *read)
+{
+	while (read != NULL && read->out != NULL)
+	{
+		ft_printf("%s\n", (char *)read->out);
+		read = read->next;
+	}
+	ft_printf("\n");
+}
 
 void	way_back(t_out *p_list, t_salle *rooms)
 {
@@ -52,7 +62,8 @@ int		ft_main_algo(t_out *reads, t_out *index)
 	if (ft_error(rooms, info, index))
 		return (write(2, "ERROR\n", 6));
 	way_back(index, rooms);
-	if (clean_map(rooms, info, index))
+	if (clean_map(rooms, info, index) &&
+		p_doubleroom(rooms, info, reads->begin))
 	{
 		path_init(&best_shot, rooms, info);
 		bhandari(rooms, info, index, best_shot);

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/02/19 11:38:10 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/22 17:43:26 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,10 @@ unsigned long v_goals, int ants)
 		room[find->index_start].liens = room[find->index_start].liens->begin;
 		while (room[find->index_start].liens)
 		{
-			if (v_goals > (unsigned long)(room[find->index_start].liens->ant_numb +
-				room[find->index_start].liens->nb_salle)
-			&& ants > 0 && room[find->index_start].liens->salle_prev != 0)
+			if (v_goals > (unsigned long)
+				(room[find->index_start].liens->ant_numb +
+				room[find->index_start].liens->nb_salle) && ants > 0 &&
+				room[find->index_start].liens->salle_prev != 0)
 			{
 				room[find->index_start].liens->ant_numb += 1;
 				ants -= 1;
@@ -92,7 +93,7 @@ void			browse_graph(t_salle *room, t_stack *find, unsigned long s)
 
 	total_ants = find->fourmies;
 	find->fourmies = 1;
-	while (total_ants != room[find->index_end].n_lem)
+	while (total_ants != (unsigned long)room[find->index_end].n_lem)
 	{
 		num = put_ant(room, find, room[s].salle_prev[0], &room[s].ant_numb);
 		print_graph(room, find, room[room[s].salle_prev[0]].salle_prev[0], num);
@@ -121,15 +122,5 @@ void			affichage(t_salle *room, t_stack *find)
 	mainturn(room, find);
 	repartition(room, find, room[find->index_start].liens->nb_salle,
 	find->fourmies);
-	if (room[find->index_start].salle_prev[0] == find->index_end)
-	{
-		while (i <= find->fourmies)
-		{
-			ft_printf("L%d-%s ", i, room[find->index_end].salle);
-			i++;
-		}
-		ft_printf("\n");
-		return ;
-	}
 	browse_graph(room, find, find->index_start);
 }

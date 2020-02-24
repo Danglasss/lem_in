@@ -6,7 +6,7 @@
 #    By: damboule <damboule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:29:33 by dygouin           #+#    #+#              #
-#    Updated: 2020/02/19 13:50:25 by dygouin          ###   ########.fr        #
+#    Updated: 2020/02/22 20:56:50 by dygouin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,6 @@ SRCS		=		srcs/main.c					\
 					srcs/t_hash.c				\
 					srcs/reset_transfert.c		\
 					srcs/free.c					\
-					srcs/print.c				\
 					srcs/leaks.c				\
 					srcs/affichage.c			\
 					srcs/edmonds.c				\
@@ -44,7 +43,7 @@ OBJ			=		$(SRCS:.c=.o)
 
 CC			=		gcc
 
-CFLAGS		=		-Wall -Wextra -Werror #-fsanitize=address,undefined -g3
+CFLAGS		=		-Wall -Wextra -Werror
 
 DECHET		=		*.dSYM
 

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 16:50:14 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/18 17:37:13 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/21 17:18:27 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ t_stack *info)
 	room[index].salle = ft_strdup(hash, 0);
 	(*n_index)->out = (void *)index;
 	out_add_tolist(n_index, NULL, 1);
+	room->uses = 0;
 	room->free = 0;
 	room->lenght = 0;
 	room->ascend = 0;

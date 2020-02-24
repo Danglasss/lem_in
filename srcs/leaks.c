@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 11:41:27 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/19 11:34:45 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/21 13:50:31 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,9 @@ void	leaks_out(t_out *leaks, int i)
 
 void	leaks_salle(t_salle *room, t_out *index)
 {
+	unsigned long	a;
+
+	a = 0;
 	index = index->begin;
 	while (index->out != NULL)
 	{

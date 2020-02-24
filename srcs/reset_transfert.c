@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 10:16:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/19 14:03:24 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/22 13:54:46 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	transfert_true(t_salle *room, t_stack *find, unsigned long salle)
 	{
 		room[salle].salle_prev[0] = room[salle].salle_prev[1];
 		room[salle].salle_prev[1] = 0;
+		room[salle].uses = 1;
 		salle = room[salle].salle_prev[0];
 	}
 }
@@ -41,20 +42,19 @@ void	clear(t_salle *room, t_out *index)
 void	ft_clean(t_salle *room, t_out *index)
 {
 	int len_room;
-	int len_lien;
 
 	index = index->begin;
 	len_room = len_out(index, 1) - 1;
 	while (len_room)
 	{
-		len_lien = len_out(room[(unsigned long)index->out].liens, 1) - 1;
 		room[(unsigned long)index->out].liens =
 		room[(unsigned long)index->out].liens->begin;
-		while (len_lien)
+		room[(unsigned long)index->out].uses = 0;
+		while (room[(unsigned long)index->out].liens)
 		{
 			room[(unsigned long)index->out].liens->open = 0;
 			if (room[(unsigned long)index->out].liens->next == NULL)
-				len_lien = 0;
+				break ;
 			else
 				room[(unsigned long)index->out].liens =
 				room[(unsigned long)index->out].liens->next;
@@ -70,21 +70,19 @@ void	ft_clean(t_salle *room, t_out *index)
 void	ft_reset(t_salle *room, t_out *index)
 {
 	int len_room;
-	int len_lien;
 
 	index = index->begin;
 	len_room = len_out(index, 1) - 1;
 	while (len_room-- > 0)
 	{
-		len_lien = len_out(room[(unsigned long)index->out].liens, 1) - 1;
 		room[(unsigned long)index->out].liens =
 		room[(unsigned long)index->out].liens->begin;
-		while (len_lien)
+		while (room[(unsigned long)index->out].liens)
 		{
 			room[(unsigned long)index->out].liens->del[1] = 0;
 			room[(unsigned long)index->out].salle_prev[1] = 0;
 			if (room[(unsigned long)index->out].liens->next == NULL)
-				len_lien = 0;
+				break ;
 			else
 				room[(unsigned long)index->out].liens =
 				room[(unsigned long)index->out].liens->next;
@@ -96,8 +94,7 @@ void	ft_reset(t_salle *room, t_out *index)
 	index = index->begin;
 }
 
-void	main_reset(t_salle *room, t_stack *find,
-t_out *index)
+void	main_reset(t_salle *room, t_stack *find, t_out *index)
 {
 	if (find->finish == 1 && find->bhandari[0] != -1)
 		findpath(room, find, find->index_end);

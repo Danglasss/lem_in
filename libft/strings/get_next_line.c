@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 14:56:00 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/02/18 16:21:32 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/24 14:17:51 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,15 @@ int				get_next_line(const int fd, char **line)
 	char			*buff;
 
 	buff = NULL;
-	if (fd < 0 || !line || BUFF_SIZE < 1 || !(buff = ft_strnew(BUFF_SIZE
-			+ 1)) || (tab == NULL && !(tab = ft_strnew(0))))
+	if (fd < 0 || !line || BUFF_SIZE < 1 || !(buff = ft_strnew(BUFF_SIZE + 1))
+		|| (tab == NULL && !(tab = ft_strnew(0))))
 		return (-1);
-	if (read(fd, buff, 0) == -1 || !(read_it(&tab, buff, fd)))
+	if (read(fd, buff, 0) == -1)
+	{
+		free(buff);
+		return (-1);
+	}
+	if (!(read_it(&tab, buff, fd)))
 		return (-1);
 	if (*tab)
 	{

@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:41:22 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/19 11:27:39 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/22 14:12:23 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,49 +75,48 @@ int		ft_check(unsigned long path, unsigned long salle[2],
 	return (0);
 }
 
-int		verify_colision(t_salle *room, unsigned long salle, t_stack *find)
+int		colision(t_salle *room, unsigned long salle, t_stack *find)
 {
 	unsigned long index[2];
 	unsigned long end;
 
 	index[0] = salle;
 	end = find->index_end;
-	while (index[0] != find->index_start)
+	if (ft_check(room[end].salle_prev[0], index, find, room))
+		return (0);
+	while (room[end].liens->salle_prev != 0)
 	{
-		if (ft_check(room[end].salle_prev[0], index, find, room))
+		if (ft_check(room[end].liens->salle_prev, index, find, room))
 			return (0);
-		while (room[end].liens->salle_prev != 0)
-		{
-			if (ft_check(room[end].liens->salle_prev, index, find, room))
-				return (0);
-			room[end].liens = room[end].liens->next;
-		}
-		room[end].liens = room[end].liens->begin;
-		index[1] = index[0];
-		index[0] = room[index[0]].salle_prev[1];
+		room[end].liens = room[end].liens->next;
 	}
-	if (find->bhandari[1] == -1)
-		permanant_delink(room, find, salle);
+	room[end].liens = room[end].liens->begin;
+	index[1] = index[0];
+	index[0] = room[index[0]].salle_prev[1];
 	return (1);
 }
 
-void	delete_link(t_out **liens, t_salle *room, unsigned long salle)
+int		verify_colision(t_salle *room, unsigned long salle, t_stack *find)
 {
-	int len;
+	unsigned long	s_room[2];
+	unsigned long	tmp;
 
-	(*liens)->del[1] = 1;
-	room[(unsigned long)(*liens)->out].ascend = 1;
-	room[(unsigned long)(*liens)->out].liens =
-	room[(unsigned long)(*liens)->out].liens->begin;
-	len = len_out(room[(unsigned long)(*liens)->out].liens, 1) - 1;
-	while ((unsigned long)room[(unsigned long)(*liens)->out].liens->out !=
-		salle)
+	tmp = salle;
+	if (colision(room, salle, find) == 0)
+		return (0);
+	s_room[0] = find->index_end;
+	while (salle != find->index_start)
 	{
-		room[(unsigned long)(*liens)->out].liens =
-		room[(unsigned long)(*liens)->out].liens->next;
-		len--;
+		s_room[1] = room[salle].salle_prev[1];
+		if (room[salle].uses == 1 && ft_delcheck(salle, room, find, s_room))
+		{
+			find->bhandari[1] = 0;
+			return (0);
+		}
+		s_room[0] = salle;
+		salle = room[salle].salle_prev[1];
 	}
-	room[(unsigned long)(*liens)->out].liens->del[1] = 1;
-	room[(unsigned long)(*liens)->out].liens =
-	room[(unsigned long)(*liens)->out].liens->begin;
+	if (find->bhandari[1] == -1)
+		permanant_delink(room, find, tmp);
+	return (1);
 }

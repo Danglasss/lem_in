@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/19 14:02:36 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/22 17:36:46 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ typedef struct		s_out
 
 typedef struct		s_salle
 {
+	int				uses;
 	int				lenght;
 	int				ascend;
 	int				nb_salle;
 	int				ant_numb;
-	unsigned int	n_lem;
+	int				n_lem;
 	int				free;
 	unsigned long	salle_prev[2];
 	char			*salle;
@@ -152,7 +153,6 @@ void				stack_room_init(t_stack **info, t_salle **rooms);
 void				ft_initialisation(t_salle *rooms, t_stack *info);
 void				nout_next(t_out **list, unsigned int count);
 void				ft_printread(t_out *read);
-void				ft_print_out(t_out *store, t_salle *room);
 int					fonc(t_stack *find, t_salle *room);
 unsigned long		t_hash(char *to_hash, t_salle *room);
 int					is_number(char *string, int check_if_int);
@@ -188,11 +188,10 @@ void				blockchain(t_salle *room, unsigned long salle_prev,
 void				next(t_out **liens, t_out **stack);
 void				print(t_out *stack, t_salle *room);
 void				findpath(t_salle *room, t_stack *find, unsigned long end);
-void				print_lien(t_out *stack, t_salle *room);
-void				print_salle(t_out *stack, t_salle *room);
 void				main_reset(t_salle *room, t_stack *find, t_out *index);
 void				leaks_path(t_path *path, int len);
 void				free_all_l(t_out **list);
 int					ft_break(int *len, int *clean, t_out **position);
+int					p_doubleroom(t_salle *room, t_stack *find, t_out *read);
 
 #endif

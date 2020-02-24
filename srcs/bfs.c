@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:36:38 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/20 18:32:17 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/22 15:50:32 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,15 @@ t_stack *find, unsigned long index)
 		return (1);
 	if (liens->open == 3 && toplink(liens, find, room, index))
 		return (1);
+	if (room[(unsigned long)liens->out].free ==
+		VISITED && room[index].lenght + 1 <
+		room[(unsigned long)liens->out].lenght)
+		return (0);
 	if ((liens->open == 1 && room[index].ascend == 1
 		&& stop_up(liens, find, room, index)) || (liens->open == 1 &&
-		room[(unsigned long)liens->out].free == VISITED
-		&& same_path(room, find, index, (unsigned long)liens->out)))
+		room[(unsigned long)liens->out].free == VISITED))
 		return (1);
 	if (liens->open == 1)
-		return (0);
-	if (room[(unsigned long)liens->out].free ==
-		VISITED && room[index].ascend == 1 && room[index].lenght + 1 <
-		room[(unsigned long)liens->out].lenght && liens->open == 3)
 		return (0);
 	if (room[(unsigned long)liens->out].free == VISITED &&
 					(unsigned long)liens->out != find->index_end)

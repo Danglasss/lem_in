@@ -6,7 +6,7 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/19 11:29:08 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/21 14:30:01 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int				check_ants(t_stack *info, char *line, int *truth)
 }
 
 void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
-		t_stack *info)
+t_stack *info)
 {
 	char	*line;
 
@@ -107,7 +107,7 @@ void			check_insert(t_out **reads, t_out **index, t_salle **rooms,
 		out_add_tolist(reads, line, 0);
 		if (line[0] == '#')
 		{
-			if ((!check_hash(info,  reads)
+			if ((!check_hash(info, reads)
 				|| (!(info->fourmies) && line[1] == '#'))
 					&& free_reset(line))
 				break ;

@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/25 12:12:51 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/25 13:48:13 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 	char	**splited;
 
 	l_line = (char *)(*reads)->out;
-	if (check_rformat(l_line) == -1)
+	if (check_rformat(l_line) == -1 || ft_chrlen(l_line, ' ') >= 3)
 		return (0);
 	splited = ft_strsplit(l_line, ' ');
 	if (create_room(*rooms, splited[0], index, info) == -1)

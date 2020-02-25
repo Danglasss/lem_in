@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/25 13:48:13 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:59:37 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 
 	l_line = (char *)(*reads)->out;
 	if (check_rformat(l_line) == -1 || ft_chrlen(l_line, ' ') >= 3)
-		return (0);
+		return (1);
 	splited = ft_strsplit(l_line, ' ');
 	if (create_room(*rooms, splited[0], index, info) == -1)
-		return (-1);
+		return (1);
 	if (info->ways == 0)
 	{
 		info->n_start = ft_strdup(splited[0], 0);
@@ -36,7 +36,7 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 	}
 	free_all(splited, 0);
 	info->ways = 3;
-	return (1);
+	return (0);
 }
 
 static int		check_hash(t_stack *info, t_out **reads)
@@ -117,8 +117,11 @@ t_stack *info)
 					&& free_reset(line))
 				break ;
 		}
-		else if (info->ways == 0 || info->ways == 1)
-			special_insert(rooms, info, index, reads);
+		else if ((info->ways == 0 || info->ways == 1))
+		{
+			if (special_insert(rooms, info, index, reads))
+				break ;
+		}
 		else if (is_number(line, 0))
 		{
 			if (check_ants(info, line, &info->truth))

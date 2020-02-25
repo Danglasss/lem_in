@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 14:56:00 by nabboufe          #+#    #+#             */
-/*   Updated: 2020/02/24 14:17:51 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/25 12:25:25 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char		*read_it(char **tab, char *buff, const int fd)
 	{
 		i = read(fd, buff, BUFF_SIZE);
 		if (buff[0] == '\0')
-			break ;
+			break;
 		if (i)
 		{
 			buff[i] = '\0';

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_insert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/21 14:30:01 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/25 12:12:51 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,18 @@ static int		check_hash(t_stack *info, t_out **reads)
 	else if (info->fourmies == -1)
 		return (0);
 	else if (ft_strcmp(((char *)(*reads)->out), "##start") == 0
-			&& info->n_start == NULL && !(info->ways = 0))
+			&& info->n_start == NULL && info->ways == 3)
+	{
+		info->ways = 0;
 		return (1);
+	}
 	else if (ft_strcmp(((char *)(*reads)->out), "##end") == 0
-			&& info->n_end == NULL && (info->ways = 1))
+			&& info->n_end == NULL && info->ways == 3)
+	{
+		info->ways = 1;
 		return (1);
-	if (info->n_end != NULL && ft_strcmp(((char *)(*reads)->out), "##end") == 0)
-		return (0);
-	if (info->n_start != NULL &&
-			ft_strcmp(((char *)(*reads)->out), "##start") == 0)
+	}
+	else
 		return (0);
 	return (1);
 }
@@ -67,6 +70,8 @@ static int		what_line(t_salle **rooms, t_out **index, char *line,
 	int		*truth;
 
 	truth = &info->truth;
+	if (ft_chrlen(line, ' ') >= 3)
+		return (1);
 	if (check_rformat(line) == 1 && *truth == 1)
 	{
 		splited = ft_strsplit(line, ' ');

@@ -77,6 +77,8 @@ int				get_next_line(const int fd, char **line)
 	}
 	if (!(read_it(&tab, buff, fd)))
 		return (-1);
+	if (ft_chrlen(tab, '\n') <= 0)
+		return (-1);
 	if (*tab)
 	{
 		if (!(*line = return_line(&tab)))

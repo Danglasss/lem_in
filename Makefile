@@ -6,66 +6,83 @@
 #    By: damboule <damboule@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 14:29:33 by dygouin           #+#    #+#              #
-#    Updated: 2020/02/22 20:56:50 by dygouin          ###   ########.fr        #
+#    Updated: 2020/02/26 15:51:51 by dygouin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=		lem-in
 
-LIBFT_A		=		libft.a
+LIBFT_A		=		./libft/libft.a
 
-INCLUDES	=		-Iinclude
+INCLUDES	=		-Iinclude -Ilibft/includes
 
-SRCS		=		srcs/main.c					\
-					srcs/chained_list.c			\
-					srcs/clean_map.c			\
-					srcs/bfs.c					\
-					srcs/create_room.c			\
-					srcs/list_pos.c				\
-					srcs/add_list.c				\
-					srcs/colision.c				\
-					srcs/check_insert.c			\
-					srcs/is_int.c				\
-					srcs/initialisation.c		\
-					srcs/t_hash.c				\
-					srcs/reset_transfert.c		\
-					srcs/free.c					\
-					srcs/leaks.c				\
-					srcs/affichage.c			\
-					srcs/edmonds.c				\
-					srcs/linksvalue.c			\
-					srcs/printpath.c			\
-					srcs/repartition.c			\
-					srcs/linkscondition.c		\
-					srcs/correctionpath.c		\
+DIR_SRCS	=		./srcs/
 
-OBJ			=		$(SRCS:.c=.o)
+SRCS		=		main.c					\
+					chained_list.c			\
+					clean_map.c				\
+					bfs.c					\
+					create_room.c			\
+					list_pos.c				\
+					add_list.c				\
+					colision.c				\
+					check_insert.c			\
+					is_int.c				\
+					initialisation.c		\
+					t_hash.c				\
+					reset_transfert.c		\
+					free.c					\
+					leaks.c					\
+					affichage.c				\
+					edmonds.c				\
+					linksvalue.c			\
+					printpath.c				\
+					repartition.c			\
+					linkscondition.c		\
+					correctionpath.c		
 
-CC			=		gcc
+vpath		%.c		$(DIR_SRCS)
+
+HEAD		=		include/lem_in.h
+
+DIR_OBJS	=		./objs/
+
+OBJ			=		$(patsubst %.c, $(DIR_OBJS)%.o, $(SRCS))
+
+CC			=		clang
 
 CFLAGS		=		-Wall -Wextra -Werror
 
 DECHET		=		*.dSYM
 
-all			:		$(LIBFT_A) $(NAME)
+all			:		$(NAME)
 
-$(LIBFT_A)	:		
-	@make -C libft/ all clean >/dev/null
-	@echo "libft compilation is done !\n"
-	@mv libft/libft.a .
 
-$(NAME)		:		$(OBJ) $(LIBFT_A)
+$(DIR_OBJS) :
+		mkdir $@
+
+$(OBJ)		: $(DIR_OBJS)%.o : %.c $(HEAD)
+		$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES) 
+
+$(LIBFT_A)	: FORCE	
+	$(MAKE) -C libft/
+
+FORCE		:
+
+$(NAME)		:		$(DIR_OBJS) $(OBJ) $(LIBFT_A)
 	$(CC) $(CFLAGS) $(LIBFT_A) $(OBJ) $(INCLUDES) -o $(NAME)
-	@rm -rf $(DECHET)
 
 clean		:
-	@rm -rf $(OBJ) $(DECHET)
-	@echo "clean completed !"
+	$(RM) -R $(DIR_OBJS) $(DECHET)
+	$(MAKE) clean -C  libft
+	echo "clean completed!"
 
 fclean		:		clean
-	@rm -rf $(NAME) $(LIBFT_A) $(DECHET) &>/dev/null
-	@echo "fclean completed !\n"
+	$(RM) -R $(NAME) $(LIBFT_A) $(DECHET)
+	$(MAKE) fclean -C libft
+	echo "fclean completed!"
 
-re			:		fclean all
+re			:		fclean
+	$(MAKE)
 
-.PHONY		:		fclean all
+.PHONY		:		all clean fclean re FORCE

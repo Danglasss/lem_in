@@ -6,14 +6,14 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/22 17:36:46 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 12:10:14 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LEM_IN_H
 # define LEM_IN_H
 
-# include "../libft/includes/libft.h"
+# include "libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
@@ -33,17 +33,17 @@
 
 typedef struct		s_out
 {
-	int				nb_salle;
-	int				ant_numb;
-	unsigned long	salle_prev;
-	unsigned long	index;
-	int				truth;
-	int				del[2];
-	int				open;
 	void			*out;
 	struct s_out	*begin;
 	struct s_out	*prev;
 	struct s_out	*next;
+	unsigned long	salle_prev;
+	unsigned long	index;
+	int				nb_salle;
+	int				ant_numb;
+	int				truth;
+	int				open;
+	int				del[2];
 }					t_out;
 
 /*
@@ -52,6 +52,9 @@ typedef struct		s_out
 
 typedef struct		s_salle
 {
+	unsigned long	salle_prev[2];
+	char			*salle;
+	t_out			*liens;
 	int				uses;
 	int				lenght;
 	int				ascend;
@@ -59,9 +62,7 @@ typedef struct		s_salle
 	int				ant_numb;
 	int				n_lem;
 	int				free;
-	unsigned long	salle_prev[2];
-	char			*salle;
-	t_out			*liens;
+	char			pad[4];
 }					t_salle;
 
 typedef struct		s_cases
@@ -77,6 +78,7 @@ typedef	struct		s_path
 	int				lines;
 	int				ants;
 	int				length;
+	char			pad[4];
 }					t_path;
 
 /*
@@ -86,6 +88,10 @@ typedef	struct		s_path
 
 typedef struct		s_stack
 {
+	unsigned long	index_end;
+	unsigned long	index_start;
+	char			*n_start;
+	char			*n_end;
 	int				counter_del;
 	int				finish;
 	int				lenght;
@@ -94,12 +100,9 @@ typedef struct		s_stack
 	int				salle;
 	int				ways;
 	int				tiret;
-	int				error;
 	int				bhandari[2];
-	unsigned long	index_end;
-	unsigned long	index_start;
-	char			*n_start;
-	char			*n_end;
+	int				error;
+	char			pad[4];
 }					t_stack;
 
 int					check_goals(unsigned long v_goals, t_salle *room,

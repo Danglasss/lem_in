@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/25 15:59:37 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:39:22 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,22 +113,20 @@ t_stack *info)
 		if (line[0] == '#')
 		{
 			if ((!check_hash(info, reads)
-				|| (!(info->fourmies) && line[1] == '#'))
-					&& free_reset(line))
+				|| (!(info->fourmies) && line[1] == '#')) && free_reset(line))
 				break ;
 		}
 		else if ((info->ways == 0 || info->ways == 1))
 		{
-			if (special_insert(rooms, info, index, reads))
+			if (special_insert(rooms, info, index, reads) && free_reset(line))
 				break ;
 		}
 		else if (is_number(line, 0))
 		{
-			if (check_ants(info, line, &info->truth))
+			if (check_ants(info, line, &info->truth) && free_reset(line))
 				break ;
 		}
-		else if (what_line(rooms, index, line, info) == 0
-				&& free_reset(line))
+		else if (what_line(rooms, index, line, info) == 0 && free_reset(line))
 			break ;
 	}
 }

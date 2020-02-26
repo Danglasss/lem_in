@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 13:54:22 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/21 14:16:01 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:17:27 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void			turnpath(t_salle *room, t_stack *find,
 unsigned long stack, int begin)

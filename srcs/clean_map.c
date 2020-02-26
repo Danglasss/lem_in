@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/24 09:56:34 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/21 13:44:49 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:17:08 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	ft_cleaner(t_salle *room, t_stack *find, unsigned long salle)
 {

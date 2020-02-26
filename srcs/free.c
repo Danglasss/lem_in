@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 17:26:45 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/06 18:35:18 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:18:07 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	free_all_l(t_out **list)
 {

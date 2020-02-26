@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 19:19:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/22 13:55:33 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:18:48 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 int		same_path(t_salle *room, t_stack *find,
 unsigned long index, unsigned long value)

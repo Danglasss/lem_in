@@ -6,11 +6,11 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:37:43 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/14 13:50:17 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:16:19 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	out_add_tolist(t_out **list, char *data, int truth)
 {

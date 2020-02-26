@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:19:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/15 18:29:34 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:16:48 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	cpy_length(t_out **dst, t_out *src, t_out **begin)
 {

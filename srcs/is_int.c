@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 16:30:37 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/10 15:58:35 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:18:29 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 int		check_l(char *str)
 {

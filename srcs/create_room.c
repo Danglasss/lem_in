@@ -6,11 +6,11 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 16:50:14 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/25 12:11:33 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:17:36 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void			ft_initi(t_salle *room)
 {

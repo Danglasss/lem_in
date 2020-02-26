@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:52:35 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/12 16:53:42 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:20:02 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 unsigned long	s_collision(char *to_hash, t_salle *room,
 		unsigned long hashed_s)

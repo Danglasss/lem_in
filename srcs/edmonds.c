@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 08:48:54 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/22 15:20:38 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:17:55 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	findpath(t_salle *room, t_stack *find,
 unsigned long end)

@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/03 17:01:59 by danglass          #+#    #+#             */
-/*   Updated: 2020/02/22 17:43:26 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:16:29 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void			repartition(t_salle *room, t_stack *find,
 unsigned long v_goals, int ants)

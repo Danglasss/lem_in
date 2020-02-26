@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 10:58:39 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/22 18:58:10 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:19:31 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 int		p_doubleroom(t_salle *room, t_stack *find, t_out *read)
 {

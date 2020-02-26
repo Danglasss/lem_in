@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/12 10:16:23 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/22 13:54:46 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:19:52 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	transfert_true(t_salle *room, t_stack *find, unsigned long salle)
 {

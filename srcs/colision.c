@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/18 15:41:22 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/22 14:12:23 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:17:17 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	permanant_delink(t_salle *room, t_stack *find, unsigned long index)
 {

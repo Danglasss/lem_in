@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 11:13:15 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/21 14:11:39 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:19:42 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	clean_rep(t_salle *room, t_stack *find)
 {

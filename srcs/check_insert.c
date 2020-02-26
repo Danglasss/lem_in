@@ -6,11 +6,11 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/26 15:39:22 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:16:58 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 		t_out **reads)

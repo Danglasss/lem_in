@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/23 09:17:41 by damboule          #+#    #+#             */
-/*   Updated: 2020/02/22 15:17:25 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:18:58 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	positif_link(t_salle *room, unsigned long index, t_stack *find)
 {

@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:10:28 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/22 18:23:09 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:19:23 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	ft_printread(t_out *read)
 {

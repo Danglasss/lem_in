@@ -6,11 +6,11 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/10 11:41:27 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/21 13:50:31 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 16:18:38 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	leaks_info(t_stack *info)
 {

@@ -6,11 +6,11 @@
 /*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/22 15:36:38 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/22 15:50:32 by damboule         ###   ########.fr       */
+/*   Updated: 2020/02/26 16:16:38 by dygouin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/lem_in.h"
+#include "lem_in.h"
 
 void	block_end(t_salle *room, t_stack *find,
 unsigned long stack, unsigned long salle_prev)

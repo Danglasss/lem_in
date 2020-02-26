@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/18 15:04:16 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/26 12:10:14 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 22:10:48 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define CLOSE -1
 # define EMPTY 0
 # define VISITED 1
+# define STEP_ONE 1
+# define STEP_TOW 2
 
 /*
 ** Stocker tout et rien
@@ -102,7 +104,7 @@ typedef struct		s_stack
 	int				tiret;
 	int				bhandari[2];
 	int				error;
-	char			pad[4];
+	int				step;
 }					t_stack;
 
 int					check_goals(unsigned long v_goals, t_salle *room,

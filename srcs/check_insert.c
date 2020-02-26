@@ -6,7 +6,7 @@
 /*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/26 16:16:58 by dygouin          ###   ########.fr       */
+/*   Updated: 2020/02/26 22:22:01 by danglass         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ static int		special_insert(t_salle **rooms, t_stack *info, t_out **index,
 
 static int		check_hash(t_stack *info, t_out **reads)
 {
-	if (((char *)(*reads)->out)[1] != '#' ||
-		ft_strncmp(((char *)(*reads)->out), "##", 3) == 0)
+	if (((char *)(*reads)->out)[1] != '#')
 		return (1);
 	else if (info->fourmies == -1)
 		return (0);
@@ -58,6 +57,8 @@ static int		check_hash(t_stack *info, t_out **reads)
 		info->ways = 1;
 		return (1);
 	}
+	else if (ft_strncmp(((char *)(*reads)->out), "##", 2) == 0)
+		return (1);
 	else
 		return (0);
 	return (1);
@@ -72,7 +73,7 @@ static int		what_line(t_salle **rooms, t_out **index, char *line,
 	truth = &info->truth;
 	if (ft_chrlen(line, ' ') >= 3)
 		return (1);
-	if (check_rformat(line) == 1 && *truth == 1)
+	if (check_rformat(line) == 1 && *truth == 1	&& info->step == STEP_ONE)
 	{
 		splited = ft_strsplit(line, ' ');
 		if (create_room(*rooms, splited[0], index, info) == -1)
@@ -83,8 +84,10 @@ static int		what_line(t_salle **rooms, t_out **index, char *line,
 		free_all(splited, 0);
 		return (1);
 	}
-	else if (check_lformat(line, rooms, *truth, info) == 1)
+	else if (check_lformat(line, rooms, *truth, info) == 1
+			&& info->step == STEP_TOW)
 	{
+		info->step = 2;
 		if (*truth == 1)
 			*truth = 2;
 		return (1);
@@ -116,7 +119,7 @@ t_stack *info)
 				|| (!(info->fourmies) && line[1] == '#')) && free_reset(line))
 				break ;
 		}
-		else if ((info->ways == 0 || info->ways == 1))
+		else if ((info->ways == 0 || info->ways == 1) && info->step == STEP_ONE)
 		{
 			if (special_insert(rooms, info, index, reads) && free_reset(line))
 				break ;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_insert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: danglass <danglass@student.42.fr>          +#+  +:+       +#+        */
+/*   By: damboule <damboule@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/20 13:15:56 by dygouin           #+#    #+#             */
-/*   Updated: 2020/02/26 22:22:01 by danglass         ###   ########.fr       */
+/*   Updated: 2020/02/27 13:00:35 by damboule         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,7 @@ static int		what_line(t_salle **rooms, t_out **index, char *line,
 		free_all(splited, 0);
 		return (1);
 	}
-	else if (check_lformat(line, rooms, *truth, info) == 1
-			&& info->step == STEP_TOW)
+	else if (check_lformat(line, rooms, *truth, info) == 1)
 	{
 		info->step = 2;
 		if (*truth == 1)
